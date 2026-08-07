@@ -761,3 +761,5 @@ and navigation behaviour. Navigation collapses at 1024px.
 - `styleguide.html` still documents only Phase 1 primitives
 - Performance, SEO and cross-browser QA
 - **Nothing has been opened in a browser yet** — every phase is verified structurally
+#   d a - i n f o t e c h - w e b s i t e  
+ 
