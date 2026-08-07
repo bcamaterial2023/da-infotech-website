@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DA Infotech — Design System Reference</title>
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* Reference-page scaffolding only — not part of the site's CSS. */
+    .sg-section { padding-block: var(--space-2xl); border-block-start: var(--border-hairline); }
+    .sg-section:first-of-type { border-block-start: 0; }
+    .sg-title { font-family: var(--font-mono); font-size: var(--fs-caption);
+                letter-spacing: var(--ls-label); text-transform: uppercase;
+                color: var(--color-accent-soft); margin-block-end: var(--space-lg); }
+    .sg-row { display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center; }
+    .sg-swatch { display: flex; flex-direction: column; gap: var(--space-2xs); inline-size: 10rem; }
+    .sg-chip { block-size: 4.5rem; border-radius: var(--radius-md); border: var(--border-hairline); }
+    .sg-spec { font-family: var(--font-mono); font-size: var(--fs-caption); color: var(--color-text-muted); }
+  </style>
+</head>
+<body>
+  <main id="main" class="container" style="padding-block: var(--space-2xl);">
+
+    <header class="stack stack-lg" style="margin-block-end: var(--space-2xl);">
+      <p class="section-label">Internal reference — not a site page</p>
+      <h1 class="display-lg">Design System</h1>
+      <p class="body-lg measure">Every token, primitive and state defined in Phase 1. Resize the window to check the fluid scale.</p>
+    </header>
+
+    <!-- COLOUR -->
+    <section class="sg-section">
+      <h2 class="sg-title">Colour</h2>
+      <div class="sg-row">
+        <div class="sg-swatch"><div class="sg-chip" style="background:var(--color-bg)"></div><span class="sg-spec">--color-bg</span></div>
+        <div class="sg-swatch"><div class="sg-chip" style="background:var(--color-surface)"></div><span class="sg-spec">--color-surface</span></div>
+        <div class="sg-swatch"><div class="sg-chip" style="background:var(--color-surface-elevated)"></div><span class="sg-spec">--color-surface-elevated</span></div>
+        <div class="sg-swatch"><div class="sg-chip" style="background:var(--color-accent)"></div><span class="sg-spec">--color-accent</span></div>
+        <div class="sg-swatch"><div class="sg-chip" style="background:var(--color-accent-soft)"></div><span class="sg-spec">--color-accent-soft</span></div>
+        <div class="sg-swatch"><div class="sg-chip" style="background:var(--color-text-primary)"></div><span class="sg-spec">--color-text-primary</span></div>
+        <div class="sg-swatch"><div class="sg-chip" style="background:var(--color-text-secondary)"></div><span class="sg-spec">--color-text-secondary</span></div>
+        <div class="sg-swatch"><div class="sg-chip" style="background:var(--color-text-muted)"></div><span class="sg-spec">--color-text-muted</span></div>
+      </div>
+    </section>
+
+    <!-- TYPE -->
+    <section class="sg-section">
+      <h2 class="sg-title">Typography</h2>
+      <div class="stack stack--lg">
+        <div><p class="display-xl">Display XL</p><span class="sg-spec">--fs-display-xl · 48 → 120px</span></div>
+        <div><p class="display-lg">Display LG</p><span class="sg-spec">--fs-display-lg · 40 → 88px</span></div>
+        <div><p class="heading-xl">Heading XL</p><span class="sg-spec">--fs-heading-xl · 32 → 64px</span></div>
+        <div><p class="heading-lg">Heading LG</p><span class="sg-spec">--fs-heading-lg · 26 → 44px</span></div>
+        <div><p class="heading-md">Heading MD</p><span class="sg-spec">--fs-heading-md · 20 → 28px</span></div>
+        <div><p class="body-lg">Body LG — supporting copy that sits under a section heading.</p><span class="sg-spec">--fs-body-lg</span></div>
+        <div><p class="body-md">Body MD — the default paragraph size across the site.</p><span class="sg-spec">--fs-body-md</span></div>
+        <div><p class="body-sm">Body SM — dense UI text, list items, table cells.</p><span class="sg-spec">--fs-body-sm</span></div>
+        <div><p class="caption">Caption — meta information and legal lines.</p><span class="sg-spec">--fs-caption</span></div>
+      </div>
+    </section>
+
+    <!-- SECTION HEADING -->
+    <section class="sg-section">
+      <h2 class="sg-title">Section heading block</h2>
+      <div class="section-heading">
+        <span class="section-label">Section label</span>
+        <p class="section-heading__title">An editorial heading that sets the tone of a section</p>
+        <p class="section-heading__lead">The lead paragraph carries the supporting idea in secondary text.</p>
+      </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section class="sg-section">
+      <h2 class="sg-title">Buttons</h2>
+      <div class="btn-group" style="margin-block-end: var(--space-lg);">
+        <a class="btn btn--primary btn--lg" href="#0">
+          <span>Start a Project</span>
+          <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--secondary btn--lg" href="#0">
+          <span>Explore Our Work</span>
+          <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn--primary" type="button">Primary</button>
+        <button class="btn btn--secondary" type="button">Secondary</button>
+        <button class="btn btn--ghost" type="button">Ghost</button>
+        <button class="btn btn--primary btn--sm" type="button">Small</button>
+        <button class="btn btn--secondary" type="button" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section class="sg-section">
+      <h2 class="sg-title">Links</h2>
+      <div class="sg-row">
+        <p class="body-md">Inline <a class="link" href="#0">text link</a> inside a paragraph.</p>
+        <a class="link-arrow" href="#0">View the case study</a>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="sg-section">
+      <h2 class="sg-title">Cards</h2>
+      <div class="grid grid--auto" style="--grid-min: 20rem;">
+        <article class="card card--rule card--interactive">
+          <span class="badge badge--accent"><span class="badge__dot"></span>Accent badge</span>
+          <h3 class="card__title">Interactive card</h3>
+          <p class="card__body">Lifts, brightens its border and lights a hairline on hover.</p>
+          <div class="card__footer"><a class="link-arrow card__link" href="#0">Learn more</a></div>
+        </article>
+        <article class="card">
+          <h3 class="card__title">Static card</h3>
+          <p class="card__body">The default surface for non-navigational content.</p>
+        </article>
+        <article class="card card--bare">
+          <h3 class="card__title">Bare card</h3>
+          <p class="card__body">No surface or border — used inside already-framed regions.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BADGES & DIVIDERS -->
+    <section class="sg-section">
+      <h2 class="sg-title">Badges &amp; dividers</h2>
+      <div class="sg-row" style="margin-block-end: var(--space-lg);">
+        <span class="badge">Default</span>
+        <span class="badge badge--accent">Accent</span>
+        <span class="badge badge--outline">Outline</span>
+        <span class="badge badge--accent"><span class="badge__dot anim-pulse"></span>Available</span>
+      </div>
+      <div class="stack">
+        <hr class="divider">
+        <hr class="divider divider--fade">
+        <hr class="divider divider--accent">
+        <div class="rule-sweep"></div>
+      </div>
+    </section>
+
+    <!-- REVEAL -->
+    <section class="sg-section">
+      <h2 class="sg-title">Scroll reveal</h2>
+      <div class="grid grid--auto" style="--grid-min: 14rem;">
+        <div class="card" data-animate="up" data-animate-delay="1"><p class="body-sm">up · delay 1</p></div>
+        <div class="card" data-animate="up" data-animate-delay="2"><p class="body-sm">up · delay 2</p></div>
+        <div class="card" data-animate="scale" data-animate-delay="3"><p class="body-sm">scale · delay 3</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.documentElement.classList.add('is-loaded');
+      if (window.DA && window.DA.animations) window.DA.animations.init();
+    });
+  </script>
+</body>
+</html>

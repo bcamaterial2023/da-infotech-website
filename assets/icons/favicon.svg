@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DA Infotech">
+  <rect width="64" height="64" rx="12" fill="#08090B"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="11.5" fill="none" stroke="#2D7DFF" stroke-opacity="0.35"/>
+  <path d="M14 46V18h10c8.5 0 14 5.4 14 14s-5.5 14-14 14H14Zm7.5-6.5h2.5c4.4 0 7-2.7 7-7.5s-2.6-7.5-7-7.5h-2.5v15Z" fill="#EDEFF3"/>
+  <path d="M40 46l8-28h4l-8 28h-4Z" fill="#2D7DFF"/>
+</svg>

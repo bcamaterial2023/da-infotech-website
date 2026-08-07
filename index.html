@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#08090B">
+
+  <title>DA Infotech — Web, Software, AI &amp; Digital Solutions</title>
+  <meta name="description" content="DA Infotech builds modern websites, software, mobile applications, AI automation and digital solutions for businesses.">
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/">
+
+  <!-- BEFORE DEPLOY: replace every https://YOUR-DOMAIN/ below, in sitemap.xml
+       and in robots.txt with the live origin. Absolute URLs are required by
+       Open Graph, Twitter and sitemaps — a relative one is silently ignored. -->
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DA Infotech">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="DA Infotech — Web, Software, AI &amp; Digital Solutions">
+  <meta property="og:description" content="DA Infotech builds modern websites, software, mobile applications, AI automation and digital solutions for businesses.">
+  <meta property="og:url" content="https://YOUR-DOMAIN/">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DA Infotech — Web, Software, AI &amp; Digital Solutions">
+  <meta name="twitter:description" content="DA Infotech builds modern websites, software, mobile applications, AI automation and digital solutions for businesses.">
+
+  <!-- SHARE IMAGE — no asset supplied, so no tag is emitted. A tag pointing at
+       a missing file is worse than none: scrapers cache the 404. Export a
+       1200x630 JPG or PNG to assets/images/og-image.jpg, then uncomment these
+       three lines and change twitter:card to summary_large_image.
+  <meta property="og:image" content="https://YOUR-DOMAIN/assets/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  -->
+
+  <!-- Structured data. Every value below is verified company information;
+       nothing is asserted that the site cannot back up. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DA Infotech",
+    "description": "DA Infotech builds modern websites, software, mobile applications, AI automation and digital solutions for businesses.",
+    "url": "https://YOUR-DOMAIN/",
+    "telephone": "+91-63537-57310",
+    "email": "dainfotech7@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "First Floor, Nebhani Seri, Kadachh",
+      "addressLocality": "Porbandar",
+      "addressRegion": "Gujarat",
+      "postalCode": "362230",
+      "addressCountry": "IN"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web & Software Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile App Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Automation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing" } }
+      ]
+    }
+  }
+  </script>
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!-- Marks the document as script-enabled before first paint, so scroll-reveal
+       and hero-intro styles never hide content when JavaScript is unavailable.
+       The timer is a hard failsafe: if a script fails to arrive at all, every
+       pre-animation state is released rather than hiding the page forever. -->
+  <script>
+    (function (d) {
+      var root = d.documentElement;
+      root.classList.add('js');
+
+      setTimeout(function () {
+        root.classList.add('is-loaded');
+        ['[data-hero]', '[data-header]'].forEach(function (selector) {
+          var el = d.querySelector(selector);
+          if (el && !el.hasAttribute('data-intro')) el.setAttribute('data-intro', 'done');
+        });
+      }, 3000);
+    })(document);
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ==========================================================
+       HEADER
+       ========================================================== -->
+  <header class="site-header" id="header" data-header>
+    <div class="container">
+      <div class="site-header__bar" data-header-bar>
+
+        <!-- Reading progress. Decorative: the scrollbar already conveys this
+             to anyone who needs it, so it is hidden from assistive tech. -->
+        <span class="site-header__progress" aria-hidden="true">
+          <span class="site-header__progress-fill" data-scroll-progress></span>
+        </span>
+
+        <a class="brand" href="#hero" aria-label="DA Infotech — home" data-cursor="link">
+          <span class="brand__mark" aria-hidden="true">DA</span>
+          <span class="brand__name">Infotech</span>
+        </a>
+
+        <!-- One nav for both breakpoints: an inline row on desktop, a
+             full-screen panel below 1024px. No duplicated link markup. -->
+        <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
+          <ul class="site-nav__list">
+            <li class="site-nav__item" style="--i: 0">
+              <a class="site-nav__link" href="#hero" data-cursor="link">
+                <span class="site-nav__index" aria-hidden="true">01</span>
+                <span class="site-nav__text">Home</span>
+              </a>
+            </li>
+            <li class="site-nav__item" style="--i: 1">
+              <a class="site-nav__link" href="#services" data-cursor="link">
+                <span class="site-nav__index" aria-hidden="true">02</span>
+                <span class="site-nav__text">Services</span>
+              </a>
+            </li>
+            <li class="site-nav__item" style="--i: 2">
+              <a class="site-nav__link" href="#portfolio" data-cursor="link">
+                <span class="site-nav__index" aria-hidden="true">03</span>
+                <span class="site-nav__text">Work</span>
+              </a>
+            </li>
+            <li class="site-nav__item" style="--i: 3">
+              <a class="site-nav__link" href="#about" data-cursor="link">
+                <span class="site-nav__index" aria-hidden="true">04</span>
+                <span class="site-nav__text">About</span>
+              </a>
+            </li>
+            <li class="site-nav__item" style="--i: 4">
+              <a class="site-nav__link" href="#process" data-cursor="link">
+                <span class="site-nav__index" aria-hidden="true">05</span>
+                <span class="site-nav__text">Process</span>
+              </a>
+            </li>
+            <li class="site-nav__item" style="--i: 5">
+              <a class="site-nav__link" href="#contact" data-cursor="link">
+                <span class="site-nav__index" aria-hidden="true">06</span>
+                <span class="site-nav__text">Contact</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Panel-only footer: real contact details, hidden on desktop. -->
+          <div class="site-nav__footer" style="--i: 6">
+            <a class="btn btn--primary btn--block site-nav__cta" href="#contact" data-cursor="cta">
+              <span>Start a Project</span>
+              <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <dl class="site-nav__meta">
+              <dt class="caption">Email</dt>
+              <dd><a class="link" href="mailto:dainfotech7@gmail.com">dainfotech7@gmail.com</a></dd>
+              <dt class="caption">Phone</dt>
+              <dd><a class="link" href="tel:+916353757310">+91-63537-57310</a></dd>
+              <dt class="caption">Studio</dt>
+              <dd class="body-sm">Porbandar, Gujarat, India</dd>
+            </dl>
+          </div>
+        </nav>
+
+        <div class="site-header__actions">
+          <a class="btn btn--primary btn--sm site-header__cta" href="#contact" data-cursor="cta">
+            <span>Start a Project</span>
+            <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <button class="nav-toggle" type="button" aria-label="Open menu"
+                  aria-expanded="false" aria-controls="site-nav" data-nav-toggle data-cursor="link">
+            <span class="nav-toggle__box" aria-hidden="true">
+              <span class="nav-toggle__bar"></span>
+              <span class="nav-toggle__bar"></span>
+            </span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ========================================================
+         HERO
+         ======================================================== -->
+    <section class="section section--hero hero" id="hero" aria-labelledby="hero-title" data-hero>
+
+      <!-- Digital technology core. Purely decorative; the section reads
+           identically to assistive tech and to browsers without WebGL. -->
+      <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true" data-hero-canvas></canvas>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+
+          <p class="section-label hero__label" data-hero-el="label">Digital Technology Partner</p>
+
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__line"><span class="hero__line-inner" data-hero-line>Build<i class="hero__dot" aria-hidden="true">.</i></span></span>
+            <span class="hero__line"><span class="hero__line-inner" data-hero-line>Automate<i class="hero__dot" aria-hidden="true">.</i></span></span>
+            <span class="hero__line"><span class="hero__line-inner" data-hero-line>Grow<i class="hero__dot" aria-hidden="true">.</i></span></span>
+          </h1>
+
+          <p class="hero__lead body-lg" data-hero-el="lead">
+            We build websites, software, mobile apps and AI automation for
+            businesses with a real problem to solve.
+          </p>
+
+          <div class="btn-group hero__actions" data-hero-el="actions">
+            <a class="btn btn--primary btn--lg" href="#contact" data-cursor="cta">
+              <span>Start a Project</span>
+              <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="btn btn--secondary btn--lg" href="#portfolio" data-cursor="cta">
+              <span>View Our Work</span>
+              <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <dl class="hero__proof" data-hero-el="proof">
+            <div class="hero__proof-item">
+              <dt>Based in</dt>
+              <dd>Porbandar, Gujarat</dd>
+            </div>
+            <div class="hero__proof-item">
+              <dt>Recent work</dt>
+              <dd>Porbandar Chalk Powder · HL3 Rubber · Gayatri Rubbers &amp; Chemicals</dd>
+            </div>
+          </dl>
+
+        </div>
+      </div>
+
+      <div class="hero__foot container">
+        <a class="hero__scroll" href="#services" data-hero-el="scroll" data-cursor="link">
+          <span class="hero__scroll-label">Scroll</span>
+          <span class="hero__scroll-track" aria-hidden="true">
+            <span class="hero__scroll-thumb"></span>
+          </span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         INTRODUCTION — Phase 3
+         ======================================================== -->
+    <section class="section" id="intro" data-placeholder>
+      <div class="container">
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SERVICES
+         ======================================================== -->
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="container">
+
+        <header class="services__intro">
+          <p class="section-label" data-animate="fade">What We Build</p>
+          <h2 class="services__title" id="services-title" data-animate="clip">
+            Digital solutions built around your business.
+          </h2>
+          <p class="services__lead" data-animate="up" data-animate-delay="1">
+            Four services. Each one starts with the business problem, not the
+            technology.
+          </p>
+        </header>
+
+        <ol class="services__list" role="list">
+
+          <li class="service" data-animate="up" data-animate-delay="1">
+            <article class="service__inner" data-service>
+              <span class="service__glow" aria-hidden="true"></span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__index" aria-hidden="true">01</span>
+
+              <div class="service__main">
+                <span class="service__mark" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+                       stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="8" width="30" height="24" rx="2.5"/>
+                    <path d="M5 14.5h30"/>
+                    <path d="M17 20.5 13.5 24l3.5 3.5M23 20.5 26.5 24 23 27.5"/>
+                    <circle cx="9" cy="11.2" r="0.9" fill="currentColor" stroke="none"/>
+                  </svg>
+                </span>
+                <h3 class="service__title">
+                  <a class="service__link" href="#contact" data-cursor="link"
+                     aria-label="Web & Software Development — start a project">
+                    Web &amp; Software Development
+                  </a>
+                </h3>
+              </div>
+
+              <p class="service__text">
+                Websites, web apps and internal tools, built around how your
+                business actually runs.
+              </p>
+
+              <span class="service__arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 8h11M9 4l4 4-4 4"/>
+                </svg>
+              </span>
+            </article>
+          </li>
+
+          <li class="service" data-animate="up" data-animate-delay="2">
+            <article class="service__inner" data-service>
+              <span class="service__glow" aria-hidden="true"></span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__index" aria-hidden="true">02</span>
+
+              <div class="service__main">
+                <span class="service__mark" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+                       stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="12.5" y="5" width="15" height="30" rx="3.5"/>
+                    <path d="M18 9h4"/>
+                    <path d="M31 14a8.5 8.5 0 0 1 0 12M35 10.5a13.5 13.5 0 0 1 0 19"/>
+                    <circle cx="20" cy="30" r="1.1" fill="currentColor" stroke="none"/>
+                  </svg>
+                </span>
+                <h3 class="service__title">
+                  <a class="service__link" href="#contact" data-cursor="link"
+                     aria-label="Mobile App Development — start a project">
+                    Mobile App Development
+                  </a>
+                </h3>
+              </div>
+
+              <p class="service__text">
+                Apps for your customers and apps for your team — built to be used
+                daily, not just installed.
+              </p>
+
+              <span class="service__arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 8h11M9 4l4 4-4 4"/>
+                </svg>
+              </span>
+            </article>
+          </li>
+
+          <li class="service" data-animate="up" data-animate-delay="3">
+            <article class="service__inner" data-service>
+              <span class="service__glow" aria-hidden="true"></span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__index" aria-hidden="true">03</span>
+
+              <div class="service__main">
+                <span class="service__mark" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+                       stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="13" y="13" width="14" height="14" rx="2.5"/>
+                    <circle cx="20" cy="20" r="2.4"/>
+                    <path d="M17 13V7.5M23 13V7.5M17 27v5.5M23 27v5.5M13 17H7.5M13 23H7.5M27 17h5.5M27 23h5.5"/>
+                  </svg>
+                </span>
+                <h3 class="service__title">
+                  <a class="service__link" href="#contact" data-cursor="link"
+                     aria-label="AI & Automation — start a project">
+                    AI &amp; Automation
+                  </a>
+                </h3>
+              </div>
+
+              <p class="service__text">
+                The repetitive work your team does by hand, handled by software
+                instead.
+              </p>
+
+              <span class="service__arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 8h11M9 4l4 4-4 4"/>
+                </svg>
+              </span>
+            </article>
+          </li>
+
+          <li class="service" data-animate="up" data-animate-delay="4">
+            <article class="service__inner" data-service>
+              <span class="service__glow" aria-hidden="true"></span>
+              <span class="service__rule" aria-hidden="true"></span>
+              <span class="service__index" aria-hidden="true">04</span>
+
+              <div class="service__main">
+                <span class="service__mark" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+                       stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 29.5 14 21.5l6 5 12.5-13.5"/>
+                    <path d="M26.5 13h6.5v6.5"/>
+                    <path d="M6 34.5h28"/>
+                    <circle cx="14" cy="21.5" r="1.3" fill="currentColor" stroke="none"/>
+                    <circle cx="20" cy="26.5" r="1.3" fill="currentColor" stroke="none"/>
+                  </svg>
+                </span>
+                <h3 class="service__title">
+                  <a class="service__link" href="#contact" data-cursor="link"
+                     aria-label="Digital Marketing — start a project">
+                    Digital Marketing
+                  </a>
+                </h3>
+              </div>
+
+              <p class="service__text">
+                Get found by the people already looking for what you sell, and turn
+                that attention into enquiries.
+              </p>
+
+              <span class="service__arrow" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 8h11M9 4l4 4-4 4"/>
+                </svg>
+              </span>
+            </article>
+          </li>
+
+        </ol>
+
+        <div class="services__foot" data-animate="up">
+          <p class="services__foot-text">Not sure which one you need?</p>
+          <a class="btn btn--secondary" href="#contact" data-cursor="cta">
+            <span>Discuss Your Idea</span>
+            <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PORTFOLIO / SELECTED WORK
+         --------------------------------------------------------
+         SCREENSHOTS: none supplied yet. Each project carries a
+         framed slot showing the real domain. To add a real
+         screenshot, uncomment the <img> inside .project__media —
+         it covers the placeholder automatically, no other change
+         needed. Nothing here simulates a screenshot.
+
+         COPY: every description states only what the live site
+         itself publishes. No results, traffic, revenue,
+         conversion or award claims.
+         ======================================================== -->
+    <section class="section work" id="portfolio" aria-labelledby="portfolio-title" data-work>
+      <div class="container">
+
+        <header class="work__intro">
+          <p class="section-label" data-animate="fade">Selected Work</p>
+          <h2 class="work__title" id="portfolio-title" data-animate="clip">
+            Real businesses. Real digital solutions.
+          </h2>
+          <p class="work__lead" data-animate="up" data-animate-delay="1">
+            Three live websites, built for manufacturers in the industrial sector.
+            See them yourself.
+          </p>
+        </header>
+
+        <ol class="work__list" role="list">
+
+          <!-- 01 ------------------------------------------------------- -->
+          <li class="project" data-project>
+            <article class="project__inner">
+
+              <a class="project__visual" href="https://porbandarchalkpowder.com/"
+                 target="_blank" rel="noopener noreferrer"
+                 tabindex="-1" aria-hidden="true"
+                 data-cursor="text" data-cursor-text="View"
+                 data-animate="scale">
+                <span class="project__frame">
+                  <span class="project__chrome">
+                    <span class="project__url">porbandarchalkpowder.com</span>
+                  </span>
+                  <span class="project__shot">
+                    <span class="project__media" data-project-media>
+                      <!-- SCREENSHOT SLOT — uncomment and supply the files.
+                           Export at 1600x1000 (16:10) and 800x500. AVIF first,
+                           WebP fallback; the browser takes the smallest it can
+                           decode. width/height are required: the frame already
+                           reserves the ratio, and these keep it reserved if the
+                           aspect-ratio rule is ever changed.
+                      <picture>
+                        <source type="image/avif"
+                                srcset="assets/images/porbandar-chalk-powder-800.avif 800w,
+                                        assets/images/porbandar-chalk-powder-1600.avif 1600w"
+                                sizes="(max-width: 1024px) 92vw, 55vw">
+                        <source type="image/webp"
+                                srcset="assets/images/porbandar-chalk-powder-800.webp 800w,
+                                        assets/images/porbandar-chalk-powder-1600.webp 1600w"
+                                sizes="(max-width: 1024px) 92vw, 55vw">
+                        <img class="project__img"
+                             src="assets/images/porbandar-chalk-powder-1600.webp"
+                             alt="Porbandar Chalk Powder website"
+                             width="1600" height="1000"
+                             loading="lazy" decoding="async" fetchpriority="low">
+                      </picture>
+                      -->
+                      <span class="project__placeholder">
+                        <span class="project__monogram">PCP</span>
+                        <span class="project__domain">porbandarchalkpowder.com</span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </a>
+
+              <div class="project__meta" data-project-meta>
+                <p class="project__count">
+                  <span class="project__num-mask">
+                    <span class="project__num" data-project-num>01</span>
+                  </span>
+                  <span class="project__total">/ 03</span>
+                </p>
+
+                <span class="project__rail" aria-hidden="true">
+                  <span class="project__rail-fill" data-project-rail></span>
+                </span>
+
+                <h3 class="project__name" data-animate="up" data-animate-delay="1">
+                  Porbandar Chalk Powder
+                </h3>
+
+                <p class="project__industry" data-animate="up" data-animate-delay="2">
+                  <span class="badge badge--outline">Industrial / Manufacturing</span>
+                </p>
+
+                <p class="project__text" data-animate="up" data-animate-delay="3">
+                  A calcium carbonate and gypsum producer in Porbandar. Every grade
+                  sits beside the industries it serves, so buyers match specification
+                  to application before they call.
+                </p>
+
+                <a class="btn btn--secondary project__cta"
+                   href="https://porbandarchalkpowder.com/"
+                   target="_blank" rel="noopener noreferrer"
+                   data-cursor="cta" data-animate="up" data-animate-delay="4">
+                  <span>View Project</span>
+                  <span class="sr-only">— Porbandar Chalk Powder, opens in a new tab</span>
+                  <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5"
+                          fill="none" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+            </article>
+          </li>
+
+          <!-- 02 ------------------------------------------------------- -->
+          <li class="project" data-project>
+            <article class="project__inner">
+
+              <a class="project__visual" href="https://hl3rubber.com/"
+                 target="_blank" rel="noopener noreferrer"
+                 tabindex="-1" aria-hidden="true"
+                 data-cursor="text" data-cursor-text="View"
+                 data-animate="scale">
+                <span class="project__frame">
+                  <span class="project__chrome">
+                    <span class="project__url">hl3rubber.com</span>
+                  </span>
+                  <span class="project__shot">
+                    <span class="project__media" data-project-media>
+                      <!-- SCREENSHOT SLOT — uncomment and supply the files.
+                           Export at 1600x1000 (16:10) and 800x500. AVIF first,
+                           WebP fallback; the browser takes the smallest it can
+                           decode. width/height are required: the frame already
+                           reserves the ratio, and these keep it reserved if the
+                           aspect-ratio rule is ever changed.
+                      <picture>
+                        <source type="image/avif"
+                                srcset="assets/images/hl3-rubber-800.avif 800w,
+                                        assets/images/hl3-rubber-1600.avif 1600w"
+                                sizes="(max-width: 1024px) 92vw, 55vw">
+                        <source type="image/webp"
+                                srcset="assets/images/hl3-rubber-800.webp 800w,
+                                        assets/images/hl3-rubber-1600.webp 1600w"
+                                sizes="(max-width: 1024px) 92vw, 55vw">
+                        <img class="project__img"
+                             src="assets/images/hl3-rubber-1600.webp"
+                             alt="HL3 Rubber website"
+                             width="1600" height="1000"
+                             loading="lazy" decoding="async" fetchpriority="low">
+                      </picture>
+                      -->
+                      <span class="project__placeholder">
+                        <span class="project__monogram">HL3</span>
+                        <span class="project__domain">hl3rubber.com</span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </a>
+
+              <div class="project__meta" data-project-meta>
+                <p class="project__count">
+                  <span class="project__num-mask">
+                    <span class="project__num" data-project-num>02</span>
+                  </span>
+                  <span class="project__total">/ 03</span>
+                </p>
+
+                <span class="project__rail" aria-hidden="true">
+                  <span class="project__rail-fill" data-project-rail></span>
+                </span>
+
+                <h3 class="project__name" data-animate="up" data-animate-delay="1">
+                  HL3 Rubber
+                </h3>
+
+                <p class="project__industry" data-animate="up" data-animate-delay="2">
+                  <span class="badge badge--outline">Industrial / Engineering</span>
+                </p>
+
+                <p class="project__text" data-animate="up" data-animate-delay="3">
+                  A manufacturer of fire-retardant rubber compounds and profiles. The
+                  site leads with the specifications buyers screen on, then the sectors
+                  it supplies — rail, transit and construction.
+                </p>
+
+                <a class="btn btn--secondary project__cta"
+                   href="https://hl3rubber.com/"
+                   target="_blank" rel="noopener noreferrer"
+                   data-cursor="cta" data-animate="up" data-animate-delay="4">
+                  <span>View Project</span>
+                  <span class="sr-only">— HL3 Rubber, opens in a new tab</span>
+                  <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5"
+                          fill="none" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+            </article>
+          </li>
+
+          <!-- 03 ------------------------------------------------------- -->
+          <li class="project" data-project>
+            <article class="project__inner">
+
+              <a class="project__visual" href="http://gayatrirubberchemicals.com/"
+                 target="_blank" rel="noopener noreferrer"
+                 tabindex="-1" aria-hidden="true"
+                 data-cursor="text" data-cursor-text="View"
+                 data-animate="scale">
+                <span class="project__frame">
+                  <span class="project__chrome">
+                    <span class="project__url">gayatrirubberchemicals.com</span>
+                  </span>
+                  <span class="project__shot">
+                    <span class="project__media" data-project-media>
+                      <!-- SCREENSHOT SLOT — uncomment and supply the files.
+                           Export at 1600x1000 (16:10) and 800x500. AVIF first,
+                           WebP fallback; the browser takes the smallest it can
+                           decode. width/height are required: the frame already
+                           reserves the ratio, and these keep it reserved if the
+                           aspect-ratio rule is ever changed.
+                      <picture>
+                        <source type="image/avif"
+                                srcset="assets/images/gayatri-rubbers-chemicals-800.avif 800w,
+                                        assets/images/gayatri-rubbers-chemicals-1600.avif 1600w"
+                                sizes="(max-width: 1024px) 92vw, 55vw">
+                        <source type="image/webp"
+                                srcset="assets/images/gayatri-rubbers-chemicals-800.webp 800w,
+                                        assets/images/gayatri-rubbers-chemicals-1600.webp 1600w"
+                                sizes="(max-width: 1024px) 92vw, 55vw">
+                        <img class="project__img"
+                             src="assets/images/gayatri-rubbers-chemicals-1600.webp"
+                             alt="Gayatri Rubbers &amp; Chemicals website"
+                             width="1600" height="1000"
+                             loading="lazy" decoding="async" fetchpriority="low">
+                      </picture>
+                      -->
+                      <span class="project__placeholder">
+                        <span class="project__monogram">GRC</span>
+                        <span class="project__domain">gayatrirubberchemicals.com</span>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </a>
+
+              <div class="project__meta" data-project-meta>
+                <p class="project__count">
+                  <span class="project__num-mask">
+                    <span class="project__num" data-project-num>03</span>
+                  </span>
+                  <span class="project__total">/ 03</span>
+                </p>
+
+                <span class="project__rail" aria-hidden="true">
+                  <span class="project__rail-fill" data-project-rail></span>
+                </span>
+
+                <h3 class="project__name" data-animate="up" data-animate-delay="1">
+                  Gayatri Rubbers &amp; Chemicals
+                </h3>
+
+                <p class="project__industry" data-animate="up" data-animate-delay="2">
+                  <span class="badge badge--outline">Industrial / Manufacturing</span>
+                </p>
+
+                <p class="project__text" data-animate="up" data-animate-delay="3">
+                  An engineered rubber components manufacturer — profiles, seals,
+                  gaskets and mouldings. Organised by product family, and by the
+                  approvals buyers ask about first.
+                </p>
+
+                <a class="btn btn--secondary project__cta"
+                   href="http://gayatrirubberchemicals.com/"
+                   target="_blank" rel="noopener noreferrer"
+                   data-cursor="cta" data-animate="up" data-animate-delay="4">
+                  <span>View Project</span>
+                  <span class="sr-only">— Gayatri Rubbers &amp; Chemicals, opens in a new tab</span>
+                  <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5"
+                          fill="none" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+            </article>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         ABOUT
+         --------------------------------------------------------
+         The copy is exactly what was supplied — one sentence.
+         No founding date, team size, years of experience, client
+         count, awards or certifications have been added.
+         ======================================================== -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__inner">
+
+          <div class="about__content">
+            <p class="section-label" data-animate="fade">About DA Infotech</p>
+
+            <h2 class="about__title" id="about-title" data-animate="clip">
+              A small team with big digital ambitions.
+            </h2>
+
+            <p class="about__copy" data-animate="up" data-animate-delay="1">
+              DA Infotech began as freelance development work and is growing into a
+              technology company. Small enough that you deal directly with the people
+              building your project.
+            </p>
+
+            <p class="about__meta caption" data-animate="up" data-animate-delay="2">
+              Porbandar, Gujarat, India
+            </p>
+          </div>
+
+          <!-- Abstract mark: nested frames expanding from a solid core.
+               Decorative — a drawn metaphor, not a diagram of anything. -->
+          <div class="about__visual" data-animate="scale" aria-hidden="true">
+            <svg class="about__figure" viewBox="0 0 360 360" fill="none"
+                 role="presentation" focusable="false">
+              <g class="about__ticks">
+                <path d="M180 6v34M180 320v34M6 180h34M320 180h34"/>
+              </g>
+
+              <g class="about__frames">
+                <path class="about__frame" data-about-draw
+                      d="M132 132h96v96h-96z" transform="rotate(0 180 180)"/>
+                <path class="about__frame" data-about-draw
+                      d="M102 102h156v156h-156z" transform="rotate(7 180 180)"/>
+                <path class="about__frame" data-about-draw
+                      d="M68 68h224v224h-224z" transform="rotate(14 180 180)"/>
+                <path class="about__frame" data-about-draw
+                      d="M32 32h296v296h-296z" transform="rotate(21 180 180)"/>
+              </g>
+
+              <g class="about__nodes">
+                <circle cx="132" cy="132" r="2.5"/>
+                <circle cx="228" cy="228" r="2.5"/>
+                <circle cx="228" cy="132" r="2.5"/>
+                <circle cx="132" cy="228" r="2.5"/>
+              </g>
+
+              <rect class="about__core" x="166" y="166" width="28" height="28" rx="1.5"/>
+            </svg>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         WHY DA INFOTECH
+         --------------------------------------------------------
+         Four principles — statements of intent, not claims of
+         achievement. Nothing here asserts results.
+         ======================================================== -->
+    <section class="section why" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <div class="why__inner">
+
+          <header class="why__intro">
+            <p class="section-label" data-animate="fade">Why DA Infotech</p>
+            <h2 class="why__title" id="why-title" data-animate="clip">
+              Technology should create progress.
+            </h2>
+          </header>
+
+          <div class="why__track" data-why>
+            <span class="why__spine" aria-hidden="true">
+              <span class="why__spine-fill" data-why-spine></span>
+            </span>
+
+            <ol class="why__list" role="list">
+
+            <li class="principle" data-animate="up">
+              <span class="principle__node" aria-hidden="true"></span>
+              <p class="principle__index" aria-hidden="true">01</p>
+              <h3 class="principle__title">Business First</h3>
+              <p class="principle__text">
+                Technology should solve a real business problem.
+              </p>
+            </li>
+
+            <li class="principle" data-animate="up" data-animate-delay="1">
+              <span class="principle__node" aria-hidden="true"></span>
+              <p class="principle__index" aria-hidden="true">02</p>
+              <h3 class="principle__title">Built for Growth</h3>
+              <p class="principle__text">
+                Solutions should evolve with the business.
+              </p>
+            </li>
+
+            <li class="principle" data-animate="up" data-animate-delay="2">
+              <span class="principle__node" aria-hidden="true"></span>
+              <p class="principle__index" aria-hidden="true">03</p>
+              <h3 class="principle__title">Modern Technology</h3>
+              <p class="principle__text">
+                Use current and appropriate technology.
+              </p>
+            </li>
+
+            <li class="principle" data-animate="up" data-animate-delay="3">
+              <span class="principle__node" aria-hidden="true"></span>
+              <p class="principle__index" aria-hidden="true">04</p>
+              <h3 class="principle__title">Long-Term Partnership</h3>
+              <p class="principle__text">
+                Support clients beyond launch.
+              </p>
+            </li>
+
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PROCESS
+         --------------------------------------------------------
+         The five stage NAMES were supplied. The one-line
+         descriptions were not — they plainly restate the activity
+         each named stage implies and claim nothing about
+         timelines, deliverables or outcomes. Edit freely to match
+         how DA Infotech actually runs an engagement.
+         ======================================================== -->
+    <section class="section process" id="process" aria-labelledby="process-title" data-process>
+      <div class="container">
+
+        <header class="process__intro">
+          <div class="process__heading">
+            <p class="section-label" data-animate="fade">Our Process</p>
+            <h2 class="process__title" id="process-title" data-animate="clip">
+              From idea to impact
+            </h2>
+          </div>
+
+        </header>
+
+        <div class="process__track">
+          <span class="process__path" aria-hidden="true">
+            <span class="process__path-fill" data-process-path></span>
+          </span>
+
+          <ol class="process__list" role="list">
+
+            <li class="stage" data-stage data-animate="up">
+              <span class="stage__node" aria-hidden="true"></span>
+              <p class="stage__index" aria-hidden="true">01</p>
+              <h3 class="stage__title">Discover</h3>
+              <p class="stage__text">
+                Learn the business, its customers, and which problem is actually
+                worth solving.
+              </p>
+            </li>
+
+            <li class="stage" data-stage data-animate="up" data-animate-delay="1">
+              <span class="stage__node" aria-hidden="true"></span>
+              <p class="stage__index" aria-hidden="true">02</p>
+              <h3 class="stage__title">Strategize</h3>
+              <p class="stage__text">
+                Fix the scope and the technical approach before a line of code
+                exists.
+              </p>
+            </li>
+
+            <li class="stage" data-stage data-animate="up" data-animate-delay="2">
+              <span class="stage__node" aria-hidden="true"></span>
+              <p class="stage__index" aria-hidden="true">03</p>
+              <h3 class="stage__title">Design</h3>
+              <p class="stage__text">
+                Shape the structure and the interface — how it works before how it
+                looks.
+              </p>
+            </li>
+
+            <li class="stage" data-stage data-animate="up" data-animate-delay="3">
+              <span class="stage__node" aria-hidden="true"></span>
+              <p class="stage__index" aria-hidden="true">04</p>
+              <h3 class="stage__title">Build</h3>
+              <p class="stage__text">
+                Build, integrate and test against the scope we agreed.
+              </p>
+            </li>
+
+            <li class="stage" data-stage data-animate="up" data-animate-delay="4">
+              <span class="stage__node" aria-hidden="true"></span>
+              <p class="stage__index" aria-hidden="true">05</p>
+              <h3 class="stage__title">Launch</h3>
+              <p class="stage__text">
+                Ship it, hand it over, and stay reachable afterwards.
+              </p>
+            </li>
+
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TECHNOLOGY
+         --------------------------------------------------------
+         ⚠ THE LIST BELOW IS UNCONFIRMED. It is the candidate list
+         supplied in the brief, not a verified inventory. The
+         source of truth is the TECHNOLOGIES array at the top of
+         js/technologies.js — edit there and this markup is
+         rebuilt. Remove anything DA Infotech does not actually
+         work with before this site goes live.
+
+         The markup here is the no-JavaScript fallback: a plain,
+         readable list. JavaScript positions the same items on
+         orbits; it never invents entries.
+         ======================================================== -->
+    <section class="section tech" id="technologies" aria-labelledby="technologies-title">
+      <div class="container">
+
+        <header class="tech__intro">
+          <p class="section-label" data-animate="fade">Technology</p>
+          <h2 class="tech__title" id="technologies-title" data-animate="clip">
+            The right technology for the right problem.
+          </h2>
+        </header>
+
+        <div class="tech__system" data-tech-system data-animate="scale">
+          <div class="tech__orbits" aria-hidden="true">
+            <span class="tech__orbit" style="--o: 1"></span>
+            <span class="tech__orbit" style="--o: 2"></span>
+            <span class="tech__orbit" style="--o: 3"></span>
+            <span class="tech__core"></span>
+          </div>
+
+          <ul class="tech__list" role="list" data-tech-list>
+            <li class="tech__item"><span class="tech__chip">JavaScript</span></li>
+            <li class="tech__item"><span class="tech__chip">React</span></li>
+            <li class="tech__item"><span class="tech__chip">Next.js</span></li>
+            <li class="tech__item"><span class="tech__chip">Node.js</span></li>
+            <li class="tech__item"><span class="tech__chip">Python</span></li>
+            <li class="tech__item"><span class="tech__chip">Flutter</span></li>
+            <li class="tech__item"><span class="tech__chip">React Native</span></li>
+            <li class="tech__item"><span class="tech__chip">AI / LLM APIs</span></li>
+            <li class="tech__item"><span class="tech__chip">Cloud</span></li>
+            <li class="tech__item"><span class="tech__chip">Databases</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TESTIMONIALS — Phase 6 (awaiting real client quotes)
+         ======================================================== -->
+    <section class="section" id="testimonials" data-placeholder>
+      <div class="container">
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CONTACT
+         --------------------------------------------------------
+         ⚠ NO BACKEND IS CONFIGURED. The form validates fully in
+         the browser, then opens the visitor's email client with
+         the details pre-filled, and says so plainly. It does not
+         claim to have sent anything.
+
+         To wire a real endpoint, set ENDPOINT at the top of
+         js/contact.js — the submit path switches automatically.
+         ======================================================== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title" data-contact>
+      <span class="contact__orb" aria-hidden="true"></span>
+
+      <div class="container">
+        <div class="contact__inner">
+
+          <div class="contact__aside">
+            <p class="section-label" data-animate="fade">Start a Project</p>
+
+            <h2 class="contact__title" id="contact-title" data-animate="clip">
+              Let's build something great.
+            </h2>
+
+            <p class="contact__copy" data-animate="up" data-animate-delay="1">
+              Have an idea, a business challenge, or a digital product in mind?
+              Let's talk.
+            </p>
+
+            <ul class="contact__details" role="list" data-animate="up" data-animate-delay="2">
+              <li class="contact__detail">
+                <span class="contact__detail-label">Studio</span>
+                <address class="contact__detail-value">
+                  First Floor, Nebhani Seri,<br>
+                  Kadachh,<br>
+                  Porbandar, Gujarat – 362230
+                </address>
+              </li>
+              <li class="contact__detail">
+                <span class="contact__detail-label">Phone</span>
+                <a class="contact__detail-value contact__detail-link"
+                   href="tel:+916353757310" data-cursor="link">+91-63537-57310</a>
+              </li>
+              <li class="contact__detail">
+                <span class="contact__detail-label">Email</span>
+                <a class="contact__detail-value contact__detail-link"
+                   href="mailto:dainfotech7@gmail.com" data-cursor="link">dainfotech7@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact__panel" data-animate="up" data-animate-delay="1">
+            <form class="form" id="contact-form" data-contact-form novalidate>
+
+              <div class="form__row">
+                <div class="field">
+                  <label class="field__label" for="cf-name">Name <span class="field__req" aria-hidden="true">*</span></label>
+                  <input class="field__input" id="cf-name" name="name" type="text"
+                         autocomplete="name" required
+                         aria-describedby="cf-name-error">
+                  <p class="field__error" id="cf-name-error" data-error-for="cf-name"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="cf-email">Email <span class="field__req" aria-hidden="true">*</span></label>
+                  <input class="field__input" id="cf-email" name="email" type="email"
+                         autocomplete="email" inputmode="email" required
+                         aria-describedby="cf-email-error">
+                  <p class="field__error" id="cf-email-error" data-error-for="cf-email"></p>
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="field">
+                  <label class="field__label" for="cf-phone">Phone</label>
+                  <input class="field__input" id="cf-phone" name="phone" type="tel"
+                         autocomplete="tel" inputmode="tel"
+                         aria-describedby="cf-phone-error">
+                  <p class="field__error" id="cf-phone-error" data-error-for="cf-phone"></p>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="cf-company">Company</label>
+                  <input class="field__input" id="cf-company" name="company" type="text"
+                         autocomplete="organization">
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="field">
+                  <label class="field__label" for="cf-service">Service</label>
+                  <div class="field__select">
+                    <select class="field__input" id="cf-service" name="service">
+                      <option value="">Select a service</option>
+                      <option>Web &amp; Software Development</option>
+                      <option>Mobile App Development</option>
+                      <option>AI &amp; Automation</option>
+                      <option>Digital Marketing</option>
+                      <option>Other</option>
+                    </select>
+                    <svg class="field__caret" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                      <path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="field__label" for="cf-budget">Budget</label>
+                  <input class="field__input" id="cf-budget" name="budget" type="text"
+                         placeholder="Approximate range">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="cf-details">Project Details <span class="field__req" aria-hidden="true">*</span></label>
+                <textarea class="field__input field__input--area" id="cf-details" name="details"
+                          rows="5" required aria-describedby="cf-details-error"></textarea>
+                <p class="field__error" id="cf-details-error" data-error-for="cf-details"></p>
+              </div>
+
+              <!-- Quiet spam trap. Not a substitute for server-side checks. -->
+              <div class="field field--trap" aria-hidden="true">
+                <label for="cf-website">Website</label>
+                <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="form__foot">
+                <button class="btn btn--primary btn--lg" type="submit" data-cursor="cta">
+                  <span data-submit-label>Send Enquiry</span>
+                  <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+
+                <p class="form__note caption" data-form-note></p>
+              </div>
+
+              <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FINAL CTA — bleeds into the footer
+         ======================================================== -->
+    <section class="cta" id="start-a-project" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta__inner">
+          <h2 class="cta__title" id="cta-title" data-animate="clip">
+            <span class="cta__line">Have an idea?</span>
+            <span class="cta__line cta__line--accent">Let's build it.</span>
+          </h2>
+
+          <a class="btn btn--primary btn--lg" href="#contact"
+             data-cursor="cta" data-animate="up" data-animate-delay="2">
+            <span>Start a Project</span>
+            <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================
+       FOOTER — Phase 6
+       ========================================================== -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+
+      <div class="site-footer__top">
+
+        <div class="site-footer__brand">
+          <a class="brand site-footer__logo" href="#hero" aria-label="DA Infotech — home" data-cursor="link">
+            <span class="brand__mark" aria-hidden="true">DA</span>
+            <span class="brand__name">Infotech</span>
+          </a>
+          <p class="site-footer__tagline">Digital solutions for ambitious businesses.</p>
+        </div>
+
+        <nav class="site-footer__nav" aria-label="Footer">
+          <div class="site-footer__col">
+            <p class="site-footer__heading" id="footer-navigation">Navigation</p>
+            <ul role="list" aria-labelledby="footer-navigation">
+              <li><a href="#hero" data-cursor="link">Home</a></li>
+              <li><a href="#services" data-cursor="link">Services</a></li>
+              <li><a href="#portfolio" data-cursor="link">Work</a></li>
+              <li><a href="#about" data-cursor="link">About</a></li>
+              <li><a href="#process" data-cursor="link">Process</a></li>
+              <li><a href="#contact" data-cursor="link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__heading" id="footer-services">Services</p>
+            <ul role="list" aria-labelledby="footer-services">
+              <li><a href="#services" data-cursor="link">Web &amp; Software</a></li>
+              <li><a href="#services" data-cursor="link">Mobile Apps</a></li>
+              <li><a href="#services" data-cursor="link">AI &amp; Automation</a></li>
+              <li><a href="#services" data-cursor="link">Digital Marketing</a></li>
+            </ul>
+          </div>
+
+          <div class="site-footer__col">
+            <p class="site-footer__heading" id="footer-contact">Contact</p>
+            <ul role="list" aria-labelledby="footer-contact">
+              <li><span class="site-footer__static">Porbandar, Gujarat, India</span></li>
+              <li><a href="tel:+916353757310" data-cursor="link">+91-63537-57310</a></li>
+              <li><a href="mailto:dainfotech7@gmail.com" data-cursor="link">dainfotech7@gmail.com</a></li>
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <p class="caption text-muted">
+          &copy; <span data-current-year>2026</span> DA Infotech. All rights reserved.
+        </p>
+
+        <a class="site-footer__top-link caption" href="#hero" data-cursor="link">
+          Back to top
+          <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="M8 13V3M4 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Mobile quick actions. Narrow screens only; see js/navigation.js. -->
+  <div class="quick-cta" data-quick-cta>
+    <div class="quick-cta__inner">
+      <a class="quick-cta__call" href="tel:+916353757310">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M5.2 2.5 6.6 5.3 5.1 6.8a8.6 8.6 0 0 0 4.1 4.1l1.5-1.5 2.8 1.4v2.2a1 1 0 0 1-1.1 1A11.6 11.6 0 0 1 2 3.6a1 1 0 0 1 1-1.1h2.2Z"
+                fill="none" stroke="currentColor" stroke-width="1.4"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Call</span>
+      </a>
+
+      <a class="btn btn--primary quick-cta__main" href="#contact">
+        <span>Start a Project</span>
+        <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Libraries (CDN, no build step).
+       Three.js is NOT listed here on purpose. At ~654KB it is by far the
+       largest asset on the page, and a deferred script must finish parsing
+       before DOMContentLoaded — so it would delay navigation, the cursor,
+       the form and every reveal, all for a decorative hero background.
+       js/main.js fetches it asynchronously after the page is interactive,
+       and skips it entirely on save-data or 2G. -->
+  <!-- Subresource Integrity: if the CDN ever serves something other than the
+       exact byte-for-byte build pinned here, the browser refuses to run it.
+       Hashes verified against jsDelivr. Regenerate on any version bump:
+       curl -sL <url> | openssl dgst -sha384 -binary | openssl base64 -A -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer
+          integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer
+          integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
+          crossorigin="anonymous"></script>
+
+  <!-- Site scripts -->
+  <script src="js/navigation.js" defer></script>
+  <script src="js/cursor.js" defer></script>
+  <script src="js/services.js" defer></script>
+  <script src="js/technologies.js" defer></script>
+  <script src="js/contact.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/three-scene.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

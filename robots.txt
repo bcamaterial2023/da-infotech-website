@@ -1,0 +1,12 @@
+# DA Infotech
+#
+# BEFORE DEPLOY: replace YOUR-DOMAIN on the Sitemap line below with the live
+# origin, and do the same in sitemap.xml and in index.html's head.
+
+User-agent: *
+Allow: /
+
+# The design-system reference is a build tool, not a page of the site.
+Disallow: /styleguide.html
+
+Sitemap: https://YOUR-DOMAIN/sitemap.xml

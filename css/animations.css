@@ -1,0 +1,303 @@
+/* ==========================================================================
+   DA INFOTECH — ANIMATION LAYER
+   --------------------------------------------------------------------------
+   CSS owns: entrance states, keyframes, hover micro-motion, reduced motion.
+   GSAP owns: scroll-linked sequences and the Three.js scene (js/animations.js).
+
+   Elements marked [data-animate] start hidden and are revealed by adding
+   `.is-visible` — done by GSAP ScrollTrigger, or by the IntersectionObserver
+   fallback in js/animations.js when GSAP is unavailable.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. REVEAL PRIMITIVES
+   ========================================================================== */
+
+/* Scoped to html.js so that, without JavaScript, nothing is ever hidden.
+   The `js` class is set by an inline snippet in <head> before first paint. */
+.js [data-animate] {
+  --reveal-distance: 24px;
+  --reveal-duration: var(--speed-slower);
+  --reveal-delay: 0ms;
+
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+  transition:
+    opacity   var(--reveal-duration) var(--ease-entry) var(--reveal-delay),
+    transform var(--reveal-duration) var(--ease-entry) var(--reveal-delay);
+}
+
+.js [data-animate].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Direction variants */
+.js [data-animate="fade"]  { --reveal-distance: 0px; }
+.js [data-animate="up"]    { --reveal-distance: 24px; }
+.js [data-animate="up-lg"] { --reveal-distance: 56px; }
+.js [data-animate="left"]  { transform: translate3d(calc(var(--reveal-distance) * -1), 0, 0); }
+.js [data-animate="right"] { transform: translate3d(var(--reveal-distance), 0, 0); }
+
+.js [data-animate="scale"] {
+  --reveal-distance: 0px;
+  transform: scale(0.97);
+}
+
+.js [data-animate="scale"].is-visible { transform: scale(1); }
+
+/* Wipe: the element is uncovered from below rather than moved. Composited
+   like the others — clip-path animates off the main thread — and it suits
+   headlines, where a translate reads as the line arriving late. */
+.js [data-animate="clip"] {
+  --reveal-distance: 12px;
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity   var(--reveal-duration) var(--ease-entry) var(--reveal-delay),
+    transform var(--reveal-duration) var(--ease-entry) var(--reveal-delay),
+    clip-path var(--reveal-duration) var(--ease-entry) var(--reveal-delay);
+}
+
+.js [data-animate="clip"].is-visible { clip-path: inset(0 0 0 0); }
+
+/* Stagger — set data-animate-delay="1..6" on children of a revealed group. */
+[data-animate-delay="1"] { --reveal-delay:  80ms; }
+[data-animate-delay="2"] { --reveal-delay: 160ms; }
+[data-animate-delay="3"] { --reveal-delay: 240ms; }
+[data-animate-delay="4"] { --reveal-delay: 320ms; }
+[data-animate-delay="5"] { --reveal-delay: 400ms; }
+[data-animate-delay="6"] { --reveal-delay: 480ms; }
+
+
+
+/* ==========================================================================
+   1b. HERO INTRO — PRE-STATES
+   --------------------------------------------------------------------------
+   The intro timeline in js/animations.js drives these with inline styles.
+   These rules only hold the starting state so nothing flashes before GSAP
+   takes over; js/animations.js sets data-intro="done" on the owning element
+   the moment it takes control (or immediately, when there is no timeline to
+   run), after which the elements are governed normally and scroll transforms
+   are free to apply.
+   ========================================================================== */
+
+.js .site-header:not([data-intro="done"]) .site-header__bar {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+.js .hero:not([data-intro="done"]) [data-hero-el] { opacity: 0; }
+
+.js .hero:not([data-intro="done"]) [data-hero-line] {
+  opacity: 0;
+  transform: translateY(105%);
+}
+
+
+/* ==========================================================================
+   2. KEYFRAMES
+   ========================================================================== */
+
+@keyframes da-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes da-rise-in {
+  from { opacity: 0; transform: translate3d(0, 20px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+/* Slow vertical drift for ambient decorative marks. */
+@keyframes da-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -10px, 0); }
+}
+
+/* Quiet accent pulse — status dots only, never large surfaces. */
+@keyframes da-pulse {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(0.86); }
+}
+
+/* Hairline sweep used on section rules and card edges. */
+@keyframes da-sweep {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* Scroll cue for the hero. */
+@keyframes da-scroll-cue {
+  0%       { transform: translateY(0);    opacity: 0; }
+  30%      { opacity: 1; }
+  100%     { transform: translateY(14px); opacity: 0; }
+}
+
+/* Accent segment travelling along the hero's scroll track. */
+@keyframes da-scroll-slide {
+  0%       { transform: translateX(-100%); opacity: 0; }
+  25%      { opacity: 1; }
+  75%      { opacity: 1; }
+  100%     { transform: translateX(300%);  opacity: 0; }
+}
+
+@keyframes da-spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* ==========================================================================
+   3. ANIMATION UTILITIES
+   ========================================================================== */
+
+.anim-fade-in { animation: da-fade-in var(--speed-slow) var(--ease-out) both; }
+.anim-rise-in { animation: da-rise-in var(--speed-slower) var(--ease-entry) both; }
+.anim-drift   { animation: da-drift 7s var(--ease-in-out) infinite; }
+.anim-pulse   { animation: da-pulse 2.4s var(--ease-in-out) infinite; }
+.anim-spin    { animation: da-spin 1s linear infinite; }
+
+.anim-delay-1 { animation-delay: 100ms; }
+.anim-delay-2 { animation-delay: 200ms; }
+.anim-delay-3 { animation-delay: 300ms; }
+.anim-delay-4 { animation-delay: 400ms; }
+
+/* Sweeping hairline — wrap in an element with overflow: clip. */
+.rule-sweep {
+  position: relative;
+  block-size: 1px;
+  background-color: var(--color-border-subtle);
+  overflow: clip;
+}
+
+.rule-sweep::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: 40%;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  animation: da-sweep 4.5s var(--ease-in-out) infinite;
+}
+
+
+/* ==========================================================================
+   5. PAGE LOAD
+   ========================================================================== */
+
+/* main.js sets `is-loaded` on <html> after fonts and first paint settle.
+   A 1.2s failsafe in main.js guarantees this resolves even if fonts stall. */
+html.js:not(.is-loaded) body { opacity: 0; }
+
+body { transition: opacity var(--speed-slow) var(--ease-out); }
+
+
+/* ==========================================================================
+   6. REDUCED MOTION
+   --------------------------------------------------------------------------
+   Motion is decoration here, never information. When the user asks for less,
+   everything resolves instantly to its final state — nothing is hidden.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js [data-animate],
+  .js [data-animate].is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+
+  .anim-drift,
+  .anim-pulse,
+  .anim-spin,
+  .rule-sweep::after,
+  .hero__scroll-thumb { animation: none !important; }
+
+  /* No intro sequence — the hero is simply present. */
+  .js .site-header .site-header__bar,
+  .js .hero [data-hero-el],
+  .js .hero [data-hero-line] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__canvas { transition: none !important; }
+
+  .btn:hover .btn__icon,
+  .link-arrow:hover::after { transform: none; }
+
+  /* Services keep their colour response — that is the affordance — but drop
+     every displacement, including the 3D lift. */
+  .service__inner,
+  .service:hover .service__inner,
+  .service:focus-within .service__inner,
+  .service:hover .service__main,
+  .service:focus-within .service__main,
+  .service:hover .service__text,
+  .service:focus-within .service__text,
+  .service:hover .service__index,
+  .service:focus-within .service__index,
+  .service:hover .service__mark,
+  .service:focus-within .service__mark,
+  .service:hover .service__arrow,
+  .service:focus-within .service__arrow,
+  .service:hover .service__arrow svg,
+  .service:focus-within .service__arrow svg { transform: none !important; }
+
+  .service__glow { transform: none !important; }
+  .service__rule { transform: scaleX(1) !important; opacity: 0; }
+  .service:hover .service__rule,
+  .service:focus-within .service__rule { opacity: 1; }
+
+  /* Portfolio: the frames sit still and the rails read as complete rather
+     than as progress that never fills. */
+  .project__media,
+  .project__meta,
+  .project__img,
+  .project__placeholder,
+  .project__visual:hover .project__img,
+  .project__visual:hover .project__placeholder,
+  .project__inner:hover .project__cta .btn__icon { transform: none !important; }
+
+  .project__rail-fill { transform: scaleX(1) !important; }
+
+  /* About: the mark is simply drawn, not drawing. */
+  .about__frames path {
+    animation: none !important;
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  /* Why and Process: threads read as complete, and no stage is dimmed
+     relative to another — "current" carries no information here. */
+  .why__spine-fill { transform: scaleY(1) !important; }
+
+  .process__path-fill { --path-progress: 1; }
+
+  .stage.is-active .stage__node { transform: none !important; }
+
+  /* Technology: rings hold still. Placement is layout, not motion, so the
+     orbital arrangement itself stays. */
+  .tech__orbit { animation: none !important; }
+
+  .tech__item:hover .tech__chip { transform: none !important; }
+
+  .site-footer__top-link:hover svg { transform: none !important; }
+
+  /* The quick-action bar is either there or it is not — no slide. */
+  .quick-cta { transition: none !important; }
+
+  html.js:not(.is-loaded) body { opacity: 1; }
+}

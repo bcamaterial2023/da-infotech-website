@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  DA Infotech sitemap.
+
+  BEFORE DEPLOY: replace YOUR-DOMAIN with the live origin. Sitemaps require
+  absolute URLs, so a relative path here is silently discarded by crawlers.
+
+  The site is a single page; the in-page anchors are navigation, not separate
+  documents, and listing them would be duplicate-content noise. When real
+  sub-pages exist, add one <url> block each.
+
+  <lastmod> is deliberately omitted rather than guessed — a wrong date is
+  worse than none.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://YOUR-DOMAIN/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
