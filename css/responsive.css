@@ -69,6 +69,8 @@
   .project__inner,
   .project:nth-child(even) .project__inner { gap: clamp(1.75rem, 1rem + 2.6vw, 3rem); }
 
+  .studies__intro { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); }
+
   .about__visual { inline-size: min(100%, 26rem); }
   .why__inner { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
   .stage__text { max-inline-size: none; }
@@ -142,6 +144,15 @@
 
   .project__meta { max-inline-size: 46rem; }
   .project__text { max-inline-size: 60ch; }
+
+  /* --- Student projects: description drops beneath the title -------------- */
+  .studies__intro {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .studies__title { max-inline-size: 20ch; }
+  .studies__lead { padding-block-end: 0; max-inline-size: 56ch; }
 
   /* --- About: mark above the copy ---------------------------------------- */
   .about__inner {
@@ -631,6 +642,22 @@
   }
 
   .project__visual:active .project__url { color: var(--color-accent-soft); }
+
+  /* --- Student projects on touch ------------------------------------------
+     The cards carry no link, so there is nothing to acknowledge — the lift
+     would only be a hover state that never lifts back down. */
+  .study__inner:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-border-subtle);
+    transform: none;
+    box-shadow: none;
+  }
+
+  .study__inner:hover .study__device {
+    transform: none;
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 @media (pointer: coarse) {

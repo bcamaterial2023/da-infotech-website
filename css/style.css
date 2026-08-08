@@ -14,6 +14,7 @@
    11. Custom cursor
    12. Services
    13. Portfolio / selected work
+   13b. Student projects
    14. About
    15. Why DA Infotech
    16. Process
@@ -1994,6 +1995,249 @@ body.is-nav-open .site-header__cta {
 }
 
 .project__inner:hover .project__cta .btn__icon { transform: translate(2px, -2px); }
+
+
+/* ==========================================================================
+   13b. STUDENT PROJECTS
+   --------------------------------------------------------------------------
+   Client work above is three full-width rows; this is three cards. The
+   difference in weight is the point — academic work is shown, not promoted
+   to the same rank as a paying engagement.
+
+   Each card opens with a preview band: a technical field with a phone
+   standing in it, cropped by the band's lower edge so the device reads as a
+   product shot rather than a floating asset. The screen carries a drawn
+   placeholder — a monogram over an accent wash — which is deliberately not
+   an imitation of a screenshot. Adding `.study__img` covers it with no other
+   change: the image is a later sibling at a higher layer.
+   ========================================================================== */
+
+.studies__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: end;
+  gap: var(--space-md) var(--gutter-lg);
+  margin-block-end: var(--space-intro);
+}
+
+.studies__intro > .section-label { grid-column: 1 / -1; }
+
+.studies__title {
+  font-size: var(--fs-heading-xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-display);
+  text-wrap: balance;
+  max-inline-size: 18ch;
+}
+
+.studies__lead {
+  font-size: var(--fs-body-lg);
+  color: var(--color-text-secondary);
+  max-inline-size: 46ch;
+  padding-block-end: 0.45em;
+}
+
+/* Self-sizing: three across on desktop, two, then one — no media queries. */
+.studies__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
+  gap: var(--gutter);
+}
+
+/* --- Card ------------------------------------------------------------------- */
+.study__inner {
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+  overflow: clip;
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  transition:
+    background-color var(--speed-base) var(--ease-out),
+    border-color     var(--speed-base) var(--ease-out),
+    transform        var(--speed-base) var(--ease-out),
+    box-shadow       var(--speed-base) var(--ease-out);
+}
+
+/* --- Preview band ------------------------------------------------------------ */
+.study__preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* flex-start, not the default stretch: the device's height has to come from
+     its aspect-ratio so it overruns the band and gets cropped. Stretching it
+     would resolve the height from the band instead and the ratio would be
+     ignored. */
+  align-items: flex-start;
+  block-size: clamp(12.5rem, 8.5rem + 11vw, 16rem);
+  padding-block-start: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
+  overflow: clip;
+  border-block-end: var(--border-hairline);
+
+  background-color: var(--color-bg-deep);
+  background-image:
+    radial-gradient(closest-side at 50% 55%, rgba(45, 125, 255, 0.12), transparent 76%),
+    linear-gradient(rgba(237, 239, 243, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237, 239, 243, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  background-position: center;
+}
+
+/* --- Device ------------------------------------------------------------------ */
+.study__device {
+  position: relative;
+  inline-size: min(58%, 9.75rem);
+  aspect-ratio: 9 / 19;
+  flex: none;
+
+  padding: 0.3125rem;
+  background-color: var(--color-surface-elevated);
+  border: var(--border-default);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-md);
+
+  transition:
+    transform    var(--speed-slow) var(--ease-out),
+    border-color var(--speed-base) var(--ease-out),
+    box-shadow   var(--speed-base) var(--ease-out);
+}
+
+.study__notch {
+  position: absolute;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 50%;
+  translate: -50% 0;
+  z-index: 3;
+
+  inline-size: 2.25rem;
+  block-size: 0.25rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(8, 9, 11, 0.85);
+}
+
+.study__screen {
+  position: relative;
+  display: block;
+  block-size: 100%;
+  overflow: clip;
+  border-radius: 1.1875rem;
+  background-color: var(--color-bg-deep);
+}
+
+.study__media {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.study__img,
+.study__placeholder {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.study__img {
+  z-index: 2;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+/* Drawn, not simulated. */
+.study__placeholder {
+  z-index: 1;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-2xs);
+  padding-inline: var(--space-2xs);
+
+  background-image:
+    radial-gradient(closest-side at 50% 38%, rgba(45, 125, 255, 0.22), transparent 74%);
+}
+
+.study__monogram {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 0.9rem + 1.1vw, 1.875rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-accent-hairline);
+}
+
+@supports not (-webkit-text-stroke: 1px currentColor) {
+  .study__monogram { color: var(--color-accent-hairline); }
+}
+
+.study__platform {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* --- Body -------------------------------------------------------------------- */
+.study__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+  flex: 1 1 auto;
+  padding: clamp(1.375rem, 1rem + 1.1vw, 1.875rem);
+}
+
+.study__label { margin-block-end: var(--space-3xs); }
+
+.study__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-heading-md);
+  font-weight: var(--fw-medium);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.study__category {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.study__text {
+  margin-block-start: var(--space-3xs);
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Pinned to the foot so the three cards agree on where the stack line sits,
+   whatever the description length. */
+.study__stack {
+  margin-block-start: auto;
+  padding-block-start: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  color: var(--color-text-muted);
+}
+
+/* --- Hover ------------------------------------------------------------------- */
+.study__inner:hover {
+  background-color: var(--color-surface-elevated);
+  border-color: var(--color-accent-hairline);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.study__inner:hover .study__device {
+  transform: translateY(-8px);
+  border-color: var(--color-accent-hairline);
+  box-shadow: var(--shadow-lg);
+}
 
 
 /* ==========================================================================
