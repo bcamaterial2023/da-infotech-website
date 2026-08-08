@@ -4,28 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#F4EFE4">
+  <meta name="theme-color" content="#FFFFFF">
 
   <title>DA Infotech — Web, Apps, AI · Porbandar, Gujarat</title>
   <meta name="description" content="DA Infotech builds websites, software, mobile apps and AI automation for businesses — and supports students with academic projects, documentation and internships.">
-  <meta name="robots" content="noindex">
-
-  <!-- DESIGN PREVIEW. Deliberately noindex: this is a second front page in a
-       different visual language, sitting beside the live index.html so the
-       two can be compared. If this direction is approved it replaces
-       index.html, the SEO block is carried over from there, and the noindex
-       above comes off. -->
 
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Archivo Black: display. Space Mono: labels. Hind Vadodara: body AND
-       Gujarati from one family, so Latin and Gujarati share a skeleton
-       instead of clashing. Hind: the Devanagari line in the footer. -->
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Hind+Vadodara:wght@400;500;600;700&family=Hind:wght@500;600&display=swap" rel="stylesheet">
+  <!-- Plus Jakarta Sans: display and headings. Inter: body and UI.
+       Hind Vadodara: the Gujarati line. Hind: the Devanagari line. -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Hind+Vadodara:wght@500;600&family=Hind:wght@500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/brutal.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -134,17 +126,60 @@
             </div>
           </div>
 
-          <!-- Printed panel: an Ajrakh field with an Uttarayan kite on it.
-               Both are Gujarat, not generic "India". -->
+          <!-- What the studio actually ships: a site and an app, drawn with the
+               same browser frame and phone body used in Work and Students
+               below, so the hero previews the page instead of decorating it. -->
           <div class="hero__panel pat-ajrakh" aria-hidden="true">
-            <svg class="hero__kite" viewBox="0 0 200 260" fill="none">
-              <path d="M100 8 178 96 100 216 22 96Z" fill="#FF9E00" stroke="#12100E" stroke-width="5"/>
-              <path d="M100 8v208M22 96h156" stroke="#12100E" stroke-width="4"/>
-              <path d="M100 8 178 96 100 96Z" fill="#C8102E"/>
-              <path d="M100 96 22 96 100 216Z" fill="#0E7C7B"/>
-              <path d="M100 216c0 16-18 14-18 28s18 12 18 26"
-                    stroke="#12100E" stroke-width="4" stroke-linecap="round"/>
-              <circle cx="100" cy="96" r="11" fill="#F4EFE4" stroke="#12100E" stroke-width="4"/>
+            <svg class="hero__art" viewBox="0 0 320 250" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+
+              <!-- Browser window -->
+              <g class="hero__art-win">
+                <rect x="8" y="16" width="236" height="168" rx="11"
+                      fill="#FFFFFF" stroke="#E7E8EB" stroke-width="1.5"/>
+                <path d="M8 27a11 11 0 0 1 11-11h214a11 11 0 0 1 11 11v15H8V27Z"
+                      fill="#F7F7F6"/>
+                <path d="M8 42h236" stroke="#E7E8EB" stroke-width="1.5"/>
+                <circle cx="22" cy="29" r="2.75" fill="#D5D7DC"/>
+                <circle cx="32" cy="29" r="2.75" fill="#D5D7DC"/>
+                <circle cx="42" cy="29" r="2.75" fill="#D5D7DC"/>
+                <rect x="54" y="24" width="176" height="11" rx="5.5"
+                      fill="#FFFFFF" stroke="#E7E8EB" stroke-width="1.5"/>
+
+                <!-- Page content -->
+                <rect x="24" y="58" width="74" height="9" rx="4.5" fill="#2B45C4"/>
+                <rect x="24" y="76" width="132" height="6" rx="3" fill="#E7E8EB"/>
+                <rect x="24" y="88" width="104" height="6" rx="3" fill="#E7E8EB"/>
+                <rect x="24" y="112" width="92" height="52" rx="8"
+                      fill="#EFF1FD" stroke="#C9D0F8" stroke-width="1.5"/>
+                <rect x="126" y="112" width="72" height="52" rx="8"
+                      fill="#EFF1FD" stroke="#C9D0F8" stroke-width="1.5"/>
+                <rect x="36" y="126" width="34" height="6" rx="3" fill="#5C74E8"/>
+                <rect x="138" y="126" width="34" height="6" rx="3" fill="#5C74E8"/>
+              </g>
+
+              <!-- Phone, overlapping the window -->
+              <g class="hero__art-phone">
+                <rect x="212" y="70" width="84" height="164" rx="16" fill="#14161A"/>
+                <rect x="218" y="76" width="72" height="152" rx="11" fill="#FFFFFF"/>
+                <rect x="243" y="83" width="22" height="4" rx="2" fill="#14161A"/>
+                <rect x="228" y="102" width="34" height="7" rx="3.5" fill="#2B45C4"/>
+                <rect x="228" y="118" width="52" height="5" rx="2.5" fill="#E7E8EB"/>
+                <rect x="228" y="129" width="40" height="5" rx="2.5" fill="#E7E8EB"/>
+                <rect x="228" y="148" width="52" height="30" rx="7" fill="#EFF1FD"/>
+                <rect x="228" y="186" width="52" height="14" rx="7" fill="#E9A44E"/>
+              </g>
+
+              <!-- Automation: three nodes and the links between them -->
+              <g class="hero__art-flow" stroke="#C9D0F8" stroke-width="1.5">
+                <path d="M46 206h34M104 206h34" stroke-linecap="round"/>
+                <circle cx="34" cy="206" r="12" fill="#FFFFFF"/>
+                <circle cx="92" cy="206" r="12" fill="#FFFFFF"/>
+                <circle cx="150" cy="206" r="12" fill="#FFFFFF"/>
+              </g>
+              <circle cx="34" cy="206" r="4" fill="#2B45C4"/>
+              <circle cx="92" cy="206" r="4" fill="#5C74E8"/>
+              <circle cx="150" cy="206" r="4" fill="#E9A44E"/>
             </svg>
 
             <div class="hero__stickers">
@@ -170,8 +205,8 @@
             <p class="stat__label">Service lines</p>
           </div>
           <div class="stat">
-            <p class="stat__num stat__num--word">BCA + MCA + MSC(IT) + Computer Engineering</p>
-            <p class="stat__label">Student support</p>
+            <p class="stat__num">04</p>
+            <p class="stat__label">Student streams · BCA, MCA, MSc(IT), CE</p>
           </div>
         </div>
       </div>
@@ -223,7 +258,7 @@
           <li class="svc">
             <div class="svc__top">
               <span class="svc__mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                      stroke-linecap="round" stroke-linejoin="round">
                   <rect x="5" y="8" width="30" height="24"/>
                   <path d="M5 15h30"/>
@@ -243,7 +278,7 @@
           <li class="svc">
             <div class="svc__top">
               <span class="svc__mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                      stroke-linecap="round" stroke-linejoin="round">
                   <rect x="12.5" y="5" width="15" height="30"/>
                   <path d="M18 9.5h4M20 30h.01"/>
@@ -263,7 +298,7 @@
           <li class="svc">
             <div class="svc__top">
               <span class="svc__mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                      stroke-linecap="round" stroke-linejoin="round">
                   <rect x="13" y="13" width="14" height="14"/>
                   <circle cx="20" cy="20" r="2.5"/>
@@ -283,7 +318,7 @@
           <li class="svc">
             <div class="svc__top">
               <span class="svc__mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                      stroke-linecap="round" stroke-linejoin="round">
                   <path d="M6 29.5 14 21.5l6 5 12.5-13.5"/>
                   <path d="M26.5 13h6.5v6.5"/>
@@ -624,7 +659,7 @@
               </p>
             </div>
             <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                    stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 8 4.5 15 20 22l15.5-7L20 8Z"/>
                 <path d="M11 18.4v7.1c0 2.7 4 4.9 9 4.9s9-2.2 9-4.9v-7.1"/>
@@ -643,7 +678,7 @@
               </p>
             </div>
             <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                    stroke-linecap="round" stroke-linejoin="round">
                 <path d="M10 8.5A2.5 2.5 0 0 1 12.5 6H22l8 8v17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 10 31.5v-23Z"/>
                 <path d="M22 6v8h8"/>
@@ -662,7 +697,7 @@
               </p>
             </div>
             <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                    stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="15" cy="13.5" r="4.5"/>
                 <path d="M7 30c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
@@ -692,7 +727,7 @@
               </p>
             </div>
             <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                    stroke-linecap="round" stroke-linejoin="round">
                 <rect x="5.5" y="7.5" width="23" height="17"/>
                 <path d="M10.5 13.5h13M10.5 18.5h8"/>
@@ -712,7 +747,7 @@
               </p>
             </div>
             <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                    stroke-linecap="round" stroke-linejoin="round">
                 <rect x="5" y="12" width="30" height="21"/>
                 <path d="M15 12V9.5A2.5 2.5 0 0 1 17.5 7h5A2.5 2.5 0 0 1 25 9.5V12"/>
@@ -733,7 +768,7 @@
               </p>
             </div>
             <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="#12100E" stroke-width="2.5"
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
                    stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12.5 24h16a6 6 0 0 0 .7-11.96A9 9 0 0 0 11.9 10.4 6.8 6.8 0 0 0 12.5 24Z"/>
                 <path d="M20 35V27"/>
@@ -757,7 +792,7 @@
             <div class="about__stamp-inner">
               <span class="label">Porbandar</span>
               <p class="about__est">DA<br>INFOTECH</p>
-              <p class="guj" style="color:var(--indigo)">ગુજરાત, ભારત</p>
+              <p class="guj" style="color:var(--accent)">ગુજરાત, ભારત</p>
             </div>
           </div>
 
@@ -842,10 +877,10 @@
         <header class="head">
           <span class="label label--marigold">07 — Contact · <span class="guj">સંપર્ક</span></span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="contact-t" style="color:var(--paper)">
+            <h2 class="xxl head__title" id="contact-t">
               Let's start.
             </h2>
-            <p class="head__lead" style="color:#C9C2B6">
+            <p class="head__lead">
               A business project or a college submission — same inbox, same people.
             </p>
           </div>
@@ -853,7 +888,7 @@
 
         <div class="contact">
           <div>
-            <p class="guj" style="color:var(--marigold);font-size:var(--fs-lg)">ચાલો શરૂ કરીએ.</p>
+            <p class="guj" style="color:var(--warm-light);font-size:var(--fs-lg)">ચાલો શરૂ કરીએ.</p>
 
             <div class="contact__list">
               <a class="contact__item" href="tel:+916353757310">
@@ -864,7 +899,7 @@
                 <span class="contact__k">Email</span>
                 <span class="contact__v">dainfotech7@gmail.com</span>
               </a>
-              <div class="contact__item" style="box-shadow:var(--drop-sm)">
+              <div class="contact__item">
                 <span class="contact__k">Studio</span>
                 <span class="contact__v" style="font-size:var(--fs-sm);line-height:1.4">
                   First Floor, Nebhani Seri,<br>Kadachh, Porbandar,<br>Gujarat 362230
@@ -873,10 +908,9 @@
             </div>
           </div>
 
-          <!-- FORM — markup and styling only in this preview. The working
-               handler lives in js/contact.js on index.html; it gets wired in
-               when this direction is approved, not before, so nothing here
-               silently swallows an enquiry. -->
+          <!-- FORM — markup and styling only. There is no submit handler yet,
+               and the note under the button says so, so nothing here silently
+               swallows an enquiry. -->
           <form class="form" novalidate>
             <div class="form__row form__row--2">
               <div class="field">
@@ -1007,9 +1041,9 @@
 
   <script>
   /* ==========================================================================
-     Just enough script. Brutalism does not need a scroll library — the page
-     is legible and complete with JavaScript off, and this only adds the two
-     things markup genuinely cannot do.
+     Just enough script. No scroll library — the page is legible and complete
+     with JavaScript off, and this only adds the two things markup genuinely
+     cannot do.
      ========================================================================== */
   (function () {
     'use strict';
@@ -1082,8 +1116,8 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (note) {
-          note.textContent = 'This is a design preview — the form is not wired up yet. Please call or email for now.';
-          note.style.color = 'var(--madder)';
+          note.textContent = 'The form is not wired up yet. Please call or email for now.';
+          note.style.color = 'var(--warm)';
         }
       });
     }
