@@ -228,6 +228,9 @@ h1, h2, h3, h4 {
   line-height: var(--lh-heading);
   letter-spacing: var(--ls-heading);
   text-wrap: balance;
+  /* A display word at a scaled-up root font can be wider than a phone. Break
+     it rather than push the whole page sideways. */
+  overflow-wrap: break-word;
 }
 
 .xxl {
@@ -536,6 +539,7 @@ p { text-wrap: pretty; }
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
+  min-width: 0;   /* lets the name give way before the bar overflows */
   text-decoration: none;
   color: var(--text);
 }
@@ -558,16 +562,19 @@ p { text-wrap: pretty; }
 .brand:hover .brand__mark { transform: rotate(-4deg) scale(1.04); }
 
 .brand__name {
+  min-width: 0;
   font-family: var(--font-display);
   font-size: 1.0625rem;
   font-weight: 700;
   letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
 }
 
 /* --- Nav -------------------------------------------------------------------- */
 .nav__list {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;   /* only ever engages under heavy text scaling */
   gap: clamp(0.25rem, -0.2rem + 1.4vw, 0.75rem);
 }
 
@@ -944,6 +951,7 @@ p { text-wrap: pretty; }
 }
 
 .proj__domain {
+  max-width: 100%;
   padding: 0.25rem 0.7rem;
   background-color: rgba(255, 255, 255, 0.85);
   color: var(--text-2);
@@ -952,6 +960,8 @@ p { text-wrap: pretty; }
   font-size: var(--fs-micro);
   font-weight: 500;
   letter-spacing: 0.04em;
+  /* A 24-character domain is wider than the frame on a very small screen. */
+  overflow-wrap: anywhere;
 }
 
 /* --- Meta column ------------------------------------------------------------- */
@@ -1153,7 +1163,7 @@ p { text-wrap: pretty; }
   min-width: 2.25ch;
 }
 
-.reg__body { display: flex; flex-direction: column; gap: var(--s-2); }
+.reg__body { display: flex; flex-direction: column; gap: var(--s-2); min-width: 0; }
 
 .reg__title { font-size: var(--fs-lg); line-height: 1.25; }
 .reg__title a { text-decoration: none; }
@@ -1218,10 +1228,18 @@ p { text-wrap: pretty; }
   align-items: center;
 }
 
+/* No forced 1:1. A square derived from the width clips its own contents the
+   moment the text grows — larger root font, longer wordmark — and the ratio
+   was decoration. A min-height keeps the stamp proportion without the trap. */
 .about__stamp {
   display: grid;
+  /* An implicit `auto` track sizes to the item's max-content and refuses to
+     shrink, so the card's `max-width: 100%` resolved against the card's own
+     272px and never clamped. `minmax(0, 1fr)` gives the track a real floor. */
+  grid-template-columns: minmax(0, 1fr);
   place-items: center;
-  aspect-ratio: 1;
+  width: 100%;
+  min-height: 18rem;
   padding: var(--s-6);
   border: 1px solid var(--accent-line);
   border-radius: var(--r-xl);
@@ -1233,7 +1251,11 @@ p { text-wrap: pretty; }
   display: grid;
   justify-items: center;
   gap: var(--s-2);
-  width: min(100%, 17rem);
+  /* `width: min(100%, 17rem)` was circular inside a shrink-to-fit parent, so
+     the 17rem always won — and at a 24px root that is 408px, wider than a
+     small phone. An explicit width with a percentage cap resolves. */
+  width: 17rem;
+  max-width: 100%;
   padding: var(--s-6) var(--s-5);
   background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(6px);
@@ -1253,6 +1275,7 @@ p { text-wrap: pretty; }
   letter-spacing: -0.03em;
   color: var(--text);
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 
 .about__loc {
@@ -1367,6 +1390,8 @@ p { text-wrap: pretty; }
   font-size: var(--fs-md);
   font-weight: 600;
   margin-top: 0.2rem;
+  /* The email is a single unbreakable token wider than the tile below ~260px. */
+  overflow-wrap: anywhere;
 }
 
 /* --- Form -------------------------------------------------------------------- */
@@ -1564,7 +1589,9 @@ p { text-wrap: pretty; }
      beside it at tablet width. Dropping the forced square as well — once the
      box is content-sized, a 1:1 ratio clips the wordmark instead of framing
      it. The square is a desktop luxury. */
-  .about__stamp { max-width: 22rem; margin-inline: auto; aspect-ratio: auto; }
+  /* `margin-inline: auto` centred it but forced shrink-to-fit, which made every
+     percentage inside it circular. `justify-self` centres without that. */
+  .about__stamp { max-width: 22rem; justify-self: center; }
 
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .step:nth-child(2) { border-right: 0; }
@@ -1653,6 +1680,8 @@ p { text-wrap: pretty; }
   .form { padding: var(--s-4); }
   .about__stamp { padding: var(--s-5); }
   .hero__panel { padding: var(--s-5); }
+  .contact__item { padding: var(--s-4); }
+  .proj__ph { padding-inline: var(--s-3); }
 }
 
 /* Touch: nothing to hover, so the lift states are removed rather than left

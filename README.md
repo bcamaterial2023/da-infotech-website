@@ -127,7 +127,14 @@ drift, and collapses every transition.
 `1024px` — grids collapse, nav becomes a drawer. `720px` — most grids go single column.
 `480px` — small-phone floor: buttons go full width, the footer stacks to one column.
 
-### Two traps worth knowing
+Verified clean — no horizontal overflow, nothing off-screen, nothing clipped — across 27
+viewport configurations from 240×320 up to 2560×1440, including phone landscape
+(568×320 through 932×430) and both iPad orientations. Also clean at 125% and 150% browser
+text scaling at every width. At 200% *text-only* scaling (root 32px) the two narrowest
+phone widths still overflow; full-page zoom, which is what browsers do by default, is fine
+because it is equivalent to a narrower viewport and those are covered.
+
+### Three traps worth knowing
 
 Several structural elements are `<span>`s — `.proj__shot`, `.study__screen`. An inline box
 ignores `aspect-ratio`, `height` and `overflow`, so both carry an explicit `display: block`.
@@ -138,6 +145,16 @@ only while `.head__row` is a row. The 720px query flips it to `flex-direction: c
 that same basis becomes a **height** — which forced every section head to 912px tall and put
 a screen and a half of blank space between a heading and its own paragraph. The query resets
 `flex: 0 1 auto` alongside the direction change. If you add a third child, reset it too.
+
+**A percentage can be circular, and it fails silently.** `.about__stamp` is a grid whose
+item carried `max-width: 100%`. That never clamped: an implicit `auto` track sizes itself to
+the item's max-content and will not shrink below it, so `100%` resolved against the item's
+own width. Two earlier attempts at this — capping the item, then capping the parent — both
+failed for the same reason one level apart. The fix is to give the track a floor with
+`grid-template-columns: minmax(0, 1fr)`. `margin-inline: auto` sets the same trap: on a grid
+item it forces shrink-to-fit, making every percentage inside it circular. Use `justify-self`
+to centre instead. The stylesheet uses `minmax(0, 1fr)` rather than `1fr` throughout for
+exactly this reason.
 
 ---
 
