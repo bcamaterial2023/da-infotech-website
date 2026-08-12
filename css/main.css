@@ -731,29 +731,67 @@ p { text-wrap: pretty; }
 .hero__art-phone { filter: drop-shadow(0 16px 26px rgba(20, 22, 26, 0.18)); }
 
 /* In normal flow under the art. Absolute positioning here used to drop them
-   on top of whatever the illustration happened to be doing. */
-.hero__stickers {
+   on top of whatever the illustration happened to be doing.
+
+   This was two small chips floating on the pattern, which left the bottom of
+   a 22rem panel reading as empty space. One card that spans the panel gives
+   the illustration a base to sit on and carries twice the information in the
+   same height. */
+/* Tracks the art's width so the two edges line up. --s-5 is the panel's own
+   gap, so this only has to space its own two rows. */
+.hero__meta {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  gap: var(--s-3);
+  width: min(100%, 25rem);
+}
+
+/* Always four across. Labels wrap before the grid does, so the row holds its
+   shape down to the narrowest panel. */
+.hero__tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--s-2);
 }
 
-/* Chips, not rotated stickers. */
-.sticker {
-  padding: 0.35rem 0.75rem;
-  background-color: rgba(255, 255, 255, 0.9);
+.hero__tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.25rem;
+  background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(6px);
-  color: var(--text-2);
   border: 1px solid var(--border);
-  border-radius: var(--r-pill);
+  border-radius: var(--r-md);
   box-shadow: var(--sh-sm);
+  color: var(--text-2);
   font-size: var(--fs-micro);
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  text-align: center;
 }
 
-.sticker--warm { color: var(--warm-ink); border-color: rgba(185, 114, 30, 0.28); }
+/* The service marks are drawn on a 40-unit grid at stroke 2.5; at 20px that
+   lands on a 1.25px line, which is the weight the rest of the page's icons
+   read at. */
+.hero__tile-ico {
+  width: 1.25rem; height: 1.25rem;
+  color: var(--accent);
+}
+
+.hero__tile-ico svg { width: 100%; height: 100%; }
+
+/* The provenance the two stickers used to carry — now one quiet line under
+   the tiles rather than a chip competing with them. */
+.hero__origin {
+  color: var(--text-3);
+  font-size: var(--fs-micro);
+  text-align: center;
+}
+
+.hero__origin-sep { margin: 0 0.3rem; color: var(--border-2); }
+.hero__origin-warm { color: var(--warm-ink); font-weight: 600; }
 
 
 /* ==========================================================================
@@ -2011,6 +2049,10 @@ p { text-wrap: pretty; }
   .about__stamp { padding: var(--s-5); }
   .about__note { padding: var(--s-4); }
   .hero__panel { padding: var(--s-5); }
+
+  /* Four tiles need ~296px of panel; a 360px phone leaves 272, which pushes
+     "Websites" past its tile. Two-up rather than a shrunken four-up. */
+  .hero__tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact__item { padding: var(--s-4); }
   .card__body { padding: var(--s-4); }
   .card__ph { padding-inline: var(--s-3); }
