@@ -18,23 +18,24 @@
     2. Reset & base
     3. Type
     4. Layout
-    5. Primitives — button, label, tag
+    5. Primitives — button, label
     6. Surface patterns
     7. Marquee
     8. Header
     9. Hero
    10. Stats
    11. Services
-   12. Selected work
-   13. Student projects
-   14. Student services
-   15. About
-   16. Process
-   17. Contact & form
-   18. Footer
-   19. Reveal on scroll
-   20. Responsive
-   21. Motion preferences
+   12. Digital solutions
+   13. Selected work — the card grid
+   14. Client reviews
+   15. Career & documents — packs, CTA, chips
+   16. About
+   17. Process
+   18. Contact & form
+   19. Footer
+   20. Reveal on scroll
+   21. Responsive
+   22. Motion preferences
    ========================================================================== */
 
 
@@ -54,7 +55,10 @@
 
   --text:          #14161A;
   --text-2:        #565A63;
-  --text-3:        #888D96;
+  /* Was #888D96, which is 3.34:1 on white — under AA for the 11–13px text it
+     is used on (stat labels, card meta, form hints). This is 4.77:1 and still
+     reads as the third step down from --text-2. */
+  --text-3:        #6E737C;
   --text-inv:      #F4F5F7;
   --text-inv-2:    #A3A9B3;
 
@@ -72,6 +76,9 @@
   --warm:          #B9721E;   /* amber — sparing, for handmade marks       */
   --warm-soft:     #FBF3E8;
   --warm-light:    #E9A44E;
+  /* --warm is 3.83:1 on white: fine for an icon or a rule, under AA as text.
+     Anything that has to be READ in amber on a light ground uses this. */
+  --warm-ink:      #96590F;
 
   --focus:         #4B62DC;
 
@@ -229,8 +236,16 @@ h1, h2, h3, h4 {
   letter-spacing: var(--ls-heading);
   text-wrap: balance;
   /* A display word at a scaled-up root font can be wider than a phone. Break
-     it rather than push the whole page sideways. */
-  overflow-wrap: break-word;
+     it rather than push the whole page sideways.
+
+     `anywhere`, not `break-word`, and the difference is the entire point:
+     both break identically once a line box is too narrow, but only `anywhere`
+     reduces the element's min-content width. `.head__row` goes
+     `align-items: flex-start` below 720px, which makes its children
+     shrink-to-fit — and a shrink-to-fit box sized from min-content grows to
+     the longest word, pushing the whole page sideways before the break rule
+     ever gets a chance to apply. "Straightforward" at 30px did exactly that. */
+  overflow-wrap: anywhere;
 }
 
 .xxl {
@@ -414,18 +429,9 @@ p { text-wrap: pretty; }
   border-color: var(--border-inv);
 }
 
-/* --- Tag — inline metadata -------------------------------------------------- */
-.tag {
-  display: inline-block;
-  padding: 0.25rem 0.6rem;
-  background-color: var(--bg-subtle);
-  color: var(--text-2);
-  border: 1px solid var(--border);
-  border-radius: var(--r-pill);
-  font-size: var(--fs-micro);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
+/* The .tag primitive lived here. Its only caller was the old work row; the
+   card grid that replaced it carries its own .card__cat, so the primitive was
+   a neutral pill nothing used. */
 
 
 /* ==========================================================================
@@ -675,6 +681,30 @@ p { text-wrap: pretty; }
   margin-top: var(--s-6);
 }
 
+/* Two short proof points under the CTAs. They earn their place by being
+   checkable claims about how the work is run, not adjectives. */
+.hero__points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  margin-top: var(--s-5);
+}
+
+.hero__points li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.hero__points svg {
+  width: 0.9rem; height: 0.9rem;
+  flex: none;
+  color: var(--accent);
+}
+
 /* --- Panel ------------------------------------------------------------------- */
 .hero__panel {
   display: flex;
@@ -723,7 +753,7 @@ p { text-wrap: pretty; }
   letter-spacing: 0.04em;
 }
 
-.sticker--warm { color: var(--warm); border-color: rgba(185, 114, 30, 0.28); }
+.sticker--warm { color: var(--warm-ink); border-color: rgba(185, 114, 30, 0.28); }
 
 
 /* ==========================================================================
@@ -757,6 +787,10 @@ p { text-wrap: pretty; }
   color: var(--accent);
 }
 
+/* Smaller than the numeral it follows, so "20+" does not read as a two-part
+   number with the plus competing for the same weight. */
+.stat__plus { font-size: 0.6em; vertical-align: 0.35em; }
+
 .stat__label {
   margin-top: var(--s-2);
   color: var(--text-3);
@@ -770,9 +804,13 @@ p { text-wrap: pretty; }
    11. SERVICES
    ========================================================================== */
 
+/* Three across, not four. At four the copy in each card wrapped to five or six
+   lines on a laptop and the row read as a list of headings with debris under
+   them. Three gives every card a readable measure at every width above the
+   tablet breakpoint. */
 .svc-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--s-5);
 }
 
@@ -793,31 +831,23 @@ p { text-wrap: pretty; }
   box-shadow: var(--sh-lg);
 }
 
-.svc__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--s-5);
-}
-
+/* The card used to carry a counter opposite the icon. It numbered a set whose
+   order carries no meaning, and it was the loudest thing in the row. */
 .svc__mark {
   display: grid;
   place-items: center;
   width: 2.75rem; height: 2.75rem;
+  margin-bottom: var(--s-5);
   padding: 0.6rem;
   background-color: var(--accent-soft);
   color: var(--accent);
   border-radius: var(--r-md);
+  transition: background-color var(--t), color var(--t);
 }
 
 .svc__mark svg { width: 100%; height: 100%; }
 
-.svc__num {
-  font-family: var(--font-display);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: var(--text-3);
-}
+.svc:hover .svc__mark { background-color: var(--accent); color: #FFFFFF; }
 
 .svc__title {
   font-size: var(--fs-lg);
@@ -850,152 +880,86 @@ p { text-wrap: pretty; }
 
 
 /* ==========================================================================
-   12. SELECTED WORK
+   12. DIGITAL SOLUTIONS
+   --------------------------------------------------------------------------
+   Deliberately not another .svc card. Services above are things that get
+   built, so they lead with an icon over a heading; these are things that get
+   run, so they sit as a flat two-column row — icon beside the text, no lift.
+   Two card treatments on one page is a system; three is a scrapbook.
    ========================================================================== */
 
-.work-list { display: grid; gap: var(--block-gap); }
-
-/* The preview used to take the larger column (1.25fr) at a 16:10 ratio, which
-   made a placeholder the biggest object on the page. It now takes the smaller
-   share and a shorter ratio — the copy leads, the preview supports it. */
-.proj {
+.sol-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(1.75rem, 1rem + 2.5vw, 3.25rem);
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-4);
 }
 
-.proj:nth-child(even) { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
-.proj:nth-child(even) .proj__visual { order: 2; }
-.proj:nth-child(even) .proj__meta   { order: 1; }
-
-/* --- Browser frame ----------------------------------------------------------- */
-.proj__visual {
-  display: block;
-  text-decoration: none;
-  color: inherit;
+.sol {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--s-4);
+  padding: var(--s-5);
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  box-shadow: var(--sh-md);
-  overflow: hidden;
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+  transition: border-color var(--t), box-shadow var(--t);
 }
 
-.proj__visual:hover {
-  transform: translateY(-4px);
+.sol:hover {
   border-color: var(--accent-line);
-  box-shadow: var(--sh-lg);
+  box-shadow: var(--sh-md);
 }
 
-.proj__chrome {
-  display: flex;
-  align-items: center;
-  gap: var(--s-3);
-  padding: 0.6rem 0.75rem;
-  background-color: var(--bg-subtle);
-  border-bottom: 1px solid var(--border);
-}
-
-.proj__dots { display: flex; gap: 6px; flex: none; }
-
-.proj__dots span {
-  width: 9px; height: 9px;
-  background-color: var(--border-2);
-  border-radius: 50%;
-}
-
-.proj__url {
-  flex: 1 1 auto;
-  min-width: 0;
-  padding: 0.25rem 0.7rem;
-  background-color: var(--surface);
-  color: var(--text-3);
-  border: 1px solid var(--border);
-  border-radius: var(--r-pill);
-  font-size: var(--fs-micro);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* A <span>, so it needs blockifying before aspect-ratio and overflow apply. */
-.proj__shot {
-  display: block;
-  position: relative;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-}
-
-.proj__img,
-.proj__ph { position: absolute; inset: 0; }
-
-.proj__img { z-index: 2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
-
-.proj__ph {
-  z-index: 1;
+.sol__mark {
   display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: var(--s-3);
-}
-
-.proj__mono {
-  font-family: var(--font-display);
-  font-size: clamp(1.375rem, 0.9rem + 1.9vw, 2.25rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  place-items: center;
+  width: 2.5rem; height: 2.5rem;
+  padding: 0.5rem;
+  background-color: var(--bg-subtle);
   color: var(--accent);
-  opacity: 0.75;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition: background-color var(--t), border-color var(--t);
 }
 
-.proj__domain {
-  max-width: 100%;
-  padding: 0.25rem 0.7rem;
-  background-color: rgba(255, 255, 255, 0.85);
-  color: var(--text-2);
-  border: 1px solid var(--accent-line);
-  border-radius: var(--r-pill);
-  font-size: var(--fs-micro);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  /* A 24-character domain is wider than the frame on a very small screen. */
-  overflow-wrap: anywhere;
+.sol__mark svg { width: 100%; height: 100%; }
+
+.sol:hover .sol__mark {
+  background-color: var(--accent-soft);
+  border-color: var(--accent-line);
 }
 
-/* --- Meta column ------------------------------------------------------------- */
-.proj__meta { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-3); }
+.sol__body { display: flex; flex-direction: column; gap: var(--s-2); min-width: 0; }
 
-.proj__count {
-  font-family: var(--font-display);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: var(--text-3);
-  letter-spacing: 0.06em;
-}
+.sol__title { font-size: var(--fs-md); line-height: 1.3; }
 
-.proj__name {
-  font-size: var(--fs-xl);
-  line-height: 1.15;
-}
-
-.proj__text { color: var(--text-2); font-size: var(--fs-sm); }
-
-.proj__meta .btn { margin-top: var(--s-2); }
+.sol__text { color: var(--text-2); font-size: var(--fs-sm); }
 
 
 /* ==========================================================================
-   13. STUDENT PROJECTS
+   13. SELECTED WORK — the card grid
+   --------------------------------------------------------------------------
+   This was an alternating full-width row per project: a 50/50 split with the
+   preview and the copy trading sides. Three of them ran to most of a screen
+   each, which read as a case-study page rather than a portfolio, and the
+   fourth project had nowhere to go.
+
+   Now it is a three-up grid of equal cards. Two things keep the row even:
+   every visual carries the same 16:10 ratio whatever is inside it, and the
+   body is a flex column whose text takes the slack, so the foot rule and the
+   action sit on the same line across all three cards regardless of how long
+   the description runs.
    ========================================================================== */
 
-.study-grid {
+.work-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--s-5);
 }
 
-.study {
+.card {
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: var(--surface);
@@ -1006,209 +970,354 @@ p { text-wrap: pretty; }
   transition: transform var(--t), box-shadow var(--t), border-color var(--t);
 }
 
-.study:hover {
-  transform: translateY(-3px);
+.card:hover {
+  transform: translateY(-4px);
   border-color: var(--accent-line);
   box-shadow: var(--sh-lg);
 }
 
-/* The device sits at the start of the panel rather than the middle, and the
-   panel takes its height FROM the device instead of imposing one on it. The
-   old fixed height cut 44% off the phone on a narrow screen; nothing here can
-   clip now, at any width. */
-.study__preview {
-  position: relative;
+/* A <span>, so it needs blockifying before aspect-ratio and overflow apply.
+   Removing the display here collapses it to 0×0 and its children escape the
+   card entirely. */
+.card__visual {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: var(--s-5);
+  flex-direction: column;
+  position: relative;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
 
-.study__device {
-  position: relative;
-  z-index: 2;
-  width: clamp(5.25rem, 4.2rem + 3vw, 6rem);
-  aspect-ratio: 9 / 19;
+/* --- Website cards: browser chrome over the page area ------------------------ */
+.card__chrome {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
   flex: none;
-  padding: 4px;
+  padding: 0.45rem 0.55rem;
+  background-color: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.card__dots { display: flex; gap: 5px; flex: none; }
+
+.card__dots span {
+  width: 7px; height: 7px;
+  background-color: var(--border-2);
+  border-radius: 50%;
+}
+
+.card__url {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.15rem 0.55rem;
+  background-color: var(--surface);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  font-size: 0.6875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__stage { display: block; position: relative; flex: 1 1 auto; overflow: hidden; }
+
+/* --- App cards: a phone centred in the same 16:10 box ------------------------ */
+.card__visual--app { display: grid; place-items: center; padding: var(--s-4); }
+
+.card__device {
+  display: block;
+  position: relative;
+  height: 100%;
+  aspect-ratio: 9 / 19;
+  padding: 3px;
   background-color: var(--text);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: var(--sh-lg);
   transition: transform var(--t);
 }
 
-.study:hover .study__device { transform: translateY(-4px); }
+.card:hover .card__device { transform: translateY(-4px); }
 
-/* Sits over the white screen, so it reads as a punch-hole rather than the
-   old bezel cut-out — a pale notch here would simply not be visible. */
-.study__notch {
+/* Over the white screen, so it reads as a punch-hole. A pale notch cut into
+   the bezel at this size is simply not visible. */
+.card__notch {
   position: absolute;
-  top: 9px; left: 50%;
+  top: 7px; left: 50%;
   transform: translateX(-50%);
   z-index: 3;
-  width: 26%; height: 4px;
+  width: 26%; height: 3px;
   background-color: var(--text);
   border-radius: var(--r-pill);
 }
 
-/* Same blockifying as .proj__shot — an inline box ignores height and overflow. */
-.study__screen {
+.card__screen {
   display: block;
   position: relative;
   height: 100%;
   overflow: hidden;
   background-color: var(--bg);
-  border-radius: 10px;
+  border-radius: 9px;
 }
 
-.study__media { position: absolute; inset: 0; }
+/* --- Placeholder and the real capture that replaces it ----------------------- */
+.card__img,
+.card__ph { position: absolute; inset: 0; }
 
-.study__img,
-.study__ph { position: absolute; inset: 0; }
-.study__img { z-index: 2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+.card__img {
+  z-index: 2;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+}
 
-.study__ph {
+.card__ph {
   z-index: 1;
   display: grid;
   place-content: center;
   justify-items: center;
   gap: var(--s-2);
-  padding-inline: var(--s-2);
+  padding-inline: var(--s-3);
 }
 
-.study__mono {
+.card__mono {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: clamp(1.25rem, 0.9rem + 1.4vw, 1.875rem);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--accent);
+  opacity: 0.75;
 }
 
-.study__plat {
-  padding: 0.1rem 0.35rem;
-  background-color: var(--accent-soft);
-  color: var(--accent-dark);
-  border-radius: var(--r-pill);
-  font-size: 0.5625rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
+.card__mono--sm { font-size: 0.9375rem; opacity: 0.9; }
 
-.study__body {
+/* --- Body -------------------------------------------------------------------- */
+.card__body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--s-2);
+  gap: var(--s-3);
   padding: var(--s-5);
   flex: 1 1 auto;
 }
 
-.study__name { font-size: var(--fs-lg); margin-top: var(--s-1); }
-
-.study__cat {
-  color: var(--text-3);
+.card__cat {
+  padding: 0.2rem 0.6rem;
+  background-color: var(--accent-soft);
+  color: var(--accent-dark);
+  border-radius: var(--r-pill);
   font-size: var(--fs-micro);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.study__text {
-  flex: 1 1 auto;
-  color: var(--text-2);
-  font-size: var(--fs-sm);
-}
+.card__title { font-size: var(--fs-lg); line-height: 1.25; }
 
-.study__stack {
-  margin-top: var(--s-3);
-  padding-top: var(--s-3);
+.card__title a { text-decoration: none; }
+.card__title a:hover { color: var(--accent); }
+
+/* The card is the hit area; the title link carries the destination.
+   The z-index is not optional. Everything inside .card__visual — the
+   placeholder (1), a real screenshot (2), the phone notch (3) — is explicitly
+   layered, and the card is not a stacking context, so an overlay left at
+   `auto` sits UNDER all of it. Without this, the whole image half of every
+   work card silently stops being clickable, which is the half people aim at. */
+.card__title a::after { content: ""; position: absolute; inset: 0; z-index: 4; }
+
+/* Takes the slack, which is what keeps the foot rules aligned across a row. */
+.card__text { flex: 1 1 auto; color: var(--text-2); font-size: var(--fs-sm); }
+
+.card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
   width: 100%;
+  margin-top: var(--s-1);
+  padding-top: var(--s-4);
   border-top: 1px solid var(--border);
+}
+
+.card__stack {
+  min-width: 0;
   color: var(--text-3);
   font-size: var(--fs-micro);
+  overflow-wrap: anywhere;
 }
+
+.card__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: none;
+  color: var(--accent);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  transition: transform var(--t);
+}
+
+.card__go svg { width: 0.85em; height: 0.85em; flex: none; }
+
+.card:hover .card__go { transform: translateX(3px); }
 
 
 /* ==========================================================================
-   14. STUDENT SERVICES
+   14. CLIENT REVIEWS
+   --------------------------------------------------------------------------
+   The markup for this is commented out in index.html until real, permitted
+   client quotes exist. The styles stay live so that uncommenting the section
+   is the only step — see the instructions in that comment block.
+
+   The stars are clip-path on a plain box rather than a glyph or an SVG each:
+   one shape, two colours, and `.is-off` is the whole of the empty state. A
+   card must never show five filled stars because five was the default.
    ========================================================================== */
 
-.reg {
+.rev-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-5);
+}
+
+.rev {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-6) var(--s-5);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+  transition: border-color var(--t), box-shadow var(--t);
+}
+
+.rev:hover { border-color: var(--accent-line); box-shadow: var(--sh-md); }
+
+.rev__stars { display: flex; gap: 3px; }
+
+.rev__star {
+  width: 1rem; height: 1rem;
+  background-color: var(--warm-light);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+                     50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.rev__star.is-off { background-color: var(--border-2); }
+
+.rev__quote { flex: 1 1 auto; color: var(--text-2); font-size: var(--fs-sm); }
+
+.rev__who {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding-top: var(--s-4);
   border-top: 1px solid var(--border);
 }
 
-.reg__row {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: start;
-  gap: var(--s-4) var(--s-5);
-  padding: var(--s-5) var(--s-4);
-  border-bottom: 1px solid var(--border);
-  border-radius: var(--r-md);
-  transition: background-color var(--t);
-}
-
-.reg__row:hover { background-color: var(--bg-subtle); }
-
-.reg__num {
-  font-family: var(--font-display);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  line-height: 1.6;
-  color: var(--accent);
-  min-width: 2.25ch;
-}
-
-.reg__body { display: flex; flex-direction: column; gap: var(--s-2); min-width: 0; }
-
-.reg__title { font-size: var(--fs-lg); line-height: 1.25; }
-.reg__title a { text-decoration: none; }
-.reg__title a:hover { color: var(--accent); }
-
-.reg__text { font-size: var(--fs-sm); color: var(--text-2); max-width: 70ch; }
-
-.reg__mark {
+.rev__avatar {
   display: grid;
   place-items: center;
   width: 2.5rem; height: 2.5rem;
-  padding: 0.5rem;
-  background-color: var(--bg-subtle);
-  color: var(--text-3);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
   flex: none;
-  transition: background-color var(--t), color var(--t), border-color var(--t);
-}
-
-.reg__mark svg { width: 100%; height: 100%; }
-
-.reg__row:hover .reg__mark {
   background-color: var(--accent-soft);
-  color: var(--accent);
-  border-color: var(--accent-line);
+  color: var(--accent-dark);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 700;
 }
 
-/* The documents row carries a condition, and the condition is the point. */
-.reg__note {
+.rev__name { display: block; font-size: var(--fs-sm); font-weight: 600; }
+
+.rev__meta { display: block; color: var(--text-3); font-size: var(--fs-micro); }
+
+
+/* ==========================================================================
+   15. CAREER & DOCUMENTS — packs, note, CTA, chips
+   ========================================================================== */
+
+.pack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-5);
+}
+
+.pack {
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-6) var(--s-5);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+  transition: border-color var(--t), box-shadow var(--t);
+}
+
+.pack:hover { border-color: var(--border-2); box-shadow: var(--sh-md); }
+
+/* Warm rather than indigo. This band sells to a different visitor than the
+   one reading the services grid, and the icon well is the cheapest way to
+   say so without introducing a fourth hue. */
+.pack__mark {
+  display: grid;
+  place-items: center;
+  width: 2.75rem; height: 2.75rem;
+  margin-bottom: var(--s-5);
+  padding: 0.6rem;
+  background-color: var(--warm-soft);
+  color: var(--warm);
+  border-radius: var(--r-md);
+}
+
+.pack__mark svg { width: 100%; height: 100%; }
+
+.pack__title { font-size: var(--fs-lg); line-height: 1.25; margin-bottom: var(--s-3); }
+
+.pack__text { color: var(--text-2); font-size: var(--fs-sm); }
+
+.pack__list {
+  display: grid;
+  gap: var(--s-2);
+  margin-top: var(--s-4);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--border);
+}
+
+.pack__list li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+}
+
+.pack__list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 5px; height: 5px;
+  background-color: var(--accent-line);
+  border-radius: 50%;
+}
+
+/* The documents card carries a condition, and the condition is the point. */
+.pack__note {
   display: flex;
   align-items: flex-start;
   gap: var(--s-3);
-  margin-top: var(--s-3);
+  margin-top: var(--s-4);
   padding: var(--s-4);
   background-color: var(--warm-soft);
   border: 1px solid rgba(185, 114, 30, 0.22);
   border-radius: var(--r-md);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   color: var(--text-2);
 }
 
-.reg__note strong { color: var(--text); font-weight: 600; }
+.pack__note strong { color: var(--text); font-weight: 600; }
 
-.reg__note-bar {
+.pack__note-bar {
   flex: none;
   width: 3px;
   align-self: stretch;
@@ -1216,9 +1325,97 @@ p { text-wrap: pretty; }
   border-radius: var(--r-pill);
 }
 
+/* --- A qualifying note under a grid ------------------------------------------ */
+.section-note {
+  max-width: 62ch;
+  margin-top: var(--s-6);
+  padding: var(--s-4) var(--s-5);
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r-md);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.section-note strong { color: var(--text); font-weight: 600; }
+
+/* --- CTA panel ---------------------------------------------------------------- */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  margin-top: var(--block-gap);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  background-color: var(--bg-dark);
+  color: var(--text-inv);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-lg);
+}
+
+.cta__body { flex: 1 1 24rem; min-width: 0; }
+
+.cta__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+.cta__text {
+  margin-top: var(--s-3);
+  max-width: 46rem;
+  color: var(--text-inv-2);
+  font-size: var(--fs-sm);
+}
+
+.cta .btn { flex: none; }
+
+/* --- More services: four grouped lists ---------------------------------------- */
+.chips {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s-5);
+}
+
+.chips__col {
+  padding: var(--s-5);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+}
+
+.chips__h {
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-md);
+}
+
+.chips__list { display: grid; gap: var(--s-2); }
+
+.chips__list li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+.chips__list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.72em;
+  width: 7px; height: 2px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
 
 /* ==========================================================================
-   15. ABOUT
+   16. ABOUT
    ========================================================================== */
 
 .about {
@@ -1284,14 +1481,33 @@ p { text-wrap: pretty; }
   font-weight: 600;
 }
 
+.about__h    { margin-top: var(--s-5); }
 .about__text { margin-top: var(--s-5); }
 
-/* --- Why grid ---------------------------------------------------------------- */
+/* Academic background. Generic on purpose — the capability is the claim, and
+   no degree name, institution or "student" framing belongs on a services
+   page. Read the note above this section in index.html before rewording it. */
+.about__note {
+  margin-top: var(--s-6);
+  padding: var(--s-5);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--warm);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-sm);
+}
+
+.about__note-t { font-size: var(--fs-md); margin-bottom: var(--s-2); }
+
+.about__note p { color: var(--text-2); font-size: var(--fs-sm); }
+
+/* --- Why grid ----------------------------------------------------------------
+   Its own band now, six items rather than three, so it takes the section grid
+   rather than the two-up it used inside the About column. */
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--s-4);
-  margin-top: var(--s-6);
 }
 
 .why {
@@ -1308,7 +1524,7 @@ p { text-wrap: pretty; }
 
 
 /* ==========================================================================
-   16. PROCESS
+   17. PROCESS
    ========================================================================== */
 
 .steps {
@@ -1347,7 +1563,7 @@ p { text-wrap: pretty; }
 
 
 /* ==========================================================================
-   17. CONTACT & FORM
+   18. CONTACT & FORM
    ========================================================================== */
 
 .contact {
@@ -1394,6 +1610,12 @@ p { text-wrap: pretty; }
   overflow-wrap: anywhere;
 }
 
+/* The address is three lines of prose, not a value to be read at heading size. */
+.contact__v--addr {
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+}
+
 /* --- Form -------------------------------------------------------------------- */
 /* A light panel on the dark band. It must reclaim the ink explicitly, or every
    label — and every character typed — inherits the band's pale colour. */
@@ -1420,7 +1642,45 @@ p { text-wrap: pretty; }
   letter-spacing: 0.02em;
 }
 
-.field__req { color: var(--warm); }
+.field__req { color: var(--warm-ink); }
+
+.field__opt {
+  color: var(--text-3);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Empty until the script fills it, and it collapses when empty — an error slot
+   that always reserves a line puts a ragged gap under every field. */
+.field__err {
+  color: #B3261E;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.field__err:empty { display: none; }
+
+.field .is-invalid {
+  border-color: #B3261E;
+  background-color: #FEF6F5;
+}
+
+.field .is-invalid:focus {
+  border-color: #B3261E;
+  box-shadow: 0 0 0 3px rgba(179, 38, 30, 0.14);
+}
+
+/* Honeypot. Off-screen rather than display:none — a few bots skip anything
+   the CSS hides outright, and this has to look fillable to them. It carries
+   aria-hidden and tabindex="-1" in the markup, so nobody using a keyboard or
+   a screen reader can reach it. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px; height: 1px;
+  overflow: hidden;
+}
 
 .field input,
 .field textarea,
@@ -1450,15 +1710,46 @@ p { text-wrap: pretty; }
 
 .form .btn--go { margin-top: var(--s-2); }
 
+/* The one place the form speaks: idle guidance, sending, success, failure.
+   It is a live region, so whatever lands here is announced — which is why the
+   script writes a sentence rather than a status word. */
 .form__note {
   margin-top: var(--s-4);
   color: var(--text-3);
   font-size: var(--fs-xs);
 }
 
+.form__note--good {
+  padding: var(--s-4);
+  background-color: #F0FAF3;
+  color: #14603A;
+  border: 1px solid #BFE6CD;
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.form__note--bad {
+  padding: var(--s-4);
+  background-color: #FEF6F5;
+  color: #8C1D18;
+  border: 1px solid #F3C9C5;
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+/* While the request is in flight. Without this the button still looks armed
+   and a second click is the visitor's obvious next move. */
+.btn[disabled] {
+  opacity: 0.65;
+  cursor: progress;
+  transform: none;
+}
+
 
 /* ==========================================================================
-   18. FOOTER
+   19. FOOTER
    ========================================================================== */
 
 .ftr {
@@ -1483,6 +1774,34 @@ p { text-wrap: pretty; }
   color: var(--text-inv-2);
 }
 
+/* --- Social ------------------------------------------------------------------
+   Three channels the business actually answers on. Every icon here must lead
+   somewhere staffed; an unmaintained profile in a footer is worse than a gap. */
+.ftr__social {
+  display: flex;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+}
+
+.ftr__social a {
+  display: grid;
+  place-items: center;
+  width: 2.5rem; height: 2.5rem;
+  padding: 0.6rem;
+  color: var(--text-inv-2);
+  border: 1px solid var(--border-inv);
+  border-radius: var(--r-md);
+  transition: background-color var(--t), color var(--t), border-color var(--t);
+}
+
+.ftr__social a:hover {
+  background-color: var(--bg-dark-2);
+  color: var(--text-inv);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.ftr__social svg { width: 100%; height: 100%; }
+
 .ftr__cols {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1499,7 +1818,13 @@ p { text-wrap: pretty; }
   text-transform: uppercase;
 }
 
-.ftr__cols li { margin-bottom: var(--s-3); }
+/* The link, not the list item, carries the vertical padding. As plain inline
+   text these were 19px tall — under the 24px minimum pointer target, and the
+   hardest thing on the page to hit on a phone. The padding comes out of the
+   item's margin, so the footer keeps the same rhythm. */
+.ftr__cols li { margin-bottom: var(--s-1); }
+
+.ftr__cols a { display: inline-block; padding-block: 0.3rem; }
 
 .ftr__cols a,
 .ftr__static {
@@ -1528,7 +1853,7 @@ p { text-wrap: pretty; }
 
 
 /* ==========================================================================
-   19. REVEAL ON SCROLL
+   20. REVEAL ON SCROLL
    --------------------------------------------------------------------------
    Opacity and transform only. Both are composited, so this never triggers
    layout or paint and stays smooth on a mid-range phone.
@@ -1563,7 +1888,7 @@ p { text-wrap: pretty; }
 
 
 /* ==========================================================================
-   20. RESPONSIVE
+   21. RESPONSIVE
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -1572,17 +1897,14 @@ p { text-wrap: pretty; }
      first screen and pushed the h1 to y=595 and both CTAs below the fold. */
   .hero__panel { min-height: 14rem; }
 
-  .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-  .proj,
-  .proj:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
-  .proj:nth-child(even) .proj__visual,
-  .proj:nth-child(even) .proj__meta { order: 0; }
-  /* Capped and left-aligned once stacked, so it matches the student cards
-     rather than becoming a full-bleed placeholder. */
-  .proj__visual { max-width: 30rem; }
-
-  .study-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Every three-up grid on the page steps to two here, and to one at 720. */
+  .svc-grid,
+  .sol-grid,
+  .work-grid,
+  .rev-grid,
+  .pack-grid,
+  .chips,
+  .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .about { grid-template-columns: minmax(0, 1fr); }
   /* Capped but never centred, this sat hard left with 371px of dead space
@@ -1633,16 +1955,23 @@ p { text-wrap: pretty; }
   .stat:nth-child(3), .stat:nth-child(4) { border-bottom: 0; }
 
   .svc-grid,
-  .study-grid { grid-template-columns: minmax(0, 1fr); }
-
+  .sol-grid,
+  .work-grid,
+  .rev-grid,
+  .pack-grid,
+  .chips,
   .why-grid { grid-template-columns: minmax(0, 1fr); }
+
+  /* A single card at full width would run a 16:10 preview to nearly half the
+     viewport height. Cap the card, not the grid, so it stays left-aligned
+     with everything else in the band. */
+  .card { max-width: 32rem; }
 
   .steps { grid-template-columns: minmax(0, 1fr); }
   .step { border-right: 0; border-bottom: 1px solid var(--border); }
   .step:last-child { border-bottom: 0; }
 
-  .reg__row { grid-template-columns: auto minmax(0, 1fr); padding-inline: var(--s-2); }
-  .reg__mark { display: none; }
+  .cta { flex-direction: column; align-items: flex-start; }
 
   /* Once this is a column, flex-basis sizes the HEIGHT, not the width — the
      26rem/30rem bases below were forcing every section head to 912px tall and
@@ -1675,13 +2004,19 @@ p { text-wrap: pretty; }
   /* One column: the email fits on a line instead of breaking mid-address. */
   .ftr__cols { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
 
-  .reg__row { padding-inline: 0; gap: var(--s-3) var(--s-4); }
+  /* A shrink-wrapped button in a stacked panel reads as unfinished. */
+  .cta .btn { width: 100%; }
 
   .form { padding: var(--s-4); }
   .about__stamp { padding: var(--s-5); }
+  .about__note { padding: var(--s-4); }
   .hero__panel { padding: var(--s-5); }
   .contact__item { padding: var(--s-4); }
-  .proj__ph { padding-inline: var(--s-3); }
+  .card__body { padding: var(--s-4); }
+  .card__ph { padding-inline: var(--s-3); }
+  .pack,
+  .rev { padding: var(--s-5) var(--s-4); }
+  .section-note { padding: var(--s-4); }
 }
 
 /* Touch: nothing to hover, so the lift states are removed rather than left
@@ -1689,17 +2024,17 @@ p { text-wrap: pretty; }
 @media (hover: none) {
   .btn:hover,
   .svc:hover,
-  .study:hover,
-  .proj__visual:hover,
+  .card:hover,
   .contact__item:hover { transform: none; }
 
-  .study:hover .study__device { transform: none; }
+  .card:hover .card__device { transform: none; }
+  .card:hover .card__go { transform: none; }
   .svc:hover .svc__go { transform: none; }
 }
 
 
 /* ==========================================================================
-   21. MOTION PREFERENCES
+   22. MOTION PREFERENCES
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {

@@ -2,8 +2,9 @@
 <!--
   DA Infotech sitemap.
 
-  BEFORE DEPLOY: replace YOUR-DOMAIN with the live origin. Sitemaps require
-  absolute URLs, so a relative path here is silently discarded by crawlers.
+  The origin here must match the canonical link in index.html and the Sitemap
+  line in robots.txt. Sitemaps require absolute URLs, so a relative path is
+  silently discarded by crawlers.
 
   The site is a single page; the in-page anchors are navigation, not separate
   documents, and listing them would be duplicate-content noise. When real
@@ -14,7 +15,7 @@
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-DOMAIN/</loc>
+    <loc>https://da-infotech-website.vercel.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>

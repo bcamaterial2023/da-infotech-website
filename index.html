@@ -11,8 +11,41 @@
        ever hidden, and the page renders complete. -->
   <script>document.documentElement.classList.add('js');</script>
 
-  <title>DA Infotech — Web, Apps, AI · Porbandar, Gujarat</title>
-  <meta name="description" content="DA Infotech builds websites, software, mobile apps and AI automation for businesses — and supports students with academic projects, documentation and internships.">
+  <title>DA Infotech — Web Development, Website Management, SEO &amp; Digital Services</title>
+  <meta name="description" content="Professional web development, website management, SEO, analytics, security and career document services for businesses and professionals. Based in Porbandar, Gujarat.">
+  <meta name="keywords" content="web development, website management, website maintenance, SEO services, Google Search Console, Google Analytics, website security, firewall support, domain and hosting, responsive web design, ATS resume, resume formatting, PDF editing, Porbandar, Gujarat">
+  <meta name="author" content="DA Infotech">
+  <meta name="robots" content="index, follow">
+
+  <!-- CANONICAL — swap the origin here, in sitemap.xml and in robots.txt the
+       day a custom domain replaces the Vercel one. -->
+  <link rel="canonical" href="https://da-infotech-website.vercel.app/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DA Infotech">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://da-infotech-website.vercel.app/">
+  <meta property="og:title" content="DA Infotech — Web Development, Website Management, SEO &amp; Digital Services">
+  <meta property="og:description" content="Professional web development, website management, SEO, analytics, security and career document services. Based in Porbandar, Gujarat.">
+  <!-- SHARE IMAGE — supply assets/images/og-cover.png at 1200x630, then
+       uncomment. Left out rather than pointed at a file that does not exist:
+       a 404 here is what most platforms render as a broken card.
+  <meta property="og:image" content="https://da-infotech-website.vercel.app/assets/images/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DA Infotech — digital solutions, Porbandar, Gujarat">
+  -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DA Infotech — Web Development, Website Management, SEO &amp; Digital Services">
+  <meta name="twitter:description" content="Professional web development, website management, SEO, analytics, security and career document services. Based in Porbandar, Gujarat.">
+
+  <!-- GOOGLE SEARCH CONSOLE — Search Console → Add property → HTML tag will
+       give you a content value. Paste it in and uncomment. Nothing here is
+       connected until you do; the tag below is a placeholder, not a
+       verification.
+  <meta name="google-site-verification" content="PASTE-VERIFICATION-TOKEN-HERE">
+  -->
 
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 
@@ -22,6 +55,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- Structured data. Every value below is a fact from the business record —
+       do not add ratings, review counts or awards here that the page cannot
+       evidence, because that is exactly what Google penalises. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DA Infotech",
+    "description": "Web development, website management, SEO, analytics, website security, hosting support and career document services.",
+    "url": "https://da-infotech-website.vercel.app/",
+    "email": "dainfotech7@gmail.com",
+    "telephone": "+91-91043-77310",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "First Floor, Nebhani Seri, Kadachh",
+      "addressLocality": "Porbandar",
+      "addressRegion": "Gujarat",
+      "postalCode": "362230",
+      "addressCountry": "IN"
+    },
+    "areaServed": "IN",
+    "knowsAbout": [
+      "Web Development",
+      "Website Management",
+      "Search Engine Optimization",
+      "Google Analytics",
+      "Google Search Console",
+      "Website Security",
+      "Domain and Hosting",
+      "Resume and Document Services"
+    ]
+  }
+  </script>
+
+  <!-- GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with the Measurement ID from
+       Analytics → Admin → Data Streams, then uncomment both lines. Leaving it
+       commented means the site currently sends nothing to Google; that is the
+       honest state until you paste a real ID.
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
 </head>
 
 <body>
@@ -33,18 +113,18 @@
   <div class="marquee marquee--go" aria-hidden="true">
     <div class="marquee__track">
       <div class="marquee__group">
-        <span>Web</span><span class="marquee__star">✦</span>
-        <span>Apps</span><span class="marquee__star">✦</span>
-        <span>AI &amp; Automation</span><span class="marquee__star">✦</span>
+        <span>Web Development</span><span class="marquee__star">✦</span>
+        <span>Website Management</span><span class="marquee__star">✦</span>
+        <span>SEO &amp; Analytics</span><span class="marquee__star">✦</span>
+        <span>Website Security</span><span class="marquee__star">✦</span>
         <span>Porbandar · Gujarat</span><span class="marquee__star">✦</span>
-        <span>Student Projects</span><span class="marquee__star">✦</span>
       </div>
       <div class="marquee__group">
-        <span>Web</span><span class="marquee__star">✦</span>
-        <span>Apps</span><span class="marquee__star">✦</span>
-        <span>AI &amp; Automation</span><span class="marquee__star">✦</span>
+        <span>Web Development</span><span class="marquee__star">✦</span>
+        <span>Website Management</span><span class="marquee__star">✦</span>
+        <span>SEO &amp; Analytics</span><span class="marquee__star">✦</span>
+        <span>Website Security</span><span class="marquee__star">✦</span>
         <span>Porbandar · Gujarat</span><span class="marquee__star">✦</span>
-        <span>Student Projects</span><span class="marquee__star">✦</span>
       </div>
     </div>
   </div>
@@ -63,11 +143,15 @@
 
         <nav class="nav" id="nav" aria-label="Primary" data-nav>
           <ul class="nav__list">
-            <li class="nav__item"><a class="nav__link" href="#services">Services</a></li>
-            <li class="nav__item"><a class="nav__link" href="#work">Work</a></li>
-            <li class="nav__item"><a class="nav__link" href="#students">Students</a></li>
             <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
-            <li class="nav__item"><a class="nav__link" href="#process">Process</a></li>
+            <li class="nav__item"><a class="nav__link" href="#services">Services</a></li>
+            <li class="nav__item"><a class="nav__link" href="#solutions">Digital Solutions</a></li>
+            <li class="nav__item"><a class="nav__link" href="#work">Work</a></li>
+            <!-- REVIEWS NAV — uncomment together with the Client Reviews
+                 section further down the page.
+            <li class="nav__item"><a class="nav__link" href="#reviews">Reviews</a></li>
+            -->
+            <li class="nav__item"><a class="nav__link" href="#career">Career</a></li>
             <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -91,6 +175,12 @@
 
     <!-- ========================================================
          HERO
+         --------------------------------------------------------
+         The panel on the right is not decoration and not an empty
+         slot: it draws the two things the studio actually ships —
+         a site and an app — in the same browser frame and phone
+         body used by the Work cards below, plus the automation
+         flow. It previews the page rather than filling space.
          ======================================================== -->
     <section class="band hero">
       <div class="wrap">
@@ -99,36 +189,50 @@
           <div>
             <div class="hero__tags" data-reveal>
               <span class="label label--madder">Porbandar · Gujarat</span>
-              <span class="label label--paper">Web · Apps · AI</span>
+              <span class="label label--paper">Since day one, in-house</span>
             </div>
 
             <h1 class="hero__title" data-reveal>
-              <span class="hero__line">We build</span>
+              <span class="hero__line">Professional</span>
               <span class="hero__line"><span class="hero__line--go">digital</span></span>
-              <span class="hero__line"><span class="hero__line--ink">things.</span></span>
+              <span class="hero__line"><span class="hero__line--ink">solutions.</span></span>
             </h1>
 
             <p class="lead hero__lead muted" data-reveal>
-              Websites, mobile apps, AI automation and digital marketing —
-              built around how a business actually runs. And for students:
-              real projects, real documentation, real experience.
+              Web development, website management, SEO, analytics, security,
+              hosting support and career documents — delivered by one team, in
+              one place, for businesses that need the work done properly.
             </p>
 
             <div class="hero__actions" data-reveal>
-              <a class="btn btn--lg btn--go" href="#contact">
-                Start a Project
+              <a class="btn btn--lg btn--go" href="#services">
+                Explore Services
                 <svg viewBox="0 0 16 16" aria-hidden="true">
                   <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor"
                         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
-              <a class="btn btn--lg" href="#work">See the Work</a>
+              <a class="btn btn--lg" href="#contact">Contact Us</a>
             </div>
+
+            <ul class="hero__points" role="list" data-reveal>
+              <li>
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Built, deployed and maintained in-house
+              </li>
+              <li>
+                <svg viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Scope, timeline and price agreed in writing
+              </li>
+            </ul>
           </div>
 
-          <!-- What the studio actually ships: a site and an app, drawn with the
-               same browser frame and phone body used in Work and Students
-               below, so the hero previews the page instead of decorating it. -->
           <div class="hero__panel pat-ajrakh" aria-hidden="true" data-reveal>
             <svg class="hero__art" viewBox="0 0 320 250" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
@@ -145,6 +249,9 @@
                 <circle cx="42" cy="29" r="2.75" fill="#D5D7DC"/>
                 <rect x="54" y="24" width="176" height="11" rx="5.5"
                       fill="#FFFFFF" stroke="#E7E8EB" stroke-width="1.5"/>
+                <!-- The padlock in the address bar: HTTPS is a service here. -->
+                <path d="M62 27.5h4v4h-4v-4Zm0.7-0.6v-1a1.3 1.3 0 0 1 2.6 0v1"
+                      stroke="#2B45C4" stroke-width="1.1" stroke-linejoin="round"/>
 
                 <!-- Page content -->
                 <rect x="24" y="58" width="74" height="9" rx="4.5" fill="#2B45C4"/>
@@ -194,19 +301,19 @@
         <div class="stats" data-reveal-group>
           <div class="stat" data-reveal>
             <p class="stat__num">03</p>
-            <p class="stat__label">Live client sites</p>
+            <p class="stat__label">Live client websites</p>
           </div>
           <div class="stat" data-reveal>
-            <p class="stat__num">03</p>
-            <p class="stat__label">Student apps built</p>
+            <p class="stat__num">06</p>
+            <p class="stat__label">Projects delivered</p>
           </div>
           <div class="stat" data-reveal>
-            <p class="stat__num">04</p>
-            <p class="stat__label">Service lines</p>
+            <p class="stat__num">09</p>
+            <p class="stat__label">Core service areas</p>
           </div>
           <div class="stat" data-reveal>
-            <p class="stat__num">04</p>
-            <p class="stat__label">Student streams · BCA, MCA, MSc(IT), CE</p>
+            <p class="stat__num">20<span class="stat__plus">+</span></p>
+            <p class="stat__label">Services offered</p>
           </div>
         </div>
       </div>
@@ -215,572 +322,35 @@
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
         <div class="marquee__group">
+          <span>HTML</span><span class="marquee__star">✦</span>
+          <span>CSS</span><span class="marquee__star">✦</span>
+          <span>JavaScript</span><span class="marquee__star">✦</span>
           <span>Flutter</span><span class="marquee__star">✦</span>
-          <span>React</span><span class="marquee__star">✦</span>
-          <span>Node</span><span class="marquee__star">✦</span>
-          <span>Python</span><span class="marquee__star">✦</span>
+          <span>Dart</span><span class="marquee__star">✦</span>
           <span>Firebase</span><span class="marquee__star">✦</span>
-          <span>Supabase</span><span class="marquee__star">✦</span>
+          <span>Python</span><span class="marquee__star">✦</span>
           <span>SQL</span><span class="marquee__star">✦</span>
-          <span>Java</span><span class="marquee__star">✦</span>
         </div>
         <div class="marquee__group">
+          <span>HTML</span><span class="marquee__star">✦</span>
+          <span>CSS</span><span class="marquee__star">✦</span>
+          <span>JavaScript</span><span class="marquee__star">✦</span>
           <span>Flutter</span><span class="marquee__star">✦</span>
-          <span>React</span><span class="marquee__star">✦</span>
-          <span>Node</span><span class="marquee__star">✦</span>
-          <span>Python</span><span class="marquee__star">✦</span>
+          <span>Dart</span><span class="marquee__star">✦</span>
           <span>Firebase</span><span class="marquee__star">✦</span>
-          <span>Supabase</span><span class="marquee__star">✦</span>
+          <span>Python</span><span class="marquee__star">✦</span>
           <span>SQL</span><span class="marquee__star">✦</span>
-          <span>Java</span><span class="marquee__star">✦</span>
         </div>
       </div>
     </div>
-
-    <!-- ========================================================
-         SERVICES
-         ======================================================== -->
-    <section class="band band--paper-deep" id="services" aria-labelledby="services-t">
-      <div class="wrap">
-
-        <header class="head" data-reveal>
-          <span class="label">01 — What We Build</span>
-          <div class="head__row">
-            <h2 class="xxl head__title" id="services-t">Four things.<br>Done properly.</h2>
-            <p class="head__lead muted">
-              Each one starts with the business problem, not the technology.
-            </p>
-          </div>
-        </header>
-
-        <ol class="svc-grid" role="list" data-reveal-group>
-
-          <li class="svc" data-reveal>
-            <div class="svc__top">
-              <span class="svc__mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                     stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="5" y="8" width="30" height="24"/>
-                  <path d="M5 15h30"/>
-                  <path d="M17 21.5 13.5 25l3.5 3.5M23 21.5 26.5 25 23 28.5"/>
-                </svg>
-              </span>
-              <span class="svc__num" aria-hidden="true">01</span>
-            </div>
-            <h3 class="svc__title"><a href="#contact">Web &amp;<br>Software</a></h3>
-            <p class="svc__text">
-              Websites, web apps and internal tools, built around how your
-              business actually runs.
-            </p>
-            <p class="svc__go">Talk to us →</p>
-          </li>
-
-          <li class="svc" data-reveal>
-            <div class="svc__top">
-              <span class="svc__mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                     stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="12.5" y="5" width="15" height="30"/>
-                  <path d="M18 9.5h4M20 30h.01"/>
-                  <path d="M31 14a8.5 8.5 0 0 1 0 12M35 10.5a13.5 13.5 0 0 1 0 19"/>
-                </svg>
-              </span>
-              <span class="svc__num" aria-hidden="true">02</span>
-            </div>
-            <h3 class="svc__title"><a href="#contact">Mobile<br>Apps</a></h3>
-            <p class="svc__text">
-              Apps for your customers and apps for your team — built to be
-              used daily, not just installed.
-            </p>
-            <p class="svc__go">Talk to us →</p>
-          </li>
-
-          <li class="svc" data-reveal>
-            <div class="svc__top">
-              <span class="svc__mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                     stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="13" y="13" width="14" height="14"/>
-                  <circle cx="20" cy="20" r="2.5"/>
-                  <path d="M17 13V7.5M23 13V7.5M17 27v5.5M23 27v5.5M13 17H7.5M13 23H7.5M27 17h5.5M27 23h5.5"/>
-                </svg>
-              </span>
-              <span class="svc__num" aria-hidden="true">03</span>
-            </div>
-            <h3 class="svc__title"><a href="#contact">AI &amp;<br>Automation</a></h3>
-            <p class="svc__text">
-              The repetitive work your team does by hand, handled by software
-              instead.
-            </p>
-            <p class="svc__go">Talk to us →</p>
-          </li>
-
-          <li class="svc" data-reveal>
-            <div class="svc__top">
-              <span class="svc__mark" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                     stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 29.5 14 21.5l6 5 12.5-13.5"/>
-                  <path d="M26.5 13h6.5v6.5"/>
-                  <path d="M6 34.5h28"/>
-                </svg>
-              </span>
-              <span class="svc__num" aria-hidden="true">04</span>
-            </div>
-            <h3 class="svc__title"><a href="#contact">Digital<br>Marketing</a></h3>
-            <p class="svc__text">
-              Get found by the people already looking for what you sell, and
-              turn that attention into enquiries.
-            </p>
-            <p class="svc__go">Talk to us →</p>
-          </li>
-
-        </ol>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         SELECTED WORK
-         --------------------------------------------------------
-         SCREENSHOTS: none supplied. Same convention as index.html —
-         a drawn placeholder, and a commented slot for real captures.
-         Nothing here imitates a screenshot.
-         ======================================================== -->
-    <section class="band" id="work" aria-labelledby="work-t">
-      <div class="wrap">
-
-        <header class="head" data-reveal>
-          <span class="label label--marigold">02 — Selected Work</span>
-          <div class="head__row">
-            <h2 class="xxl head__title" id="work-t">Real businesses.<br>Live sites.</h2>
-            <p class="head__lead muted">
-              Three websites built for manufacturers in the industrial sector.
-              Open them yourself.
-            </p>
-          </div>
-        </header>
-
-        <ol class="work-list" role="list">
-
-          <li class="proj" data-reveal-group>
-            <a data-reveal class="proj__visual" href="https://porbandarchalkpowder.com/"
-               target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <span class="proj__chrome">
-                <span class="proj__dots" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span class="proj__url">porbandarchalkpowder.com</span>
-              </span>
-              <span class="proj__shot pat-ajrakh">
-                <!-- SCREENSHOT SLOT — uncomment and supply the files at
-                     1600x1000 and 800x500.
-                <img class="proj__img" src="assets/images/porbandar-chalk-powder-1600.webp"
-                     alt="Porbandar Chalk Powder website" width="1600" height="1000"
-                     loading="lazy" decoding="async">
-                -->
-                <span class="proj__ph">
-                  <span class="proj__mono">PCP</span>
-                  <span class="proj__domain">porbandarchalkpowder.com</span>
-                </span>
-              </span>
-            </a>
-
-            <div class="proj__meta" data-reveal>
-              <p class="proj__count" aria-hidden="true">01</p>
-              <span class="tag">Industrial · Manufacturing</span>
-              <h3 class="proj__name">Porbandar<br>Chalk Powder</h3>
-              <p class="proj__text">
-                A calcium carbonate and gypsum producer. Every grade sits beside
-                the industries it serves, so buyers match specification to
-                application before they call.
-              </p>
-              <a class="btn btn--go" href="https://porbandarchalkpowder.com/"
-                 target="_blank" rel="noopener noreferrer">
-                View Project
-                <span class="sr-only">— Porbandar Chalk Powder, opens in a new tab</span>
-                <svg viewBox="0 0 16 16" aria-hidden="true">
-                  <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5" fill="none"
-                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </li>
-
-          <li class="proj" data-reveal-group>
-            <a data-reveal class="proj__visual" href="https://hl3rubber.com/"
-               target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <span class="proj__chrome">
-                <span class="proj__dots" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span class="proj__url">hl3rubber.com</span>
-              </span>
-              <span class="proj__shot pat-ajrakh">
-                <!-- SCREENSHOT SLOT — see project 01 above. -->
-                <span class="proj__ph">
-                  <span class="proj__mono">HL3</span>
-                  <span class="proj__domain">hl3rubber.com</span>
-                </span>
-              </span>
-            </a>
-
-            <div class="proj__meta" data-reveal>
-              <p class="proj__count" aria-hidden="true">02</p>
-              <span class="tag">Industrial · Engineering</span>
-              <h3 class="proj__name">HL3<br>Rubber</h3>
-              <p class="proj__text">
-                A manufacturer of fire-retardant rubber compounds and profiles.
-                The site leads with the specifications buyers screen on, then
-                the sectors it supplies — rail, transit and construction.
-              </p>
-              <a class="btn btn--go" href="https://hl3rubber.com/"
-                 target="_blank" rel="noopener noreferrer">
-                View Project
-                <span class="sr-only">— HL3 Rubber, opens in a new tab</span>
-                <svg viewBox="0 0 16 16" aria-hidden="true">
-                  <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5" fill="none"
-                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </li>
-
-          <li class="proj" data-reveal-group>
-            <a data-reveal class="proj__visual" href="http://gayatrirubberchemicals.com/"
-               target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <span class="proj__chrome">
-                <span class="proj__dots" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span class="proj__url">gayatrirubberchemicals.com</span>
-              </span>
-              <span class="proj__shot pat-ajrakh">
-                <!-- SCREENSHOT SLOT — see project 01 above. -->
-                <span class="proj__ph">
-                  <span class="proj__mono">GRC</span>
-                  <span class="proj__domain">gayatrirubberchemicals.com</span>
-                </span>
-              </span>
-            </a>
-
-            <div class="proj__meta" data-reveal>
-              <p class="proj__count" aria-hidden="true">03</p>
-              <span class="tag">Industrial · Manufacturing</span>
-              <h3 class="proj__name">Gayatri Rubbers<br>&amp; Chemicals</h3>
-              <p class="proj__text">
-                An engineered rubber components manufacturer — profiles, seals,
-                gaskets and mouldings. Organised by product family, and by the
-                approvals buyers ask about first.
-              </p>
-              <a class="btn btn--go" href="http://gayatrirubberchemicals.com/"
-                 target="_blank" rel="noopener noreferrer">
-                View Project
-                <span class="sr-only">— Gayatri Rubbers and Chemicals, opens in a new tab</span>
-                <svg viewBox="0 0 16 16" aria-hidden="true">
-                  <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5" fill="none"
-                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </li>
-
-        </ol>
-      </div>
-    </section>
-
-    <div class="marquee marquee--red marquee--rev" aria-hidden="true">
-      <div class="marquee__track">
-        <div class="marquee__group">
-          <span>BCA · MCA Projects</span><span class="marquee__star">✦</span>
-          <span>Documentation</span><span class="marquee__star">✦</span>
-          <span>Internships</span><span class="marquee__star">✦</span>
-          <span>Resume &amp; Portfolio</span><span class="marquee__star">✦</span>
-        </div>
-        <div class="marquee__group">
-          <span>BCA · MCA Projects</span><span class="marquee__star">✦</span>
-          <span>Documentation</span><span class="marquee__star">✦</span>
-          <span>Internships</span><span class="marquee__star">✦</span>
-          <span>Resume &amp; Portfolio</span><span class="marquee__star">✦</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========================================================
-         STUDENT PROJECTS
-         ======================================================== -->
-    <section class="band band--paper-deep" id="students" aria-labelledby="students-t">
-      <div class="wrap">
-
-        <header class="head" data-reveal>
-          <span class="label label--peacock">03 — Student Projects</span>
-          <div class="head__row">
-            <h2 class="xxl head__title" id="students-t">Academic work,<br>built like products.</h2>
-            <p class="head__lead muted">
-              Flutter applications developed as student projects — the same
-              build discipline as the client work above, scaled to an academic
-              submission.
-            </p>
-          </div>
-        </header>
-
-        <ol class="study-grid" role="list" data-reveal-group>
-
-          <li class="study" data-reveal>
-            <div class="study__preview pat-ajrakh" aria-hidden="true">
-              <span class="study__device">
-                <span class="study__notch"></span>
-                <span class="study__screen">
-                  <span class="study__media">
-                    <!-- SCREENSHOT SLOT — app screen at 540x1140.
-                    <img class="study__img" src="assets/images/chatapp-540.webp"
-                         alt="ChatApp running on a phone" width="540" height="1140"
-                         loading="lazy" decoding="async">
-                    -->
-                    <span class="study__ph">
-                      <span class="study__mono">CA</span>
-                      <span class="study__plat">Flutter</span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </div>
-            <div class="study__body">
-              <span class="label label--madder">Student Project</span>
-              <h3 class="study__name">ChatApp</h3>
-              <p class="study__cat">Mobile App · Flutter</p>
-              <p class="study__text">
-                A real-time chat application. User authentication, one-to-one
-                conversations and a clean mobile interface, put together for a
-                smooth messaging experience.
-              </p>
-              <p class="study__stack">
-                <span class="sr-only">Built with: </span>Flutter · Dart · Firebase
-              </p>
-            </div>
-          </li>
-
-          <li class="study" data-reveal>
-            <div class="study__preview pat-ajrakh" aria-hidden="true">
-              <span class="study__device">
-                <span class="study__notch"></span>
-                <span class="study__screen">
-                  <span class="study__media">
-                    <!-- SCREENSHOT SLOT — see project 01 above. -->
-                    <span class="study__ph">
-                      <span class="study__mono">PDF</span>
-                      <span class="study__plat">Flutter</span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </div>
-            <div class="study__body">
-              <span class="label label--madder">Student Project</span>
-              <h3 class="study__name">PDF Magic Studio</h3>
-              <p class="study__cat">Mobile App · Flutter</p>
-              <p class="study__text">
-                A PDF utility app. It handles the everyday document jobs behind
-                a simple, uncluttered mobile interface.
-              </p>
-              <p class="study__stack">
-                <span class="sr-only">Built with: </span>Flutter · Dart · PDF Tools · Firebase
-              </p>
-            </div>
-          </li>
-
-          <li class="study" data-reveal>
-            <div class="study__preview pat-ajrakh" aria-hidden="true">
-              <span class="study__device">
-                <span class="study__notch"></span>
-                <span class="study__screen">
-                  <span class="study__media">
-                    <!-- SCREENSHOT SLOT — see project 01 above. -->
-                    <span class="study__ph">
-                      <span class="study__mono">VM</span>
-                      <span class="study__plat">Flutter</span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </div>
-            <div class="study__body">
-              <span class="label label--madder">Student Project</span>
-              <h3 class="study__name">VedaMrita</h3>
-              <p class="study__cat">Mobile App · Flutter</p>
-              <p class="study__text">
-                An app for spiritual and knowledge-based content. The reading
-                experience comes first: content stays accessible, and the
-                interface stays out of its way.
-              </p>
-              <p class="study__stack">
-                <span class="sr-only">Built with: </span>Flutter · Dart · Firebase
-              </p>
-            </div>
-          </li>
-
-        </ol>
-      </div>
-    </section>
-
-    <!-- ========================================================
-         STUDENT SERVICES
-         --------------------------------------------------------
-         ITEM 04 — read the copy before editing it. It says the
-         documents follow a real engagement, and only a real
-         engagement. It must never be shortened into a promise of
-         letters on their own: that would read as selling
-         employment documents, which is a different business and
-         not this one. The striped note is load-bearing.
-         ======================================================== -->
-    <section class="band" id="student-services" aria-labelledby="ss-t">
-      <div class="wrap">
-
-        <header class="head" data-reveal>
-          <span class="label label--marigold">04 — Student Support</span>
-          <div class="head__row">
-            <h2 class="xxl head__title" id="ss-t">Build your project.<br>Build your career.</h2>
-            <p class="head__lead muted">
-              We help students turn academic requirements into practical,
-              real-world projects — from development and documentation through
-              to internship support and the career documents that follow.
-            </p>
-          </div>
-        </header>
-
-        <ol class="reg" role="list" data-reveal-group>
-
-          <li class="reg__row" data-reveal>
-            <span class="reg__num" aria-hidden="true">01</span>
-            <div class="reg__body">
-              <h3 class="reg__title"><a href="#contact">Student Project Development</a></h3>
-              <p class="reg__text">
-                BCA, MCA and other computer-stream projects, built with the
-                technologies your syllabus and your career both care about —
-                Flutter, Dart, Firebase, HTML, CSS, JavaScript, Python, Java and SQL.
-              </p>
-            </div>
-            <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 8 4.5 15 20 22l15.5-7L20 8Z"/>
-                <path d="M11 18.4v7.1c0 2.7 4 4.9 9 4.9s9-2.2 9-4.9v-7.1"/>
-                <path d="M33.2 16.6v8.2"/>
-              </svg>
-            </span>
-          </li>
-
-          <li class="reg__row" data-reveal>
-            <span class="reg__num" aria-hidden="true">02</span>
-            <div class="reg__body">
-              <h3 class="reg__title"><a href="#contact">Project Documentation</a></h3>
-              <p class="reg__text">
-                Project reports, presentations, database design and diagrams —
-                the paperwork the submission is actually marked on.
-              </p>
-            </div>
-            <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 8.5A2.5 2.5 0 0 1 12.5 6H22l8 8v17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 10 31.5v-23Z"/>
-                <path d="M22 6v8h8"/>
-                <path d="M15 20.5h10M15 25.5h7"/>
-              </svg>
-            </span>
-          </li>
-
-          <li class="reg__row" data-reveal>
-            <span class="reg__num" aria-hidden="true">03</span>
-            <div class="reg__body">
-              <h3 class="reg__title"><a href="#contact">Internship Support</a></h3>
-              <p class="reg__text">
-                Guidance and hands-on development work for students who want
-                practical experience, not just a certificate.
-              </p>
-            </div>
-            <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="15" cy="13.5" r="4.5"/>
-                <path d="M7 30c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
-                <circle cx="28.5" cy="16.5" r="3.4"/>
-                <path d="M23.5 30c0-3.3 2.2-6 5-6s5 2.7 5 6"/>
-              </svg>
-            </span>
-          </li>
-
-          <li class="reg__row" data-reveal>
-            <span class="reg__num" aria-hidden="true">04</span>
-            <div class="reg__body">
-              <h3 class="reg__title"><a href="#contact">Genuine Internship &amp; Career Documents</a></h3>
-              <p class="reg__text">
-                Students who complete an actual internship or employment
-                engagement with us may receive the appropriate company-issued
-                documents for it — internship letter, offer letter, completion
-                certificate or experience letter.
-              </p>
-              <p class="reg__note">
-                <span class="reg__note-bar" aria-hidden="true"></span>
-                <span>
-                  <strong>Issued on the strength of the engagement, and only
-                  that.</strong> We do not sell letters, and we do not issue a
-                  document for work that did not happen.
-                </span>
-              </p>
-            </div>
-            <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5.5" y="7.5" width="23" height="17"/>
-                <path d="M10.5 13.5h13M10.5 18.5h8"/>
-                <circle cx="28.5" cy="26" r="5.5"/>
-                <path d="M25 30.4V36l3.5-2.2L32 36v-5.6"/>
-              </svg>
-            </span>
-          </li>
-
-          <li class="reg__row" data-reveal>
-            <span class="reg__num" aria-hidden="true">05</span>
-            <div class="reg__body">
-              <h3 class="reg__title"><a href="#contact">Portfolio &amp; Resume Support</a></h3>
-              <p class="reg__text">
-                A student portfolio worth sending: GitHub presented properly,
-                an ATS-ready resume, and project write-ups a recruiter can read.
-              </p>
-            </div>
-            <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="12" width="30" height="21"/>
-                <path d="M15 12V9.5A2.5 2.5 0 0 1 17.5 7h5A2.5 2.5 0 0 1 25 9.5V12"/>
-                <path d="M5 20.5h11M24 20.5h11"/>
-                <rect x="16" y="18" width="8" height="5"/>
-              </svg>
-            </span>
-          </li>
-
-          <li class="reg__row" data-reveal>
-            <span class="reg__num" aria-hidden="true">06</span>
-            <div class="reg__body">
-              <h3 class="reg__title"><a href="#contact">Project Guidance &amp; Deployment</a></h3>
-              <p class="reg__text">
-                GitHub, Firebase, Supabase, hosting, deployment and testing —
-                and a walkthrough of your own project, so the viva holds no
-                surprises.
-              </p>
-            </div>
-            <span class="reg__mark" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12.5 24h16a6 6 0 0 0 .7-11.96A9 9 0 0 0 11.9 10.4 6.8 6.8 0 0 0 12.5 24Z"/>
-                <path d="M20 35V27"/>
-                <path d="M16.2 30.8 20 27l3.8 3.8"/>
-              </svg>
-            </span>
-          </li>
-
-        </ol>
-      </div>
-    </section>
 
     <!-- ========================================================
          ABOUT
+         --------------------------------------------------------
+         ACADEMIC BACKGROUND: generic by design. No degree name,
+         no institution, no "student" framing goes on this page.
+         The capability is the claim; the certificate is not the
+         visitor's business.
          ======================================================== -->
     <section class="band band--paper-deep" id="about" aria-labelledby="about-t">
       <div class="wrap">
@@ -795,29 +365,25 @@
           </div>
 
           <div>
-            <span class="label label--marigold">05 — About</span>
-            <h2 class="xl" id="about-t" style="margin-top:var(--s-5)">
-              A digital studio in Porbandar, Gujarat.
+            <span class="label label--marigold">About</span>
+            <h2 class="xl about__h" id="about-t">
+              A technology studio built around delivery.
             </h2>
-            <p class="about__text muted" style="margin-top:var(--s-5)">
-              We build websites, software, mobile applications and AI automation
-              for businesses — and we help students turn coursework into
-              projects worth showing.
+            <p class="about__text muted">
+              DA Infotech designs, builds, secures and maintains websites and
+              digital systems for businesses and professionals. Work is handled
+              in-house from the first conversation through to deployment and
+              ongoing support — the same people plan it, build it and answer the
+              phone afterwards.
             </p>
 
-            <div class="why-grid" data-reveal-group>
-              <div class="why" data-reveal>
-                <h3 class="why__title">Direct contact</h3>
-                <p class="why__text">You talk to the people building it. No account layer in between.</p>
-              </div>
-              <div class="why" data-reveal>
-                <h3 class="why__title">Local, reachable</h3>
-                <p class="why__text">Based in Porbandar. Meet us, call us, or find us on WhatsApp.</p>
-              </div>
-              <div class="why" data-reveal>
-                <h3 class="why__title">Built to be used</h3>
-                <p class="why__text">Shipped and working beats designed and pending, every time.</p>
-              </div>
+            <div class="about__note" data-reveal>
+              <h3 class="about__note-t">Academic Background</h3>
+              <p>
+                Strong academic foundation in computer applications, information
+                technology, software development and modern digital
+                technologies — applied to client work rather than left on paper.
+              </p>
             </div>
           </div>
         </div>
@@ -826,13 +392,952 @@
     </section>
 
     <!-- ========================================================
-         PROCESS
+         SERVICES — the build side
          ======================================================== -->
-    <section class="band" id="process" aria-labelledby="process-t">
+    <section class="band" id="services" aria-labelledby="services-t">
       <div class="wrap">
 
         <header class="head" data-reveal>
-          <span class="label">06 — Process</span>
+          <span class="label">Services</span>
+          <div class="head__row">
+            <h2 class="xxl head__title" id="services-t">What we build,<br>and keep running.</h2>
+            <p class="head__lead muted">
+              Every engagement starts with the business problem, not the
+              technology. Then it gets built, deployed and looked after.
+            </p>
+          </div>
+        </header>
+
+        <ol class="svc-grid" role="list" data-reveal-group>
+
+          <li class="svc" data-reveal>
+            <span class="svc__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="8" width="30" height="24"/>
+                <path d="M5 15h30"/>
+                <path d="M17 21.5 13.5 25l3.5 3.5M23 21.5 26.5 25 23 28.5"/>
+              </svg>
+            </span>
+            <h3 class="svc__title"><a href="#contact">Website Development</a></h3>
+            <p class="svc__text">
+              Professional, responsive websites for businesses, organisations
+              and individuals — built to be found, read and acted on.
+            </p>
+            <p class="svc__go">Enquire →</p>
+          </li>
+
+          <li class="svc" data-reveal>
+            <span class="svc__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="20" cy="20" r="5.5"/>
+                <path d="M20 6v3.5M20 30.5V34M6 20h3.5M30.5 20H34M10.1 10.1l2.5 2.5M27.4 27.4l2.5 2.5M29.9 10.1l-2.5 2.5M12.6 27.4l-2.5 2.5"/>
+              </svg>
+            </span>
+            <h3 class="svc__title"><a href="#contact">Website Management</a></h3>
+            <p class="svc__text">
+              Content updates, page changes, bug fixes and ongoing support, so
+              the site does not quietly go stale after launch.
+            </p>
+            <p class="svc__go">Enquire →</p>
+          </li>
+
+          <li class="svc" data-reveal>
+            <span class="svc__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="8" width="21" height="15" rx="1.5"/>
+                <path d="M9.5 30h9M14 23v7"/>
+                <rect x="28" y="14" width="9" height="17" rx="2"/>
+                <path d="M31 28.5h3"/>
+              </svg>
+            </span>
+            <h3 class="svc__title"><a href="#contact">Responsive Design</a></h3>
+            <p class="svc__text">
+              One site that holds together on a desktop, a tablet and a phone —
+              tested at real widths, not shrunk to fit.
+            </p>
+            <p class="svc__go">Enquire →</p>
+          </li>
+
+          <li class="svc" data-reveal>
+            <span class="svc__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 28a15 15 0 1 1 27 0"/>
+                <path d="M20 28l7.5-9.5"/>
+                <circle cx="20" cy="28" r="2.2"/>
+              </svg>
+            </span>
+            <h3 class="svc__title"><a href="#contact">Performance Optimization</a></h3>
+            <p class="svc__text">
+              Loading speed, image weight, render behaviour and usability —
+              measured before and after, not guessed at.
+            </p>
+            <p class="svc__go">Enquire →</p>
+          </li>
+
+          <li class="svc" data-reveal>
+            <span class="svc__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="12.5" y="5" width="15" height="30"/>
+                <path d="M18 9.5h4M20 30h.01"/>
+                <path d="M31 14a8.5 8.5 0 0 1 0 12M35 10.5a13.5 13.5 0 0 1 0 19"/>
+              </svg>
+            </span>
+            <h3 class="svc__title"><a href="#contact">Mobile App Development</a></h3>
+            <p class="svc__text">
+              Cross-platform applications for customers and for internal teams,
+              built to be used daily rather than just installed.
+            </p>
+            <p class="svc__go">Enquire →</p>
+          </li>
+
+          <li class="svc" data-reveal>
+            <span class="svc__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="13" y="13" width="14" height="14"/>
+                <circle cx="20" cy="20" r="2.5"/>
+                <path d="M17 13V7.5M23 13V7.5M17 27v5.5M23 27v5.5M13 17H7.5M13 23H7.5M27 17h5.5M27 23h5.5"/>
+              </svg>
+            </span>
+            <h3 class="svc__title"><a href="#contact">AI &amp; Automation</a></h3>
+            <p class="svc__text">
+              The repetitive work a team does by hand — quotes, records,
+              follow-ups — handled by software instead.
+            </p>
+            <p class="svc__go">Enquire →</p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         DIGITAL SOLUTIONS — the run-and-grow side
+         ======================================================== -->
+    <section class="band band--paper-deep" id="solutions" aria-labelledby="solutions-t">
+      <div class="wrap">
+
+        <header class="head" data-reveal>
+          <span class="label label--peacock">Digital Solutions</span>
+          <div class="head__row">
+            <h2 class="xxl head__title" id="solutions-t">Visibility, security,<br>and the plumbing.</h2>
+            <p class="head__lead muted">
+              A website that nobody finds, nobody trusts, or nobody maintains is
+              an expense. These are the services that stop that happening.
+            </p>
+          </div>
+        </header>
+
+        <ol class="sol-grid" role="list" data-reveal-group>
+
+          <li class="sol" data-reveal>
+            <span class="sol__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="17" cy="17" r="10.5"/>
+                <path d="M24.6 24.6 33 33"/>
+                <path d="M13 20v-2.5M17 20v-6M21 20v-9"/>
+              </svg>
+            </span>
+            <div class="sol__body">
+              <h3 class="sol__title">SEO Support</h3>
+              <p class="sol__text">
+                On-page optimisation, structure, metadata and content
+                improvements that help the right people find the site
+                organically.
+              </p>
+            </div>
+          </li>
+
+          <li class="sol" data-reveal>
+            <span class="sol__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="7" width="30" height="24" rx="2"/>
+                <path d="M5 13.5h30"/>
+                <circle cx="18" cy="21" r="5"/>
+                <path d="M21.8 24.8 26 29"/>
+              </svg>
+            </span>
+            <div class="sol__body">
+              <h3 class="sol__title">Google Search Console</h3>
+              <p class="sol__text">
+                Property setup and verification, sitemap submission, indexing
+                checks and search-performance monitoring.
+              </p>
+            </div>
+          </li>
+
+          <li class="sol" data-reveal>
+            <span class="sol__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 33h28"/>
+                <path d="M11 33V21M20 33V14M29 33V8"/>
+              </svg>
+            </span>
+            <div class="sol__body">
+              <h3 class="sol__title">Google Analytics</h3>
+              <p class="sol__text">
+                Analytics installed and configured properly — traffic, visitor
+                behaviour and the pages that actually earn enquiries.
+              </p>
+            </div>
+          </li>
+
+          <li class="sol" data-reveal>
+            <span class="sol__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 5 33 9.5v10c0 8-5.6 13.4-13 15.5-7.4-2.1-13-7.5-13-15.5v-10L20 5Z"/>
+                <path d="M14.5 20l4 4 7-7.5"/>
+              </svg>
+            </span>
+            <div class="sol__body">
+              <h3 class="sol__title">Website Security &amp; Firewall</h3>
+              <p class="sol__text">
+                HTTPS and SSL, security headers, firewall configuration and
+                support, form spam protection and routine security checks.
+              </p>
+            </div>
+          </li>
+
+          <li class="sol" data-reveal>
+            <span class="sol__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="20" cy="20" r="14"/>
+                <path d="M6 20h28"/>
+                <path d="M20 6c3.6 4.2 5.4 8.9 5.4 14S23.6 34 20 34s-5.4-4.8-5.4-10S16.4 6 20 6Z"/>
+              </svg>
+            </span>
+            <div class="sol__body">
+              <h3 class="sol__title">Domain &amp; Hosting Support</h3>
+              <p class="sol__text">
+                Domain registration guidance, DNS records, SSL, hosting choices
+                and deployment configuration.
+              </p>
+            </div>
+          </li>
+
+          <li class="sol" data-reveal>
+            <span class="sol__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="20" cy="10.5" rx="12" ry="4.5"/>
+                <path d="M8 10.5v19c0 2.5 5.4 4.5 12 4.5s12-2 12-4.5v-19"/>
+                <path d="M8 20c0 2.5 5.4 4.5 12 4.5s12-2 12-4.5"/>
+              </svg>
+            </span>
+            <div class="sol__body">
+              <h3 class="sol__title">Backup &amp; Maintenance</h3>
+              <p class="sol__text">
+                Scheduled backups, dependency and content upkeep, uptime checks
+                and a restore path that has been tested.
+              </p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         WORK
+         --------------------------------------------------------
+         SCREENSHOTS: none supplied. Each card carries a drawn
+         placeholder and a commented slot for the real capture —
+         search SCREENSHOT SLOT. Nothing here imitates a
+         screenshot it does not have.
+         ======================================================== -->
+    <section class="band" id="work" aria-labelledby="work-t">
+      <div class="wrap">
+
+        <header class="head" data-reveal>
+          <span class="label label--marigold">Selected Work</span>
+          <div class="head__row">
+            <h2 class="xxl head__title" id="work-t">Delivered, deployed,<br>in daily use.</h2>
+            <p class="head__lead muted">
+              Websites for manufacturers and applications built end to end. The
+              client sites are live — open them yourself.
+            </p>
+          </div>
+        </header>
+
+        <ol class="work-grid" role="list" data-reveal-group>
+
+          <li class="card" data-reveal>
+            <span class="card__visual pat-ajrakh" aria-hidden="true">
+              <span class="card__chrome">
+                <span class="card__dots"><span></span><span></span><span></span></span>
+                <span class="card__url">porbandarchalkpowder.com</span>
+              </span>
+              <span class="card__stage">
+                <!-- SCREENSHOT SLOT — uncomment and supply the file at 800x500.
+                <img class="card__img" src="assets/images/porbandar-chalk-powder-800.webp"
+                     alt="Porbandar Chalk Powder website home page" width="800" height="500"
+                     loading="lazy" decoding="async">
+                -->
+                <span class="card__ph"><span class="card__mono">PCP</span></span>
+              </span>
+            </span>
+            <div class="card__body">
+              <span class="card__cat">Business Website · Manufacturing</span>
+              <h3 class="card__title">
+                <a href="https://porbandarchalkpowder.com/" target="_blank" rel="noopener noreferrer">
+                  Porbandar Chalk Powder<span class="sr-only"> — opens in a new tab</span>
+                </a>
+              </h3>
+              <p class="card__text">
+                A calcium carbonate and gypsum producer. Every grade sits beside
+                the industries it serves, so buyers match specification to
+                application before they call.
+              </p>
+              <p class="card__foot">
+                <span class="card__stack">Design · Build · Deployment</span>
+                <span class="card__go">View Project
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5" fill="none"
+                          stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </li>
+
+          <li class="card" data-reveal>
+            <span class="card__visual pat-ajrakh" aria-hidden="true">
+              <span class="card__chrome">
+                <span class="card__dots"><span></span><span></span><span></span></span>
+                <span class="card__url">hl3rubber.com</span>
+              </span>
+              <span class="card__stage">
+                <!-- SCREENSHOT SLOT — see card 01 above. -->
+                <span class="card__ph"><span class="card__mono">HL3</span></span>
+              </span>
+            </span>
+            <div class="card__body">
+              <span class="card__cat">Business Website · Engineering</span>
+              <h3 class="card__title">
+                <a href="https://hl3rubber.com/" target="_blank" rel="noopener noreferrer">
+                  HL3 Rubber<span class="sr-only"> — opens in a new tab</span>
+                </a>
+              </h3>
+              <p class="card__text">
+                A manufacturer of fire-retardant rubber compounds and profiles.
+                The site leads with the specifications buyers screen on, then
+                the sectors it supplies — rail, transit and construction.
+              </p>
+              <p class="card__foot">
+                <span class="card__stack">Design · Build · Deployment</span>
+                <span class="card__go">View Project
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5" fill="none"
+                          stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </li>
+
+          <li class="card" data-reveal>
+            <span class="card__visual pat-ajrakh" aria-hidden="true">
+              <span class="card__chrome">
+                <span class="card__dots"><span></span><span></span><span></span></span>
+                <span class="card__url">gayatrirubberchemicals.com</span>
+              </span>
+              <span class="card__stage">
+                <!-- SCREENSHOT SLOT — see card 01 above. -->
+                <span class="card__ph"><span class="card__mono">GRC</span></span>
+              </span>
+            </span>
+            <div class="card__body">
+              <span class="card__cat">Business Website · Manufacturing</span>
+              <h3 class="card__title">
+                <a href="http://gayatrirubberchemicals.com/" target="_blank" rel="noopener noreferrer">
+                  Gayatri Rubbers &amp; Chemicals<span class="sr-only"> — opens in a new tab</span>
+                </a>
+              </h3>
+              <p class="card__text">
+                An engineered rubber components manufacturer — profiles, seals,
+                gaskets and mouldings. Organised by product family, and by the
+                approvals buyers ask about first.
+              </p>
+              <p class="card__foot">
+                <span class="card__stack">Design · Build · Deployment</span>
+                <span class="card__go">View Project
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5" fill="none"
+                          stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </li>
+
+          <li class="card" data-reveal>
+            <span class="card__visual card__visual--app pat-ajrakh" aria-hidden="true">
+              <span class="card__device">
+                <span class="card__notch"></span>
+                <span class="card__screen">
+                  <!-- SCREENSHOT SLOT — app screen at 540x1140.
+                  <img class="card__img" src="assets/images/chatapp-540.webp"
+                       alt="ChatApp conversation screen" width="540" height="1140"
+                       loading="lazy" decoding="async">
+                  -->
+                  <span class="card__ph"><span class="card__mono card__mono--sm">CA</span></span>
+                </span>
+              </span>
+            </span>
+            <div class="card__body">
+              <span class="card__cat">Web Application · Messaging</span>
+              <h3 class="card__title"><a href="#contact">ChatApp</a></h3>
+              <p class="card__text">
+                A real-time messaging application — authentication, one-to-one
+                conversations and a clean mobile interface built for speed.
+              </p>
+              <p class="card__foot">
+                <span class="card__stack">Flutter · Dart · Firebase</span>
+                <span class="card__go">Explore
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor"
+                          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </li>
+
+          <li class="card" data-reveal>
+            <span class="card__visual card__visual--app pat-ajrakh" aria-hidden="true">
+              <span class="card__device">
+                <span class="card__notch"></span>
+                <span class="card__screen">
+                  <!-- SCREENSHOT SLOT — see card 04 above. -->
+                  <span class="card__ph"><span class="card__mono card__mono--sm">PDF</span></span>
+                </span>
+              </span>
+            </span>
+            <div class="card__body">
+              <span class="card__cat">Digital Solutions · Documents</span>
+              <h3 class="card__title"><a href="#contact">PDF Magic Studio</a></h3>
+              <p class="card__text">
+                A document utility application. It handles the everyday PDF jobs
+                — convert, merge, split, compress — behind an uncluttered
+                interface.
+              </p>
+              <p class="card__foot">
+                <span class="card__stack">Flutter · Dart · PDF Tools</span>
+                <span class="card__go">Explore
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor"
+                          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </li>
+
+          <li class="card" data-reveal>
+            <span class="card__visual card__visual--app pat-ajrakh" aria-hidden="true">
+              <span class="card__device">
+                <span class="card__notch"></span>
+                <span class="card__screen">
+                  <!-- SCREENSHOT SLOT — see card 04 above. -->
+                  <span class="card__ph"><span class="card__mono card__mono--sm">VM</span></span>
+                </span>
+              </span>
+            </span>
+            <div class="card__body">
+              <span class="card__cat">Mobile Application · Content</span>
+              <h3 class="card__title"><a href="#contact">VedaMrita</a></h3>
+              <p class="card__text">
+                A content and reading platform. The reading experience comes
+                first: content stays accessible, and the interface stays out of
+                its way.
+              </p>
+              <p class="card__foot">
+                <span class="card__stack">Flutter · Dart · Firebase</span>
+                <span class="card__go">Explore
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor"
+                          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <div class="marquee marquee--red marquee--rev" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>Resume &amp; CV</span><span class="marquee__star">✦</span>
+          <span>ATS Optimization</span><span class="marquee__star">✦</span>
+          <span>PDF &amp; Documents</span><span class="marquee__star">✦</span>
+          <span>LinkedIn Profiles</span><span class="marquee__star">✦</span>
+        </div>
+        <div class="marquee__group">
+          <span>Resume &amp; CV</span><span class="marquee__star">✦</span>
+          <span>ATS Optimization</span><span class="marquee__star">✦</span>
+          <span>PDF &amp; Documents</span><span class="marquee__star">✦</span>
+          <span>LinkedIn Profiles</span><span class="marquee__star">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         CLIENT REVIEWS  — DISABLED UNTIL REAL QUOTES EXIST
+         ==========================================================
+         The component below is finished and styled. It is commented
+         out on purpose: there are no collected testimonials yet, and
+         inventing quotes for real, named businesses is not something
+         this site will do.
+
+         TO ENABLE, in this order:
+           1. Replace each CLIENT NAME, BUSINESS TYPE and quote below
+              with the client's own words, with their permission.
+           2. Set the star count per card — remove the `is-off` class
+              from a star to fill it. Five filled stars is the
+              default; do not leave five if the client said four.
+           3. Set the avatar initials in .rev__avatar.
+           4. Delete the comment opener above this block and the
+              comment closer below it, so the section renders. Both
+              are marked with a line of equals signs.
+           5. Uncomment the Reviews link in the header nav and in the
+              footer Navigation column.
+
+         Nothing inside this block may contain a comment closer, or
+         the browser ends the comment early and renders the
+         placeholders as live content.
+         ========================================================
+
+    <section class="band band--paper-deep" id="reviews" aria-labelledby="reviews-t">
+      <div class="wrap">
+
+        <header class="head" data-reveal>
+          <span class="label label--peacock">Client Reviews</span>
+          <div class="head__row">
+            <h2 class="xxl head__title" id="reviews-t">In their words.</h2>
+            <p class="head__lead muted">
+              Feedback from the businesses we build and maintain sites for.
+            </p>
+          </div>
+        </header>
+
+        <ol class="rev-grid" role="list" data-reveal-group>
+
+          <li class="rev" data-reveal>
+            <p class="rev__stars" aria-label="Rated 5 out of 5">
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+            </p>
+            <blockquote class="rev__quote">
+              REPLACE — the client's own words about the work, two or three
+              sentences, no more.
+            </blockquote>
+            <div class="rev__who">
+              <span class="rev__avatar" aria-hidden="true">XX</span>
+              <span>
+                <span class="rev__name">CLIENT NAME</span>
+                <span class="rev__meta">BUSINESS TYPE · CITY</span>
+              </span>
+            </div>
+          </li>
+
+          <li class="rev" data-reveal>
+            <p class="rev__stars" aria-label="Rated 5 out of 5">
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+            </p>
+            <blockquote class="rev__quote">
+              REPLACE — the client's own words about the work, two or three
+              sentences, no more.
+            </blockquote>
+            <div class="rev__who">
+              <span class="rev__avatar" aria-hidden="true">XX</span>
+              <span>
+                <span class="rev__name">CLIENT NAME</span>
+                <span class="rev__meta">BUSINESS TYPE · CITY</span>
+              </span>
+            </div>
+          </li>
+
+          <li class="rev" data-reveal>
+            <p class="rev__stars" aria-label="Rated 4 out of 5">
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star" aria-hidden="true"></span>
+              <span class="rev__star is-off" aria-hidden="true"></span>
+            </p>
+            <blockquote class="rev__quote">
+              REPLACE — the client's own words about the work, two or three
+              sentences, no more.
+            </blockquote>
+            <div class="rev__who">
+              <span class="rev__avatar" aria-hidden="true">XX</span>
+              <span>
+                <span class="rev__name">CLIENT NAME</span>
+                <span class="rev__meta">BUSINESS TYPE · CITY</span>
+              </span>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+         END OF THE DISABLED REVIEWS SECTION
+         ======================================================== -->
+
+    <!-- ========================================================
+         CAREER & RESUME SOLUTIONS
+         --------------------------------------------------------
+         READ BEFORE EDITING. Two things in this section are
+         load-bearing and must not be trimmed into something
+         shorter and cleaner:
+
+         1. The documents card says the documents follow a real
+            engagement, and only a real engagement. Shortened into
+            a promise of letters on their own, it reads as selling
+            employment documents — a different business, and not
+            this one.
+         2. The note under the grid says these are done by hand.
+            The site performs no conversion or editing itself, and
+            must not imply that it does.
+         ======================================================== -->
+    <section class="band" id="career" aria-labelledby="career-t">
+      <div class="wrap">
+
+        <header class="head" data-reveal>
+          <span class="label label--madder">Career &amp; Documents</span>
+          <div class="head__row">
+            <h2 class="xxl head__title" id="career-t">Career &amp;<br>Resume Solutions.</h2>
+            <p class="head__lead muted">
+              Hiring is filtered by software before a person ever reads a page.
+              These services are built around that reality.
+            </p>
+          </div>
+        </header>
+
+        <ol class="pack-grid" role="list" data-reveal-group>
+
+          <li class="pack" data-reveal>
+            <span class="pack__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 8.5A2.5 2.5 0 0 1 12.5 6H22l8 8v17.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 10 31.5v-23Z"/>
+                <path d="M22 6v8h8"/>
+                <circle cx="19" cy="21" r="3"/>
+                <path d="M14.5 30c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5"/>
+              </svg>
+            </span>
+            <h3 class="pack__title">Resume Creation &amp; Formatting</h3>
+            <p class="pack__text">
+              A resume written and structured for the role being applied to,
+              not a template with the name swapped out.
+            </p>
+            <ul class="pack__list" role="list">
+              <li>Resume creation from scratch</li>
+              <li>Professional resume formatting</li>
+              <li>Resume editing and rewriting</li>
+              <li>Resume conversion between formats</li>
+            </ul>
+          </li>
+
+          <li class="pack" data-reveal>
+            <span class="pack__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="6" width="24" height="28" rx="2.5"/>
+                <path d="M13 13.5l2 2 3.5-3.5M13 21.5l2 2 3.5-3.5M13 29.5l2 2 3.5-3.5"/>
+                <path d="M23 14h5M23 22h5M23 30h5"/>
+              </svg>
+            </span>
+            <h3 class="pack__title">ATS Optimization</h3>
+            <p class="pack__text">
+              Applicant tracking systems parse before they rank. The document is
+              built so it survives that pass intact.
+            </p>
+            <ul class="pack__list" role="list">
+              <li>ATS-friendly structure and layout</li>
+              <li>Keyword optimisation</li>
+              <li>Job-description-based tailoring</li>
+              <li>Parsing checks before delivery</li>
+            </ul>
+          </li>
+
+          <li class="pack" data-reveal>
+            <span class="pack__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="9" width="30" height="22" rx="2.5"/>
+                <path d="M5 12.5 20 22.5 35 12.5"/>
+              </svg>
+            </span>
+            <h3 class="pack__title">CV &amp; Cover Letters</h3>
+            <p class="pack__text">
+              The longer-form documents, and the letter that has to earn the
+              first thirty seconds of attention.
+            </p>
+            <ul class="pack__list" role="list">
+              <li>CV creation and editing</li>
+              <li>CV formatting and cleanup</li>
+              <li>Cover letter support</li>
+              <li>Application-specific versions</li>
+            </ul>
+          </li>
+
+          <li class="pack" data-reveal>
+            <span class="pack__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="9" width="28" height="24" rx="3"/>
+                <circle cx="16" cy="18" r="3.5"/>
+                <path d="M10.5 27.5c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/>
+                <path d="M26 17.5h5M26 22.5h5M26 27.5h5"/>
+              </svg>
+            </span>
+            <h3 class="pack__title">LinkedIn &amp; Job Search</h3>
+            <p class="pack__text">
+              The profile recruiters actually search, and support through the
+              applying itself.
+            </p>
+            <ul class="pack__list" role="list">
+              <li>LinkedIn profile optimisation</li>
+              <li>Headline and summary rewriting</li>
+              <li>Job application support</li>
+              <li>Professional portfolio support</li>
+            </ul>
+          </li>
+
+          <li class="pack" data-reveal>
+            <span class="pack__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 8.5A2.5 2.5 0 0 1 13.5 6H22l8 8v17.5a2.5 2.5 0 0 1-2.5 2.5h-14A2.5 2.5 0 0 1 11 31.5v-23Z"/>
+                <path d="M22 6v8h8"/>
+                <path d="M15.5 24.5h8M20.5 21.5l3 3-3 3"/>
+              </svg>
+            </span>
+            <h3 class="pack__title">PDF &amp; Document Services</h3>
+            <p class="pack__text">
+              Document work handled properly, including the PDF jobs that
+              usually end in a broken layout.
+            </p>
+            <ul class="pack__list" role="list">
+              <li>PDF editing and formatting</li>
+              <li>PDF ↔ Word conversion</li>
+              <li>Merging, splitting, compression</li>
+              <li>Document formatting and cleanup</li>
+            </ul>
+          </li>
+
+          <li class="pack" data-reveal>
+            <span class="pack__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5.5" y="7.5" width="23" height="17" rx="2"/>
+                <path d="M10.5 13.5h13M10.5 18.5h8"/>
+                <circle cx="28.5" cy="26" r="5.5"/>
+                <path d="M25 30.4V36l3.5-2.2L32 36v-5.6"/>
+              </svg>
+            </span>
+            <h3 class="pack__title">Training &amp; Project Support</h3>
+            <p class="pack__text">
+              Hands-on development experience, project guidance, documentation
+              and deployment — plus the company-issued documents that follow a
+              real engagement.
+            </p>
+            <p class="pack__note">
+              <span class="pack__note-bar" aria-hidden="true"></span>
+              <span>
+                <strong>Documents are issued on the strength of the engagement,
+                and only that.</strong> We do not sell letters, and we do not
+                issue a document for work that did not happen.
+              </span>
+            </p>
+          </li>
+
+        </ol>
+
+        <p class="section-note" data-reveal>
+          <strong>These are services, not site features.</strong> Document,
+          resume and PDF work is carried out by hand and returned to you — this
+          website does not convert, edit or process files automatically.
+        </p>
+
+        <!-- CTA -->
+        <div class="cta" data-reveal>
+          <div class="cta__body">
+            <h3 class="cta__title">Need help with your Resume?</h3>
+            <p class="cta__text">
+              Get a professionally structured, ATS-friendly resume designed for
+              modern hiring systems — reviewed against the role you are actually
+              applying for.
+            </p>
+          </div>
+          <a class="btn btn--lg btn--go" href="#contact" data-service="Resume / CV Services">
+            Get Resume Support
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         MORE SERVICES
+         --------------------------------------------------------
+         Only list what can actually be delivered. Every entry
+         here is either a service described above or a direct
+         component of one. Adding a line to this list is a
+         commitment, not decoration.
+         ======================================================== -->
+    <section class="band band--paper-deep" id="more" aria-labelledby="more-t">
+      <div class="wrap">
+
+        <header class="head" data-reveal>
+          <span class="label">More Services</span>
+          <div class="head__row">
+            <h2 class="xxl head__title" id="more-t">The full list.</h2>
+            <p class="head__lead muted">
+              Everything we take on, grouped the way an enquiry usually arrives.
+              If what you need is not here, ask — the answer is sometimes yes.
+            </p>
+          </div>
+        </header>
+
+        <div class="chips" data-reveal-group>
+
+          <div class="chips__col" data-reveal>
+            <h3 class="chips__h">Websites</h3>
+            <ul class="chips__list" role="list">
+              <li>Website Development</li>
+              <li>Business Website</li>
+              <li>Portfolio Website</li>
+              <li>Landing Page Development</li>
+              <li>E-Commerce Website</li>
+              <li>Website Redesign</li>
+              <li>Website Bug Fixing</li>
+            </ul>
+          </div>
+
+          <div class="chips__col" data-reveal>
+            <h3 class="chips__h">Growth &amp; Visibility</h3>
+            <ul class="chips__list" role="list">
+              <li>SEO Support</li>
+              <li>Google Search Console Setup</li>
+              <li>Google Analytics Setup</li>
+              <li>Sitemap &amp; Indexing</li>
+              <li>Website Speed Optimization</li>
+              <li>Content &amp; Metadata Updates</li>
+            </ul>
+          </div>
+
+          <div class="chips__col" data-reveal>
+            <h3 class="chips__h">Security &amp; Infrastructure</h3>
+            <ul class="chips__list" role="list">
+              <li>Website Security</li>
+              <li>Firewall Support</li>
+              <li>SSL Setup</li>
+              <li>Domain &amp; Hosting Assistance</li>
+              <li>Website Maintenance</li>
+              <li>Website Backup</li>
+            </ul>
+          </div>
+
+          <div class="chips__col" data-reveal>
+            <h3 class="chips__h">Documents &amp; Career</h3>
+            <ul class="chips__list" role="list">
+              <li>Resume Creation</li>
+              <li>ATS Resume Optimization</li>
+              <li>CV Formatting</li>
+              <li>Cover Letter Support</li>
+              <li>LinkedIn Profile Support</li>
+              <li>PDF Editing &amp; Conversion</li>
+              <li>Document Formatting</li>
+              <li>Portfolio Development</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         WHY CHOOSE US
+         ======================================================== -->
+    <section class="band" id="why" aria-labelledby="why-t">
+      <div class="wrap">
+
+        <header class="head" data-reveal>
+          <span class="label label--peacock">Why Choose Us</span>
+          <div class="head__row">
+            <h2 class="xxl head__title" id="why-t">Straightforward<br>to work with.</h2>
+            <p class="head__lead muted">
+              No account layer, no mystery invoice, no handover into silence.
+            </p>
+          </div>
+        </header>
+
+        <div class="why-grid" data-reveal-group>
+          <div class="why" data-reveal>
+            <h3 class="why__title">Direct contact</h3>
+            <p class="why__text">You talk to the people building it. Nobody is relaying messages.</p>
+          </div>
+          <div class="why" data-reveal>
+            <h3 class="why__title">Priced in writing</h3>
+            <p class="why__text">Scope, timeline and cost agreed before anything is built.</p>
+          </div>
+          <div class="why" data-reveal>
+            <h3 class="why__title">Support after launch</h3>
+            <p class="why__text">Updates, fixes and maintenance are a service, not an afterthought.</p>
+          </div>
+          <div class="why" data-reveal>
+            <h3 class="why__title">Secure by default</h3>
+            <p class="why__text">HTTPS, security headers and spam protection ship with the site.</p>
+          </div>
+          <div class="why" data-reveal>
+            <h3 class="why__title">Built to be found</h3>
+            <p class="why__text">Semantic markup, metadata and sitemaps handled during the build.</p>
+          </div>
+          <div class="why" data-reveal>
+            <h3 class="why__title">Local and reachable</h3>
+            <p class="why__text">Based in Porbandar. Meet us, call us, or reach us on WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PROCESS
+         ======================================================== -->
+    <section class="band band--paper-deep" id="process" aria-labelledby="process-t">
+      <div class="wrap">
+
+        <header class="head" data-reveal>
+          <span class="label">Process</span>
           <div class="head__row">
             <h2 class="xxl head__title" id="process-t">How it goes.</h2>
             <p class="head__lead muted">
@@ -868,18 +1373,26 @@
 
     <!-- ========================================================
          CONTACT
+         --------------------------------------------------------
+         The form POSTs JSON to /api/contact, a Vercel Serverless
+         Function that validates everything again server-side and
+         sends through Resend. See api/contact.js.
+
+         The validation below is a courtesy to the visitor, not a
+         control — `novalidate` turns off the browser's own bubbles
+         so the messages can be styled and announced, and every
+         rule here is enforced again on the server.
          ======================================================== -->
     <section class="band band--ink band--flush" id="contact" aria-labelledby="contact-t">
       <div class="wrap">
 
         <header class="head" data-reveal>
-          <span class="label label--marigold">07 — Contact</span>
+          <span class="label label--marigold">Contact</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="contact-t">
-              Let's start.
-            </h2>
+            <h2 class="xxl head__title" id="contact-t">Let's start.</h2>
             <p class="head__lead">
-              A business project or a college submission — same inbox, same people.
+              Tell us what you need. We read every message and reply from the
+              same address.
             </p>
           </div>
         </header>
@@ -895,58 +1408,91 @@
                 <span class="contact__k">Email</span>
                 <span class="contact__v">dainfotech7@gmail.com</span>
               </a>
+              <a class="contact__item" href="https://wa.me/919104377310"
+                 target="_blank" rel="noopener noreferrer">
+                <span class="contact__k">WhatsApp</span>
+                <span class="contact__v">Message us
+                  <span class="sr-only">on WhatsApp, opens in a new tab</span></span>
+              </a>
               <div class="contact__item">
                 <span class="contact__k">Studio</span>
-                <span class="contact__v" style="font-size:var(--fs-sm);line-height:1.4">
+                <span class="contact__v contact__v--addr">
                   First Floor, Nebhani Seri,<br>Kadachh, Porbandar,<br>Gujarat 362230
                 </span>
               </div>
             </div>
           </div>
 
-          <!-- FORM — markup and styling only. There is no submit handler yet,
-               and the note under the button says so, so nothing here silently
-               swallows an enquiry. -->
-          <form class="form" novalidate data-reveal>
+          <form class="form" novalidate data-contact-form>
+
+            <!-- Honeypot. Hidden from people and from assistive technology,
+                 left empty by every human, filled in by bots. The server
+                 answers 200 when it arrives populated so the bot stops
+                 retrying. Do not add a label, and do not remove aria-hidden. -->
+            <div class="hp" aria-hidden="true">
+              <label for="f-company">Company (leave this field empty)</label>
+              <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
             <div class="form__row form__row--2">
               <div class="field">
                 <label class="field__label" for="f-name">Name <span class="field__req">*</span></label>
-                <input id="f-name" name="name" type="text" autocomplete="name" required>
+                <input id="f-name" name="name" type="text" autocomplete="name"
+                       maxlength="120" required
+                       aria-describedby="e-name">
+                <p class="field__err" id="e-name" data-err="name"></p>
               </div>
               <div class="field">
-                <label class="field__label" for="f-phone">Phone</label>
-                <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+                <label class="field__label" for="f-phone">Phone <span class="field__opt">optional</span></label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel"
+                       maxlength="32" aria-describedby="e-phone">
+                <p class="field__err" id="e-phone" data-err="phone"></p>
               </div>
             </div>
 
             <div class="field">
               <label class="field__label" for="f-email">Email <span class="field__req">*</span></label>
-              <input id="f-email" name="email" type="email" autocomplete="email" required>
+              <input id="f-email" name="email" type="email" autocomplete="email"
+                     maxlength="254" required aria-describedby="e-email">
+              <p class="field__err" id="e-email" data-err="email"></p>
             </div>
 
             <div class="field">
-              <label class="field__label" for="f-type">I am a</label>
-              <select id="f-type" name="type">
-                <option>Business</option>
-                <option>Student</option>
+              <label class="field__label" for="f-service">Service</label>
+              <select id="f-service" name="service">
+                <option>Website Development</option>
+                <option>Website Management &amp; Maintenance</option>
+                <option>SEO, Analytics &amp; Search Console</option>
+                <option>Website Security &amp; Firewall</option>
+                <option>Domain &amp; Hosting Support</option>
+                <option>Mobile App Development</option>
+                <option>AI &amp; Automation</option>
+                <option>Resume / CV Services</option>
+                <option>PDF &amp; Document Services</option>
+                <option>Something else</option>
               </select>
             </div>
 
             <div class="field">
               <label class="field__label" for="f-msg">What do you need? <span class="field__req">*</span></label>
-              <textarea id="f-msg" name="message" rows="5" required></textarea>
+              <textarea id="f-msg" name="message" rows="5" maxlength="5000"
+                        required aria-describedby="e-msg"></textarea>
+              <p class="field__err" id="e-msg" data-err="message"></p>
             </div>
 
-            <button class="btn btn--go btn--lg btn--full" type="submit">
-              Send Enquiry
+            <button class="btn btn--go btn--lg btn--full" type="submit" data-submit>
+              <span data-submit-label>Send Enquiry</span>
               <svg viewBox="0 0 16 16" aria-hidden="true">
                 <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor"
                       stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
 
-            <p class="form__note" data-form-note>
-              Preview only — this form is not connected to a handler yet.
+            <!-- The single place the form speaks. Politely announced, so a
+                 screen reader hears the outcome without the focus moving. -->
+            <p class="form__note" role="status" aria-live="polite" data-form-note>
+              We reply to enquiries from dainfotech7@gmail.com, usually within
+              one working day.
             </p>
           </form>
         </div>
@@ -980,38 +1526,75 @@
             <span class="brand__name">Infotech</span>
           </a>
           <p class="ftr__tagline">
-            Digital solutions for ambitious businesses — and for students
-            building their first real thing.
+            Web development, website management, SEO, security and career
+            document services — delivered in-house from Porbandar, Gujarat.
           </p>
+
+          <!-- SOCIAL — WhatsApp and email are the two channels the business
+               actually answers on. Add real profile URLs here as they exist;
+               do not add an icon that links to a page nobody maintains. -->
+          <ul class="ftr__social" role="list">
+            <li>
+              <a href="https://wa.me/919104377310" target="_blank" rel="noopener noreferrer"
+                 aria-label="DA Infotech on WhatsApp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3.5 20.5l1.2-4.2A8.2 8.2 0 1 1 7.9 19.4l-4.4 1.1Z"/>
+                  <path d="M9 8.6c.3 1.6 1.1 3 2.3 4.1a8 8 0 0 0 3.1 1.8l1-1.2 1.9.9c-.3 1-1.3 1.6-2.4 1.4a9.4 9.4 0 0 1-5-2.7 9.4 9.4 0 0 1-2.6-4.5c-.2-1 .4-2 1.4-2.3l.9 1.9-.6.6Z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:dainfotech7@gmail.com" aria-label="Email DA Infotech">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2.5"/>
+                  <path d="M3 7l9 6 9-6"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+919104377310" aria-label="Call DA Infotech">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6.5 3.5h3l1.5 4-2 1.3a11 11 0 0 0 5.2 5.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2Z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
 
         <nav class="ftr__cols" aria-label="Footer">
           <div>
             <p class="ftr__h" id="f-nav">Navigation</p>
             <ul aria-labelledby="f-nav">
-              <li><a href="#services">Services</a></li>
-              <li><a href="#work">Work</a></li>
-              <li><a href="#students">Students</a></li>
               <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#solutions">Digital Solutions</a></li>
+              <li><a href="#work">Work</a></li>
+              <!-- <li><a href="#reviews">Client Reviews</a></li> -->
+              <li><a href="#why">Why Choose Us</a></li>
               <li><a href="#process">Process</a></li>
             </ul>
           </div>
           <div>
             <p class="ftr__h" id="f-svc">Services</p>
             <ul aria-labelledby="f-svc">
-              <li><a href="#services">Web &amp; Software</a></li>
-              <li><a href="#services">Mobile Apps</a></li>
-              <li><a href="#services">AI &amp; Automation</a></li>
-              <li><a href="#services">Digital Marketing</a></li>
+              <li><a href="#services">Website Development</a></li>
+              <li><a href="#services">Website Management</a></li>
+              <li><a href="#services">Mobile App Development</a></li>
+              <li><a href="#services">Performance Optimization</a></li>
+              <li><a href="#more">Full service list</a></li>
             </ul>
           </div>
           <div>
-            <p class="ftr__h" id="f-stu">Students</p>
-            <ul aria-labelledby="f-stu">
-              <li><a href="#student-services">Project Development</a></li>
-              <li><a href="#student-services">Documentation</a></li>
-              <li><a href="#student-services">Internship Support</a></li>
-              <li><a href="#student-services">Resume &amp; Portfolio</a></li>
+            <p class="ftr__h" id="f-sol">Digital Solutions</p>
+            <ul aria-labelledby="f-sol">
+              <li><a href="#solutions">SEO Support</a></li>
+              <li><a href="#solutions">Search Console</a></li>
+              <li><a href="#solutions">Google Analytics</a></li>
+              <li><a href="#solutions">Security &amp; Firewall</a></li>
+              <li><a href="#career">Resume &amp; Documents</a></li>
             </ul>
           </div>
           <div>
@@ -1019,7 +1602,8 @@
             <ul aria-labelledby="f-con">
               <li><a href="tel:+919104377310">+91-91043-77310</a></li>
               <li><a href="mailto:dainfotech7@gmail.com">dainfotech7@gmail.com</a></li>
-              <li><span class="ftr__static">Porbandar, Gujarat</span></li>
+              <li><a href="https://wa.me/919104377310" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><span class="ftr__static">First Floor, Nebhani Seri, Kadachh, Porbandar, Gujarat 362230</span></li>
             </ul>
           </div>
         </nav>
@@ -1037,7 +1621,7 @@
   /* ==========================================================================
      Just enough script. No scroll library, no animation library — five small
      jobs markup cannot do on its own: the mobile drawer, reveal-on-scroll,
-     the scroll spy, the footer year, and intercepting the contact form.
+     the scroll spy, the footer year, and submitting the contact form.
 
      The page stays legible and complete with JavaScript off. The reveal
      styles are the only ones that could break that promise, so they are gated
@@ -1193,17 +1777,175 @@
     var year = document.querySelector('[data-year]');
     if (year) year.textContent = String(new Date().getFullYear());
 
-    /* --- Form: says what it is rather than pretending to send --------------- */
-    var form = document.querySelector('.form');
-    var note = document.querySelector('[data-form-note]');
+    /* --- Contact form ------------------------------------------------------
+       Validates, POSTs JSON to /api/contact, and reports what actually
+       happened. Every rule below is repeated on the server, which is the one
+       that counts; this exists so the visitor is told before they wait. */
+    var form = document.querySelector('[data-contact-form]');
 
     if (form) {
+      var note   = form.querySelector('[data-form-note]');
+      var button = form.querySelector('[data-submit]');
+      var label  = form.querySelector('[data-submit-label]');
+      var idle   = label ? label.textContent : 'Send Enquiry';
+      var sending = false;
+
+      /* Same shape as the server's. Deliberately permissive — anything
+         stricter starts rejecting addresses that genuinely deliver. */
+      var EMAIL_RE = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/;
+
+      var fields = {
+        name:    form.querySelector('#f-name'),
+        email:   form.querySelector('#f-email'),
+        phone:   form.querySelector('#f-phone'),
+        service: form.querySelector('#f-service'),
+        message: form.querySelector('#f-msg')
+      };
+
+      function value(el) { return el && el.value ? el.value.trim() : ''; }
+
+      function setError(key, message) {
+        var input = fields[key];
+        var slot  = form.querySelector('[data-err="' + key + '"]');
+        if (slot) slot.textContent = message || '';
+        if (input) {
+          input.classList.toggle('is-invalid', Boolean(message));
+          if (message) input.setAttribute('aria-invalid', 'true');
+          else input.removeAttribute('aria-invalid');
+        }
+      }
+
+      function clearErrors() {
+        Object.keys(fields).forEach(function (key) { setError(key, ''); });
+      }
+
+      function validate() {
+        var errors = {};
+        var name = value(fields.name);
+        var email = value(fields.email);
+        var message = value(fields.message);
+
+        if (!name) errors.name = 'Please tell us your name.';
+        else if (name.length > 120) errors.name = 'That name is too long.';
+
+        if (!email) errors.email = 'Please enter your email address.';
+        else if (!EMAIL_RE.test(email)) errors.email = 'That does not look like a valid email address.';
+
+        if (!message) errors.message = 'Please tell us what you need.';
+        else if (message.length < 10) errors.message = 'Please add a little more detail.';
+
+        return errors;
+      }
+
+      function say(text, tone) {
+        if (!note) return;
+        note.textContent = text;
+        note.className = 'form__note' + (tone ? ' form__note--' + tone : '');
+      }
+
+      /* Clear a field's error as soon as the visitor starts fixing it —
+         leaving it on screen while they type reads as the form arguing. */
+      Object.keys(fields).forEach(function (key) {
+        var input = fields[key];
+        if (!input) return;
+        input.addEventListener('input', function () {
+          if (input.classList.contains('is-invalid')) setError(key, '');
+        });
+      });
+
+      /* The resume CTA preselects the service it is advertising. */
+      var presets = document.querySelectorAll('[data-service]');
+      Array.prototype.forEach.call(presets, function (el) {
+        el.addEventListener('click', function () {
+          var wanted = el.getAttribute('data-service');
+          var select = fields.service;
+          if (!select) return;
+          Array.prototype.forEach.call(select.options, function (option) {
+            if (option.text === wanted) select.value = option.value;
+          });
+        });
+      });
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if (note) {
-          note.textContent = 'The form is not wired up yet. Please call or email for now.';
-          note.style.color = 'var(--warm)';
+        if (sending) return;
+
+        clearErrors();
+        var errors = validate();
+        var keys = Object.keys(errors);
+
+        if (keys.length) {
+          keys.forEach(function (key) { setError(key, errors[key]); });
+          say('Please check the highlighted fields.', 'bad');
+          var first = fields[keys[0]];
+          if (first) first.focus();
+          return;
         }
+
+        sending = true;
+        if (button) button.disabled = true;
+        if (label) label.textContent = 'Sending…';
+        say('Sending your message…', '');
+
+        var payload = {
+          name:    value(fields.name),
+          email:   value(fields.email),
+          phone:   value(fields.phone),
+          service: fields.service ? fields.service.value : '',
+          message: value(fields.message),
+          company: value(form.querySelector('#f-company'))   /* honeypot */
+        };
+
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) {
+            return res.json()
+              .catch(function () { return {}; })
+              .then(function (data) { return { status: res.status, data: data }; });
+          })
+          .then(function (result) {
+            var data = result.data || {};
+
+            if (result.status === 200 && data.ok) {
+              form.reset();
+              say('Thank you for contacting DA Infotech. Your message has been ' +
+                  'received. We will get back to you shortly.', 'good');
+              return;
+            }
+
+            /* The server found something the browser did not — show it against
+               the field it belongs to rather than as one generic line. */
+            if (result.status === 422 && data.errors) {
+              Object.keys(data.errors).forEach(function (key) {
+                setError(key, data.errors[key]);
+              });
+              say(data.error || 'Please check the highlighted fields.', 'bad');
+              return;
+            }
+
+            if (result.status === 503) {
+              say('The contact form is not connected yet. Please email ' +
+                  'dainfotech7@gmail.com or call +91-91043-77310.', 'bad');
+              return;
+            }
+
+            say((data.error || 'Something went wrong sending your message.') +
+                ' Please email dainfotech7@gmail.com or call +91-91043-77310.', 'bad');
+          })
+          .catch(function () {
+            /* Offline, blocked, or the function is not deployed. Never claim a
+               send that did not happen — hand over a channel that works. */
+            say('We could not reach the server. Please check your connection, ' +
+                'or email dainfotech7@gmail.com / call +91-91043-77310.', 'bad');
+          })
+          .then(function () {
+            sending = false;
+            if (button) button.disabled = false;
+            if (label) label.textContent = idle;
+          });
       });
     }
   })();

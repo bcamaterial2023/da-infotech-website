@@ -1,9 +1,14 @@
 # DA Infotech
 #
-# BEFORE DEPLOY: replace YOUR-DOMAIN on the Sitemap line below with the live
-# origin, and do the same in sitemap.xml and in index.html's head.
+# The origin below must match the canonical link in index.html and the <loc>
+# in sitemap.xml. If a custom domain replaces the Vercel one, change all three
+# in the same commit — a sitemap on the wrong origin is silently discarded.
 
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-DOMAIN/sitemap.xml
+# The contact endpoint is not a page. Nothing to index, and nothing there
+# answers a GET.
+Disallow: /api/
+
+Sitemap: https://da-infotech-website.vercel.app/sitemap.xml
