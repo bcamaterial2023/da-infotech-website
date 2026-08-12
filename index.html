@@ -6,6 +6,11 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#FFFFFF">
 
+  <!-- Set before first paint. The reveal animations hide their elements only
+       under `.js`, so with scripting off this class never lands, nothing is
+       ever hidden, and the page renders complete. -->
+  <script>document.documentElement.classList.add('js');</script>
+
   <title>DA Infotech — Web, Apps, AI · Porbandar, Gujarat</title>
   <meta name="description" content="DA Infotech builds websites, software, mobile apps and AI automation for businesses — and supports students with academic projects, documentation and internships.">
 
@@ -13,9 +18,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Plus Jakarta Sans: display and headings. Inter: body and UI.
-       Hind Vadodara: the Gujarati line. Hind: the Devanagari line. -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Hind+Vadodara:wght@500;600&family=Hind:wght@500;600&display=swap" rel="stylesheet">
+  <!-- Plus Jakarta Sans: display and headings. Inter: body and UI. -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -32,7 +36,6 @@
         <span>Web</span><span class="marquee__star">✦</span>
         <span>Apps</span><span class="marquee__star">✦</span>
         <span>AI &amp; Automation</span><span class="marquee__star">✦</span>
-        <span class="guj">ડિજિટલ સોલ્યુશન્સ</span><span class="marquee__star">✦</span>
         <span>Porbandar · Gujarat</span><span class="marquee__star">✦</span>
         <span>Student Projects</span><span class="marquee__star">✦</span>
       </div>
@@ -40,7 +43,6 @@
         <span>Web</span><span class="marquee__star">✦</span>
         <span>Apps</span><span class="marquee__star">✦</span>
         <span>AI &amp; Automation</span><span class="marquee__star">✦</span>
-        <span class="guj">ડિજિટલ સોલ્યુશન્સ</span><span class="marquee__star">✦</span>
         <span>Porbandar · Gujarat</span><span class="marquee__star">✦</span>
         <span>Student Projects</span><span class="marquee__star">✦</span>
       </div>
@@ -92,29 +94,27 @@
          ======================================================== -->
     <section class="band hero">
       <div class="wrap">
-        <div class="hero__grid">
+        <div class="hero__grid" data-reveal-group>
 
           <div>
-            <div class="hero__tags">
+            <div class="hero__tags" data-reveal>
               <span class="label label--madder">Porbandar · Gujarat</span>
               <span class="label label--paper">Web · Apps · AI</span>
             </div>
 
-            <h1 class="hero__title">
+            <h1 class="hero__title" data-reveal>
               <span class="hero__line">We build</span>
               <span class="hero__line"><span class="hero__line--go">digital</span></span>
               <span class="hero__line"><span class="hero__line--ink">things.</span></span>
             </h1>
 
-            <p class="hero__guj guj">અમે વેબસાઇટ, એપ અને સોફ્ટવેર બનાવીએ છીએ.</p>
-
-            <p class="lead hero__lead muted">
+            <p class="lead hero__lead muted" data-reveal>
               Websites, mobile apps, AI automation and digital marketing —
               built around how a business actually runs. And for students:
               real projects, real documentation, real experience.
             </p>
 
-            <div class="hero__actions">
+            <div class="hero__actions" data-reveal>
               <a class="btn btn--lg btn--go" href="#contact">
                 Start a Project
                 <svg viewBox="0 0 16 16" aria-hidden="true">
@@ -129,7 +129,7 @@
           <!-- What the studio actually ships: a site and an app, drawn with the
                same browser frame and phone body used in Work and Students
                below, so the hero previews the page instead of decorating it. -->
-          <div class="hero__panel pat-ajrakh" aria-hidden="true">
+          <div class="hero__panel pat-ajrakh" aria-hidden="true" data-reveal>
             <svg class="hero__art" viewBox="0 0 320 250" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
 
@@ -184,27 +184,27 @@
 
             <div class="hero__stickers">
               <span class="sticker">Est. Porbandar</span>
-              <span class="sticker sticker--peacock sticker--right dev">भारत में बना</span>
+              <span class="sticker sticker--warm">Made in India</span>
             </div>
           </div>
 
         </div>
 
         <!-- Counts only. Nothing here claims traffic, revenue or results. -->
-        <div class="stats">
-          <div class="stat">
+        <div class="stats" data-reveal-group>
+          <div class="stat" data-reveal>
             <p class="stat__num">03</p>
             <p class="stat__label">Live client sites</p>
           </div>
-          <div class="stat">
+          <div class="stat" data-reveal>
             <p class="stat__num">03</p>
             <p class="stat__label">Student apps built</p>
           </div>
-          <div class="stat">
+          <div class="stat" data-reveal>
             <p class="stat__num">04</p>
             <p class="stat__label">Service lines</p>
           </div>
-          <div class="stat">
+          <div class="stat" data-reveal>
             <p class="stat__num">04</p>
             <p class="stat__label">Student streams · BCA, MCA, MSc(IT), CE</p>
           </div>
@@ -243,8 +243,8 @@
     <section class="band band--paper-deep" id="services" aria-labelledby="services-t">
       <div class="wrap">
 
-        <header class="head">
-          <span class="label">01 — What We Build · <span class="guj">સેવાઓ</span></span>
+        <header class="head" data-reveal>
+          <span class="label">01 — What We Build</span>
           <div class="head__row">
             <h2 class="xxl head__title" id="services-t">Four things.<br>Done properly.</h2>
             <p class="head__lead muted">
@@ -253,9 +253,9 @@
           </div>
         </header>
 
-        <ol class="svc-grid" role="list">
+        <ol class="svc-grid" role="list" data-reveal-group>
 
-          <li class="svc">
+          <li class="svc" data-reveal>
             <div class="svc__top">
               <span class="svc__mark" aria-hidden="true">
                 <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -275,7 +275,7 @@
             <p class="svc__go">Talk to us →</p>
           </li>
 
-          <li class="svc">
+          <li class="svc" data-reveal>
             <div class="svc__top">
               <span class="svc__mark" aria-hidden="true">
                 <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -295,7 +295,7 @@
             <p class="svc__go">Talk to us →</p>
           </li>
 
-          <li class="svc">
+          <li class="svc" data-reveal>
             <div class="svc__top">
               <span class="svc__mark" aria-hidden="true">
                 <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -315,7 +315,7 @@
             <p class="svc__go">Talk to us →</p>
           </li>
 
-          <li class="svc">
+          <li class="svc" data-reveal>
             <div class="svc__top">
               <span class="svc__mark" aria-hidden="true">
                 <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -349,8 +349,8 @@
     <section class="band" id="work" aria-labelledby="work-t">
       <div class="wrap">
 
-        <header class="head">
-          <span class="label label--marigold">02 — Selected Work · <span class="guj">અમારું કામ</span></span>
+        <header class="head" data-reveal>
+          <span class="label label--marigold">02 — Selected Work</span>
           <div class="head__row">
             <h2 class="xxl head__title" id="work-t">Real businesses.<br>Live sites.</h2>
             <p class="head__lead muted">
@@ -362,8 +362,8 @@
 
         <ol class="work-list" role="list">
 
-          <li class="proj">
-            <a class="proj__visual" href="https://porbandarchalkpowder.com/"
+          <li class="proj" data-reveal-group>
+            <a data-reveal class="proj__visual" href="https://porbandarchalkpowder.com/"
                target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
               <span class="proj__chrome">
                 <span class="proj__dots" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -383,7 +383,7 @@
               </span>
             </a>
 
-            <div class="proj__meta">
+            <div class="proj__meta" data-reveal>
               <p class="proj__count" aria-hidden="true">01</p>
               <span class="tag">Industrial · Manufacturing</span>
               <h3 class="proj__name">Porbandar<br>Chalk Powder</h3>
@@ -405,8 +405,8 @@
             </div>
           </li>
 
-          <li class="proj">
-            <a class="proj__visual" href="https://hl3rubber.com/"
+          <li class="proj" data-reveal-group>
+            <a data-reveal class="proj__visual" href="https://hl3rubber.com/"
                target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
               <span class="proj__chrome">
                 <span class="proj__dots" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -421,7 +421,7 @@
               </span>
             </a>
 
-            <div class="proj__meta">
+            <div class="proj__meta" data-reveal>
               <p class="proj__count" aria-hidden="true">02</p>
               <span class="tag">Industrial · Engineering</span>
               <h3 class="proj__name">HL3<br>Rubber</h3>
@@ -443,8 +443,8 @@
             </div>
           </li>
 
-          <li class="proj">
-            <a class="proj__visual" href="http://gayatrirubberchemicals.com/"
+          <li class="proj" data-reveal-group>
+            <a data-reveal class="proj__visual" href="http://gayatrirubberchemicals.com/"
                target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
               <span class="proj__chrome">
                 <span class="proj__dots" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -459,7 +459,7 @@
               </span>
             </a>
 
-            <div class="proj__meta">
+            <div class="proj__meta" data-reveal>
               <p class="proj__count" aria-hidden="true">03</p>
               <span class="tag">Industrial · Manufacturing</span>
               <h3 class="proj__name">Gayatri Rubbers<br>&amp; Chemicals</h3>
@@ -488,14 +488,12 @@
     <div class="marquee marquee--red marquee--rev" aria-hidden="true">
       <div class="marquee__track">
         <div class="marquee__group">
-          <span class="guj">વિદ્યાર્થીઓ માટે</span><span class="marquee__star">✦</span>
           <span>BCA · MCA Projects</span><span class="marquee__star">✦</span>
           <span>Documentation</span><span class="marquee__star">✦</span>
           <span>Internships</span><span class="marquee__star">✦</span>
           <span>Resume &amp; Portfolio</span><span class="marquee__star">✦</span>
         </div>
         <div class="marquee__group">
-          <span class="guj">વિદ્યાર્થીઓ માટે</span><span class="marquee__star">✦</span>
           <span>BCA · MCA Projects</span><span class="marquee__star">✦</span>
           <span>Documentation</span><span class="marquee__star">✦</span>
           <span>Internships</span><span class="marquee__star">✦</span>
@@ -510,8 +508,8 @@
     <section class="band band--paper-deep" id="students" aria-labelledby="students-t">
       <div class="wrap">
 
-        <header class="head">
-          <span class="label label--peacock">03 — Student Projects · <span class="guj">વિદ્યાર્થી પ્રોજેક્ટ્સ</span></span>
+        <header class="head" data-reveal>
+          <span class="label label--peacock">03 — Student Projects</span>
           <div class="head__row">
             <h2 class="xxl head__title" id="students-t">Academic work,<br>built like products.</h2>
             <p class="head__lead muted">
@@ -522,9 +520,9 @@
           </div>
         </header>
 
-        <ol class="study-grid" role="list">
+        <ol class="study-grid" role="list" data-reveal-group>
 
-          <li class="study">
+          <li class="study" data-reveal>
             <div class="study__preview pat-ajrakh" aria-hidden="true">
               <span class="study__device">
                 <span class="study__notch"></span>
@@ -558,7 +556,7 @@
             </div>
           </li>
 
-          <li class="study">
+          <li class="study" data-reveal>
             <div class="study__preview pat-ajrakh" aria-hidden="true">
               <span class="study__device">
                 <span class="study__notch"></span>
@@ -587,7 +585,7 @@
             </div>
           </li>
 
-          <li class="study">
+          <li class="study" data-reveal>
             <div class="study__preview pat-ajrakh" aria-hidden="true">
               <span class="study__device">
                 <span class="study__notch"></span>
@@ -634,7 +632,7 @@
     <section class="band" id="student-services" aria-labelledby="ss-t">
       <div class="wrap">
 
-        <header class="head">
+        <header class="head" data-reveal>
           <span class="label label--marigold">04 — Student Support</span>
           <div class="head__row">
             <h2 class="xxl head__title" id="ss-t">Build your project.<br>Build your career.</h2>
@@ -646,9 +644,9 @@
           </div>
         </header>
 
-        <ol class="reg" role="list">
+        <ol class="reg" role="list" data-reveal-group>
 
-          <li class="reg__row">
+          <li class="reg__row" data-reveal>
             <span class="reg__num" aria-hidden="true">01</span>
             <div class="reg__body">
               <h3 class="reg__title"><a href="#contact">Student Project Development</a></h3>
@@ -668,7 +666,7 @@
             </span>
           </li>
 
-          <li class="reg__row">
+          <li class="reg__row" data-reveal>
             <span class="reg__num" aria-hidden="true">02</span>
             <div class="reg__body">
               <h3 class="reg__title"><a href="#contact">Project Documentation</a></h3>
@@ -687,7 +685,7 @@
             </span>
           </li>
 
-          <li class="reg__row">
+          <li class="reg__row" data-reveal>
             <span class="reg__num" aria-hidden="true">03</span>
             <div class="reg__body">
               <h3 class="reg__title"><a href="#contact">Internship Support</a></h3>
@@ -707,7 +705,7 @@
             </span>
           </li>
 
-          <li class="reg__row">
+          <li class="reg__row" data-reveal>
             <span class="reg__num" aria-hidden="true">04</span>
             <div class="reg__body">
               <h3 class="reg__title"><a href="#contact">Genuine Internship &amp; Career Documents</a></h3>
@@ -737,7 +735,7 @@
             </span>
           </li>
 
-          <li class="reg__row">
+          <li class="reg__row" data-reveal>
             <span class="reg__num" aria-hidden="true">05</span>
             <div class="reg__body">
               <h3 class="reg__title"><a href="#contact">Portfolio &amp; Resume Support</a></h3>
@@ -757,7 +755,7 @@
             </span>
           </li>
 
-          <li class="reg__row">
+          <li class="reg__row" data-reveal>
             <span class="reg__num" aria-hidden="true">06</span>
             <div class="reg__body">
               <h3 class="reg__title"><a href="#contact">Project Guidance &amp; Deployment</a></h3>
@@ -787,17 +785,17 @@
     <section class="band band--paper-deep" id="about" aria-labelledby="about-t">
       <div class="wrap">
 
-        <div class="about">
-          <div class="about__stamp pat-ajrakh">
+        <div class="about" data-reveal-group>
+          <div class="about__stamp pat-ajrakh" data-reveal>
             <div class="about__stamp-inner">
               <span class="label">Porbandar</span>
               <p class="about__est">DA<br>INFOTECH</p>
-              <p class="guj" style="color:var(--accent)">ગુજરાત, ભારત</p>
+              <p class="about__loc">Gujarat, India</p>
             </div>
           </div>
 
           <div>
-            <span class="label label--marigold">05 — About · <span class="guj">અમારા વિશે</span></span>
+            <span class="label label--marigold">05 — About</span>
             <h2 class="xl" id="about-t" style="margin-top:var(--s-5)">
               A digital studio in Porbandar, Gujarat.
             </h2>
@@ -807,16 +805,16 @@
               projects worth showing.
             </p>
 
-            <div class="why-grid">
-              <div class="why">
+            <div class="why-grid" data-reveal-group>
+              <div class="why" data-reveal>
                 <h3 class="why__title">Direct contact</h3>
                 <p class="why__text">You talk to the people building it. No account layer in between.</p>
               </div>
-              <div class="why">
+              <div class="why" data-reveal>
                 <h3 class="why__title">Local, reachable</h3>
                 <p class="why__text">Based in Porbandar. Meet us, call us, or find us on WhatsApp.</p>
               </div>
-              <div class="why">
+              <div class="why" data-reveal>
                 <h3 class="why__title">Built to be used</h3>
                 <p class="why__text">Shipped and working beats designed and pending, every time.</p>
               </div>
@@ -833,7 +831,7 @@
     <section class="band" id="process" aria-labelledby="process-t">
       <div class="wrap">
 
-        <header class="head">
+        <header class="head" data-reveal>
           <span class="label">06 — Process</span>
           <div class="head__row">
             <h2 class="xxl head__title" id="process-t">How it goes.</h2>
@@ -843,23 +841,23 @@
           </div>
         </header>
 
-        <ol class="steps" role="list">
-          <li class="step">
+        <ol class="steps" role="list" data-reveal-group>
+          <li class="step" data-reveal>
             <p class="step__num">01</p>
             <h3 class="step__title">Talk</h3>
             <p class="step__text">You tell us the problem. We ask what it actually costs you today.</p>
           </li>
-          <li class="step">
+          <li class="step" data-reveal>
             <p class="step__num">02</p>
             <h3 class="step__title">Plan</h3>
             <p class="step__text">Scope, timeline and price in writing before anything is built.</p>
           </li>
-          <li class="step">
+          <li class="step" data-reveal>
             <p class="step__num">03</p>
             <h3 class="step__title">Build</h3>
             <p class="step__text">You see it as it comes together, not at the end.</p>
           </li>
-          <li class="step">
+          <li class="step" data-reveal>
             <p class="step__num">04</p>
             <h3 class="step__title">Launch</h3>
             <p class="step__text">Deployed, tested and handed over — with a walkthrough.</p>
@@ -874,8 +872,8 @@
     <section class="band band--ink band--flush" id="contact" aria-labelledby="contact-t">
       <div class="wrap">
 
-        <header class="head">
-          <span class="label label--marigold">07 — Contact · <span class="guj">સંપર્ક</span></span>
+        <header class="head" data-reveal>
+          <span class="label label--marigold">07 — Contact</span>
           <div class="head__row">
             <h2 class="xxl head__title" id="contact-t">
               Let's start.
@@ -886,14 +884,12 @@
           </div>
         </header>
 
-        <div class="contact">
+        <div class="contact" data-reveal-group>
           <div>
-            <p class="guj" style="color:var(--warm-light);font-size:var(--fs-lg)">ચાલો શરૂ કરીએ.</p>
-
-            <div class="contact__list">
-              <a class="contact__item" href="tel:+916353757310">
+            <div class="contact__list" data-reveal>
+              <a class="contact__item" href="tel:+919104377310">
                 <span class="contact__k">Phone</span>
-                <span class="contact__v">+91-63537-57310</span>
+                <span class="contact__v">+91-91043-77310</span>
               </a>
               <a class="contact__item" href="mailto:dainfotech7@gmail.com">
                 <span class="contact__k">Email</span>
@@ -911,7 +907,7 @@
           <!-- FORM — markup and styling only. There is no submit handler yet,
                and the note under the button says so, so nothing here silently
                swallows an enquiry. -->
-          <form class="form" novalidate>
+          <form class="form" novalidate data-reveal>
             <div class="form__row form__row--2">
               <div class="field">
                 <label class="field__label" for="f-name">Name <span class="field__req">*</span></label>
@@ -962,13 +958,11 @@
     <div class="marquee__track">
       <div class="marquee__group">
         <span>Start a Project</span><span class="marquee__star">✦</span>
-        <span class="guj">ચાલો શરૂ કરીએ</span><span class="marquee__star">✦</span>
-        <span>+91-63537-57310</span><span class="marquee__star">✦</span>
+        <span>+91-91043-77310</span><span class="marquee__star">✦</span>
       </div>
       <div class="marquee__group">
         <span>Start a Project</span><span class="marquee__star">✦</span>
-        <span class="guj">ચાલો શરૂ કરીએ</span><span class="marquee__star">✦</span>
-        <span>+91-63537-57310</span><span class="marquee__star">✦</span>
+        <span>+91-91043-77310</span><span class="marquee__star">✦</span>
       </div>
     </div>
   </div>
@@ -1023,7 +1017,7 @@
           <div>
             <p class="ftr__h" id="f-con">Contact</p>
             <ul aria-labelledby="f-con">
-              <li><a href="tel:+916353757310">+91-63537-57310</a></li>
+              <li><a href="tel:+919104377310">+91-91043-77310</a></li>
               <li><a href="mailto:dainfotech7@gmail.com">dainfotech7@gmail.com</a></li>
               <li><span class="ftr__static">Porbandar, Gujarat</span></li>
             </ul>
@@ -1033,7 +1027,7 @@
 
       <div class="ftr__bottom">
         <p>© <span data-year>2026</span> DA Infotech. All rights reserved.</p>
-        <p class="ftr__made dev">भारत में बना · Made in India</p>
+        <p class="ftr__made">Made in India</p>
       </div>
 
     </div>
@@ -1041,9 +1035,13 @@
 
   <script>
   /* ==========================================================================
-     Just enough script. No scroll library — the page is legible and complete
-     with JavaScript off, and this only adds the two things markup genuinely
-     cannot do.
+     Just enough script. No scroll library, no animation library — five small
+     jobs markup cannot do on its own: the mobile drawer, reveal-on-scroll,
+     the scroll spy, the footer year, and intercepting the contact form.
+
+     The page stays legible and complete with JavaScript off. The reveal
+     styles are the only ones that could break that promise, so they are gated
+     behind the `.js` class set in <head> rather than applied unconditionally.
      ========================================================================== */
   (function () {
     'use strict';
@@ -1074,6 +1072,93 @@
           toggle.focus();
         }
       });
+    }
+
+    /* --- Reveal on scroll --------------------------------------------------
+       CSS holds every [data-reveal] at opacity 0; this is what lets them go.
+       That means the failure mode matters: if this block cannot run to
+       completion the content must still end up visible, so every path below
+       either reveals or falls through to revealing everything at once. */
+    var reveals = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+
+    /* The single way an element is revealed, whichever path gets there first.
+       Both the observer and the scroll sweep below call this, so the stagger
+       is a property of revealing — not of one code path having won the race. */
+    function reveal(el) {
+      if (el.classList.contains('is-revealed')) return;
+
+      /* Siblings inside a group come in one after another rather than as a
+         slab. Capped at 5 steps so a long list never runs to a second of
+         cumulative delay. */
+      var group = el.closest('[data-reveal-group]');
+      if (group) {
+        var sibs = Array.prototype.slice.call(group.querySelectorAll('[data-reveal]'));
+        var step = Math.min(sibs.indexOf(el), 5);
+        if (step > 0) el.style.transitionDelay = (step * 90) + 'ms';
+      }
+
+      el.classList.add('is-revealed');
+    }
+
+    var reduced = window.matchMedia &&
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reveals.length) {
+      /* nothing to do */
+    } else if (reduced || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('is-revealed'); });
+    } else {
+      var revealObserver = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          reveal(entry.target);
+          obs.unobserve(entry.target);   /* one-shot: no re-hide on scroll up */
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+
+      reveals.forEach(function (el) { revealObserver.observe(el); });
+
+      /* Safety net. The observer is the mechanism; this guarantees the outcome.
+         Because the hidden state lives in CSS, a missed callback does not mean
+         a missed animation — it means content nobody can read. So anything
+         still hidden while it sits inside the viewport gets revealed here:
+         once per frame at most, over a list that only shrinks, and both
+         listeners drop off entirely once nothing is left to reveal.
+
+         It reveals through the same reveal() as the observer, so the staggered
+         entrance survives even if this path is the one doing all the work. */
+      var pending = reveals.slice();
+      var queued = false;
+
+      function sweep() {
+        queued = false;
+        pending = pending.filter(function (el) {
+          if (el.classList.contains('is-revealed')) return false;
+          var r = el.getBoundingClientRect();
+          /* Matches the observer's -10% bottom margin, so an element animates
+             at the same point on the screen whichever path catches it. */
+          if (r.top < window.innerHeight * 0.9 && r.bottom > 0) {
+            reveal(el);
+            revealObserver.unobserve(el);
+            return false;
+          }
+          return true;
+        });
+        if (!pending.length) {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onScroll);
+        }
+      }
+
+      function onScroll() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(sweep);
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      window.addEventListener('load', sweep);
     }
 
     /* --- Scroll spy -------------------------------------------------------- */

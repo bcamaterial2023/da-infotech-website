@@ -12,7 +12,7 @@ package manager, no dependencies — the folder ships as-is to any static host.
 | | |
 |---|---|
 | **Address** | First Floor, Nebhani Seri, Kadachh, Porbandar, Gujarat – 362230, India |
-| **Phone** | +91-63537-57310 |
+| **Phone** | +91-91043-77310 |
 | **Email** | dainfotech7@gmail.com |
 
 **Services** — Web & Software Development · Mobile App Development · AI & Automation · Digital Marketing
@@ -84,10 +84,12 @@ visitor types — invisible. `.form` does this explicitly.
 
 - **Plus Jakarta Sans** — display and headings
 - **Inter** — body and UI
-- **Hind Vadodara** — the Gujarati lines (`.guj`)
-- **Hind** — the Devanagari lines (`.dev`)
 
 Sizes are `clamp()` pairs from `--fs-micro` to `--fs-display`; nothing hard-codes a px size.
+
+The site is English-only. The Gujarati (`.guj`) and Devanagari (`.dev`) layers, and the two
+Google fonts that served them, were removed — if they ever come back, they need real `lang`
+attributes and their own letter-spacing, because `.label` tracking breaks Indic shaping.
 
 ### Spacing
 
@@ -100,24 +102,55 @@ rhythm tokens instead, or the page drifts out of rhythm one section at a time:
 
 ### Motion
 
-One duration (`--t`, 180ms) and one easing. Hover states lift by 1–4px and nothing else.
-`prefers-reduced-motion` collapses every animation and stops the tickers.
+Two durations. `--t` (180ms) for interaction — hover states lift by 1–4px and nothing else.
+`--t-reveal` (720ms, near-expo ease-out) for entrances.
 
-### A trap worth knowing
+**Reveal on scroll.** Add `data-reveal` to an element and it fades and rises 22px into place
+as it enters the viewport, once. Add `data-reveal-group` to a container and its revealing
+descendants stagger 90ms apart, capped at 5 steps. Opacity and transform only — both
+composited, so nothing here triggers layout.
+
+The hidden state is scoped to `html.js`, a class set by an inline script in `<head>` before
+first paint. **This is load-bearing:** the CSS holds `[data-reveal]` at `opacity: 0`, so if
+that rule ever applied without the script running, the page would be blank. With scripting
+off the class never lands and every element renders at its final state. Verified by stripping
+both `<script>` blocks and rendering — the page comes up complete.
+
+The observer is the mechanism, not the guarantee: a passive scroll listener sweeps anything
+still hidden inside the viewport, and both listeners remove themselves once nothing is left.
+
+`prefers-reduced-motion` pins reveals to their visible state, stops the tickers and the hero
+drift, and collapses every transition.
+
+### Breakpoints
+
+`1024px` — grids collapse, nav becomes a drawer. `720px` — most grids go single column.
+`480px` — small-phone floor: buttons go full width, the footer stacks to one column.
+
+### Two traps worth knowing
 
 Several structural elements are `<span>`s — `.proj__shot`, `.study__screen`. An inline box
 ignores `aspect-ratio`, `height` and `overflow`, so both carry an explicit `display: block`.
 Removing it collapses the element to 0×0 and its children escape the layout entirely.
 
+`.head__title` and `.head__lead` carry a `flex-basis` (`26rem` / `30rem`) that is a **width**
+only while `.head__row` is a row. The 720px query flips it to `flex-direction: column`, where
+that same basis becomes a **height** — which forced every section head to 912px tall and put
+a screen and a half of blank space between a heading and its own paragraph. The query resets
+`flex: 0 1 auto` alongside the direction change. If you add a third child, reset it too.
+
 ---
 
 ## Script
 
-The inline `<script>` at the bottom of `index.html` does three things and nothing else:
+There are two. A one-liner in `<head>` sets `html.js` before first paint — see **Motion**
+above for why that has to come first. The one at the bottom of `index.html` does four things
+and nothing else:
 
 1. Mobile drawer — toggles `.is-open` on `[data-nav]`, closes on navigate and on Escape
-2. Scroll spy — marks the current `.nav__link` with `.is-active`
-3. Fills the footer year, and intercepts the contact form
+2. Reveal on scroll — adds `.is-revealed` to `[data-reveal]`, with a scroll-listener backstop
+3. Scroll spy — marks the current `.nav__link` with `.is-active`
+4. Fills the footer year, and intercepts the contact form
 
 The page is complete and legible with JavaScript off.
 

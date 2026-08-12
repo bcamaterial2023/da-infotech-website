@@ -32,8 +32,9 @@
    16. Process
    17. Contact & form
    18. Footer
-   19. Responsive
-   20. Motion preferences
+   19. Reveal on scroll
+   20. Responsive
+   21. Motion preferences
    ========================================================================== */
 
 
@@ -79,8 +80,6 @@
                   'Segoe UI', sans-serif;
   --font-body:    'Inter', ui-sans-serif, system-ui, -apple-system,
                   'Segoe UI', sans-serif;
-  --font-guj:     'Hind Vadodara', 'Inter', system-ui, sans-serif;
-  --font-dev:     'Hind', 'Inter', system-ui, sans-serif;
 
   /* A restrained scale. The top end is less than half the old one. */
   --fs-display: clamp(2.375rem, 1.55rem + 3.3vw, 4.25rem);   /* 38 → 68 */
@@ -140,6 +139,9 @@
   /* ---- Motion ----------------------------------------------------------- */
   --t:      180ms cubic-bezier(0.22, 1, 0.36, 1);
   --t-slow: 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* Entrances get their own, longer curve — a near-expo ease-out, so movement
+     arrives fast and settles slowly instead of gliding at a constant rate. */
+  --t-reveal: 720ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 
@@ -246,11 +248,6 @@ h1, h2, h3, h4 {
 .muted { color: var(--text-2); }
 
 p { text-wrap: pretty; }
-
-/* Gujarati and Devanagari need their own faces and a little more leading —
-   the conjuncts sit taller than the Latin x-height. */
-.guj { font-family: var(--font-guj); line-height: 1.5; }
-.dev { font-family: var(--font-dev); line-height: 1.5; }
 
 
 /* ==========================================================================
@@ -484,8 +481,6 @@ p { text-wrap: pretty; }
   white-space: nowrap;
 }
 
-.marquee__group .guj { font-size: 1.05em; text-transform: none; letter-spacing: 0.02em; }
-
 /* The separator is a dot, not a star. */
 .marquee__star {
   color: transparent;
@@ -661,13 +656,6 @@ p { text-wrap: pretty; }
 .hero__line--go  { color: var(--accent); }
 .hero__line--ink { color: var(--text); }
 
-.hero__guj {
-  margin-top: var(--s-4);
-  color: var(--text-2);
-  font-size: var(--fs-lg);
-  font-weight: 500;
-}
-
 .hero__lead {
   margin-top: var(--s-5);
   max-width: 34rem;
@@ -728,9 +716,7 @@ p { text-wrap: pretty; }
   letter-spacing: 0.04em;
 }
 
-.sticker--peacock { color: var(--warm); border-color: rgba(185, 114, 30, 0.28); }
-
-.sticker--right { /* the old system rotated this one; alignment is enough now */ }
+.sticker--warm { color: var(--warm); border-color: rgba(185, 114, 30, 0.28); }
 
 
 /* ==========================================================================
@@ -862,14 +848,17 @@ p { text-wrap: pretty; }
 
 .work-list { display: grid; gap: var(--block-gap); }
 
+/* The preview used to take the larger column (1.25fr) at a 16:10 ratio, which
+   made a placeholder the biggest object on the page. It now takes the smaller
+   share and a shorter ratio — the copy leads, the preview supports it. */
 .proj {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: clamp(2rem, 1rem + 3vw, 4rem);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(1.75rem, 1rem + 2.5vw, 3.25rem);
   align-items: center;
 }
 
-.proj:nth-child(even) { grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); }
+.proj:nth-child(even) { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
 .proj:nth-child(even) .proj__visual { order: 2; }
 .proj:nth-child(even) .proj__meta   { order: 1; }
 
@@ -927,7 +916,7 @@ p { text-wrap: pretty; }
 .proj__shot {
   display: block;
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
@@ -946,7 +935,7 @@ p { text-wrap: pretty; }
 
 .proj__mono {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 1rem + 2.6vw, 3rem);
+  font-size: clamp(1.375rem, 0.9rem + 1.9vw, 2.25rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -1013,13 +1002,16 @@ p { text-wrap: pretty; }
   box-shadow: var(--sh-lg);
 }
 
+/* The device sits at the start of the panel rather than the middle, and the
+   panel takes its height FROM the device instead of imposing one on it. The
+   old fixed height cut 44% off the phone on a narrow screen; nothing here can
+   clip now, at any width. */
 .study__preview {
   position: relative;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  height: clamp(11rem, 8rem + 9vw, 13.5rem);
-  padding-top: var(--s-5);
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--s-5);
   overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
@@ -1027,12 +1019,12 @@ p { text-wrap: pretty; }
 .study__device {
   position: relative;
   z-index: 2;
-  width: min(52%, 8rem);
+  width: clamp(5.25rem, 4.2rem + 3vw, 6rem);
   aspect-ratio: 9 / 19;
   flex: none;
-  padding: 5px;
+  padding: 4px;
   background-color: var(--text);
-  border-radius: 18px;
+  border-radius: 14px;
   box-shadow: var(--sh-lg);
   transition: transform var(--t);
 }
@@ -1043,10 +1035,10 @@ p { text-wrap: pretty; }
    old bezel cut-out — a pale notch here would simply not be visible. */
 .study__notch {
   position: absolute;
-  top: 12px; left: 50%;
+  top: 9px; left: 50%;
   transform: translateX(-50%);
   z-index: 3;
-  width: 28%; height: 5px;
+  width: 26%; height: 4px;
   background-color: var(--text);
   border-radius: var(--r-pill);
 }
@@ -1058,7 +1050,7 @@ p { text-wrap: pretty; }
   height: 100%;
   overflow: hidden;
   background-color: var(--bg);
-  border-radius: 13px;
+  border-radius: 10px;
 }
 
 .study__media { position: absolute; inset: 0; }
@@ -1078,7 +1070,7 @@ p { text-wrap: pretty; }
 
 .study__mono {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -1086,13 +1078,13 @@ p { text-wrap: pretty; }
 }
 
 .study__plat {
-  padding: 0.1rem 0.45rem;
+  padding: 0.1rem 0.35rem;
   background-color: var(--accent-soft);
   color: var(--accent-dark);
   border-radius: var(--r-pill);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
@@ -1263,6 +1255,12 @@ p { text-wrap: pretty; }
   text-transform: uppercase;
 }
 
+.about__loc {
+  color: var(--accent);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
 .about__text { margin-top: var(--s-5); }
 
 /* --- Why grid ---------------------------------------------------------------- */
@@ -1336,7 +1334,7 @@ p { text-wrap: pretty; }
   align-items: start;
 }
 
-.contact__list { display: grid; gap: var(--s-3); margin-top: var(--s-6); }
+.contact__list { display: grid; gap: var(--s-3); }
 
 .contact__item {
   display: block;
@@ -1484,6 +1482,9 @@ p { text-wrap: pretty; }
   font-size: var(--fs-sm);
   text-decoration: none;
   transition: color var(--t);
+  /* The email address is one unbreakable 171px token in a ~132px column — it
+     was pushing the whole page into horizontal scroll on a small phone. */
+  overflow-wrap: anywhere;
 }
 
 .ftr__cols a:hover { color: var(--text-inv); }
@@ -1502,12 +1503,49 @@ p { text-wrap: pretty; }
 
 
 /* ==========================================================================
-   19. RESPONSIVE
+   19. REVEAL ON SCROLL
+   --------------------------------------------------------------------------
+   Opacity and transform only. Both are composited, so this never triggers
+   layout or paint and stays smooth on a mid-range phone.
+
+   The hidden state is scoped to `.js`, a class the inline script in <head>
+   adds before first paint. With scripting off the class is never added, so
+   every element renders at its final state and the page stays complete —
+   nothing here can hide content from a visitor who never gets the script.
+   ========================================================================== */
+
+.js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition: opacity var(--t-reveal), transform var(--t-reveal);
+}
+
+.js [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* The two hero devices drift, slowly and barely — 8px over 3.6s. Enough to
+   stop the panel reading as a flat placeholder, small enough that it never
+   competes with the headline beside it. */
+.hero__art-win   { animation: hero-drift 4.4s ease-in-out infinite alternate; }
+.hero__art-phone { animation: hero-drift 3.6s ease-in-out 0.4s infinite alternate; }
+
+@keyframes hero-drift {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-8px); }
+}
+
+
+/* ==========================================================================
+   20. RESPONSIVE
    ========================================================================== */
 
 @media (max-width: 1024px) {
   .hero__grid { grid-template-columns: minmax(0, 1fr); }
-  .hero__panel { min-height: 17rem; order: -1; }
+  /* The panel used to be order:-1, so a decorative placeholder owned the whole
+     first screen and pushed the h1 to y=595 and both CTAs below the fold. */
+  .hero__panel { min-height: 14rem; }
 
   .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
@@ -1515,11 +1553,18 @@ p { text-wrap: pretty; }
   .proj:nth-child(even) { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
   .proj:nth-child(even) .proj__visual,
   .proj:nth-child(even) .proj__meta { order: 0; }
+  /* Capped and left-aligned once stacked, so it matches the student cards
+     rather than becoming a full-bleed placeholder. */
+  .proj__visual { max-width: 30rem; }
 
   .study-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .about { grid-template-columns: minmax(0, 1fr); }
-  .about__stamp { max-width: 22rem; }
+  /* Capped but never centred, this sat hard left with 371px of dead space
+     beside it at tablet width. Dropping the forced square as well — once the
+     box is content-sized, a 1:1 ratio clips the wordmark instead of framing
+     it. The square is a desktop luxury. */
+  .about__stamp { max-width: 22rem; margin-inline: auto; aspect-ratio: auto; }
 
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .step:nth-child(2) { border-right: 0; }
@@ -1572,13 +1617,42 @@ p { text-wrap: pretty; }
   .reg__row { grid-template-columns: auto minmax(0, 1fr); padding-inline: var(--s-2); }
   .reg__mark { display: none; }
 
+  /* Once this is a column, flex-basis sizes the HEIGHT, not the width — the
+     26rem/30rem bases below were forcing every section head to 912px tall and
+     putting a screen and a half of blank space between a heading and its own
+     paragraph. Reset the basis with the direction. */
   .head__row { flex-direction: column; align-items: flex-start; gap: var(--s-4); }
+  .head__title,
+  .head__lead { flex: 0 1 auto; }
+
+  /* Nowrap is fine on a wide label and an overflow trap on a narrow one. */
+  .label { white-space: normal; }
 
   .ftr__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6); }
 
   .ftr__bottom { flex-direction: column; align-items: flex-start; gap: var(--s-2); }
 
   .form { padding: var(--s-5); }
+}
+
+/* Small phones. Everything from 720px down to 320px used to share one set of
+   rules, which is where the layout came apart — this is the floor. */
+@media (max-width: 480px) {
+  /* Two shrink-wrapped buttons of different widths read as unfinished; below
+     this width they cannot sit side by side anyway. */
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { width: 100%; }
+
+  .stat { padding: var(--s-4); }
+
+  /* One column: the email fits on a line instead of breaking mid-address. */
+  .ftr__cols { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+
+  .reg__row { padding-inline: 0; gap: var(--s-3) var(--s-4); }
+
+  .form { padding: var(--s-4); }
+  .about__stamp { padding: var(--s-5); }
+  .hero__panel { padding: var(--s-5); }
 }
 
 /* Touch: nothing to hover, so the lift states are removed rather than left
@@ -1596,7 +1670,7 @@ p { text-wrap: pretty; }
 
 
 /* ==========================================================================
-   20. MOTION PREFERENCES
+   21. MOTION PREFERENCES
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1609,4 +1683,17 @@ p { text-wrap: pretty; }
   }
 
   .marquee__track { animation: none; transform: none; }
+
+  .hero__art-win,
+  .hero__art-phone { animation: none; transform: none; }
+
+  /* Show the content outright rather than racing it in at 0.01ms. Both states
+     are pinned, so an element is visible whether or not the observer ever
+     reaches it. */
+  .js [data-reveal],
+  .js [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
