@@ -2009,7 +2009,11 @@ p { text-wrap: pretty; }
   .step { border-right: 0; border-bottom: 1px solid var(--border); }
   .step:last-child { border-bottom: 0; }
 
+  /* Same flex-basis trap as .head__row below: in a column the 24rem basis on
+     .cta__body became a 384px minimum HEIGHT, so the panel held ~215px of dead
+     black between the paragraph and its own button. */
   .cta { flex-direction: column; align-items: flex-start; }
+  .cta__body { flex: 0 1 auto; }
 
   /* Once this is a column, flex-basis sizes the HEIGHT, not the width — the
      26rem/30rem bases below were forcing every section head to 912px tall and
