@@ -11,8 +11,8 @@
        ever hidden, and the page renders complete. -->
   <script>document.documentElement.classList.add('js');</script>
 
-  <title>DA Infotech — Web Development, Website Management, SEO &amp; Digital Services</title>
-  <meta name="description" content="Professional web development, website management, SEO, analytics, security and career document services for businesses and professionals. Based in Porbandar, Gujarat.">
+  <title>DA Infotech — Web Development, Website Management &amp; SEO</title>
+  <meta name="description" content="Web development, website management, SEO, analytics, security and career documentation — architected, deployed and sustained in-house in Porbandar, Gujarat.">
   <meta name="keywords" content="web development, website management, website maintenance, SEO services, Google Search Console, Google Analytics, website security, firewall support, domain and hosting, responsive web design, ATS resume, resume formatting, PDF editing, Porbandar, Gujarat">
   <meta name="author" content="DA Infotech">
   <meta name="robots" content="index, follow">
@@ -26,8 +26,8 @@
   <meta property="og:site_name" content="DA Infotech">
   <meta property="og:locale" content="en_IN">
   <meta property="og:url" content="https://da-infotech-website.vercel.app/">
-  <meta property="og:title" content="DA Infotech — Web Development, Website Management, SEO &amp; Digital Services">
-  <meta property="og:description" content="Professional web development, website management, SEO, analytics, security and career document services. Based in Porbandar, Gujarat.">
+  <meta property="og:title" content="DA Infotech — Web Development, Management &amp; Digital Infrastructure">
+  <meta property="og:description" content="Professional web development, website management, SEO, analytics, security and career documentation — architected, deployed and sustained in-house. Porbandar, Gujarat.">
   <!-- SHARE IMAGE — supply assets/images/og-cover.png at 1200x630, then
        uncomment. Left out rather than pointed at a file that does not exist:
        a 404 here is what most platforms render as a broken card.
@@ -37,8 +37,8 @@
   <meta property="og:image:alt" content="DA Infotech — digital solutions, Porbandar, Gujarat">
   -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="DA Infotech — Web Development, Website Management, SEO &amp; Digital Services">
-  <meta name="twitter:description" content="Professional web development, website management, SEO, analytics, security and career document services. Based in Porbandar, Gujarat.">
+  <meta name="twitter:title" content="DA Infotech — Web Development, Management &amp; Digital Infrastructure">
+  <meta name="twitter:description" content="Professional web development, website management, SEO, analytics, security and career documentation — architected, deployed and sustained in-house. Porbandar, Gujarat.">
 
   <!-- GOOGLE SEARCH CONSOLE — Search Console → Add property → HTML tag will
        give you a content value. Paste it in and uncomment. Nothing here is
@@ -64,7 +64,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "DA Infotech",
-    "description": "Web development, website management, SEO, analytics, website security, hosting support and career document services.",
+    "description": "Web development, website management, SEO, analytics, website security, hosting infrastructure and career documentation services — architected, deployed and sustained in-house.",
     "url": "https://da-infotech-website.vercel.app/",
     "email": "dainfotech7@gmail.com",
     "telephone": "+91-91043-77310",
@@ -192,16 +192,21 @@
               <span class="label label--paper">Since day one, in-house</span>
             </div>
 
+            <!-- Each line is a clipping box with a single moving child. The
+                 child starts a full line-height below its box and rises into
+                 it, so the text is uncovered rather than faded in. The mask is
+                 scoped to `.js` with the rest of the reveal system — without
+                 the script the lines simply sit at their final position. -->
             <h1 class="hero__title" data-reveal>
-              <span class="hero__line">We build it.</span>
-              <span class="hero__line"><span class="hero__line--go">We keep it</span></span>
-              <span class="hero__line"><span class="hero__line--ink">running.</span></span>
+              <span class="hero__line"><span class="hero__line__in">We build it.</span></span>
+              <span class="hero__line"><span class="hero__line__in hero__line--go">We secure it.</span></span>
+              <span class="hero__line"><span class="hero__line__in hero__line--ink">We sustain it.</span></span>
             </h1>
 
             <p class="lead hero__lead muted" data-reveal>
-              Websites and mobile apps for businesses, resume and document work
-              for professionals — with the search, security and hosting handled
-              in the same place.
+              Websites and mobile applications for businesses, resume and
+              document expertise for professionals — with search, security and
+              hosting administered under one roof.
             </p>
 
             <div class="hero__actions" data-reveal>
@@ -350,23 +355,49 @@
 
         </div>
 
-        <!-- Counts only. Nothing here claims traffic, revenue or results. -->
+        <!-- Counts only. Nothing here claims traffic, revenue or results, and
+             nothing here is a number a visitor cannot check on this page.
+
+             Three deliberate choices, all of them about not under-selling a
+             true figure:
+
+             1. Unpadded numerals. "03" reads as an index or a countdown and
+                carries visibly less weight than the same quantity set as "3" —
+                the leading zero is doing the opposite of what a proof band is
+                for. The padding was making the strongest evidence on the page
+                look like the weakest.
+             2. Ordered so the row does not open on its smallest figure. It now
+                runs offer → built → live → how it is run, which is a sentence
+                rather than a ranking, and the eye does not land on "3" first.
+             3. Every cell is now a delivery fact. "Core service areas" and
+                "Services offered" both counted the same menu, so half the band
+                was measuring what we sell rather than what we have finished —
+                and this band exists to answer "have they done this before".
+                The full menu is still on the page; the More Services section
+                lists it item by item, which is a stronger place to count it.
+
+             The row stays at four cells on purpose. Five would orphan one of
+             them on a second line at every breakpoint — four across on
+             desktop, two-by-two on mobile, both clean. -->
         <div class="stats" data-reveal-group>
           <div class="stat" data-reveal>
-            <p class="stat__num">03</p>
-            <p class="stat__label">Live client websites</p>
+            <p class="stat__num">5<span class="stat__plus">+</span></p>
+            <p class="stat__label">Clients served</p>
           </div>
           <div class="stat" data-reveal>
-            <p class="stat__num">06</p>
+            <p class="stat__num">6</p>
             <p class="stat__label">Projects delivered</p>
           </div>
           <div class="stat" data-reveal>
-            <p class="stat__num">09</p>
-            <p class="stat__label">Core service areas</p>
+            <p class="stat__num">3</p>
+            <p class="stat__label">Live client websites</p>
           </div>
           <div class="stat" data-reveal>
-            <p class="stat__num">20<span class="stat__plus">+</span></p>
-            <p class="stat__label">Services offered</p>
+            <!-- .stat__plus is presentational — a smaller, raised trailing
+                 glyph. It sets the % here for the same reason it sets the +
+                 above: so the symbol does not compete with the numeral. -->
+            <p class="stat__num">100<span class="stat__plus">%</span></p>
+            <p class="stat__label">Built and run in-house</p>
           </div>
         </div>
       </div>
@@ -420,22 +451,22 @@
           <div>
             <span class="label label--marigold">About</span>
             <h2 class="xl about__h" id="about-t">
-              A technology studio built around delivery.
+              A technology studio engineered around delivery.
             </h2>
             <p class="about__text muted">
-              DA Infotech designs, builds, secures and maintains websites and
-              digital systems for businesses and professionals. Work is handled
-              in-house from the first conversation through to deployment and
-              ongoing support — the same people plan it, build it and answer the
-              phone afterwards.
+              DA Infotech architects, builds, secures and maintains websites and
+              digital systems for businesses and professionals. Every engagement
+              is executed in-house — from the initial consultation through
+              deployment and sustained support, the same people who design it
+              build it and remain accountable for it.
             </p>
 
             <div class="about__note" data-reveal>
-              <h3 class="about__note-t">Academic Background</h3>
+              <h3 class="about__note-t">Academic Foundation</h3>
               <p>
-                Strong academic foundation in computer applications, information
-                technology, software development and modern digital
-                technologies — applied to client work rather than left on paper.
+                Formal grounding in computer applications, information
+                technology, software engineering and contemporary digital
+                systems — applied to client work rather than left on paper.
               </p>
             </div>
           </div>
@@ -453,10 +484,11 @@
         <header class="head" data-reveal>
           <span class="label">Services</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="services-t">What we actually do.</h2>
+            <h2 class="xxl head__title" id="services-t">Core capabilities.</h2>
             <p class="head__lead muted">
-              Every engagement starts with the business problem, not the
-              technology. The tools follow from that, never the other way round.
+              Every engagement begins with the commercial problem, not the
+              technology. The stack is chosen to serve that objective — never
+              the reverse.
             </p>
           </div>
         </header>
@@ -474,8 +506,8 @@
             </span>
             <h3 class="svc__title"><a href="#contact">Website Development</a></h3>
             <p class="svc__text">
-              Professional, responsive websites for businesses, organisations
-              and individuals — built to be found, read and acted on.
+              Professional, responsive websites for businesses, institutions
+              and individuals — engineered to be discovered, read and acted on.
             </p>
             <p class="svc__go">Enquire →</p>
           </li>
@@ -490,8 +522,9 @@
             </span>
             <h3 class="svc__title"><a href="#contact">Website Management</a></h3>
             <p class="svc__text">
-              Content updates, page changes, bug fixes and ongoing support, so
-              the site does not quietly go stale after launch.
+              Content updates, structural revisions, defect resolution and
+              continuous support, so the site never quietly deteriorates after
+              launch.
             </p>
             <p class="svc__go">Enquire →</p>
           </li>
@@ -508,8 +541,8 @@
             </span>
             <h3 class="svc__title"><a href="#contact">Responsive Design</a></h3>
             <p class="svc__text">
-              One site that holds together on a desktop, a tablet and a phone —
-              tested at real widths, not shrunk to fit.
+              A single site that holds its integrity on desktop, tablet and
+              phone — validated at genuine breakpoints, not merely scaled down.
             </p>
             <p class="svc__go">Enquire →</p>
           </li>
@@ -525,8 +558,8 @@
             </span>
             <h3 class="svc__title"><a href="#contact">Performance Optimization</a></h3>
             <p class="svc__text">
-              Loading speed, image weight, render behaviour and usability —
-              measured before and after, not guessed at.
+              Load speed, asset weight, render behaviour and usability —
+              benchmarked before and after, never estimated.
             </p>
             <p class="svc__go">Enquire →</p>
           </li>
@@ -542,8 +575,8 @@
             </span>
             <h3 class="svc__title"><a href="#contact">Mobile App Development</a></h3>
             <p class="svc__text">
-              Cross-platform applications for customers and for internal teams,
-              built to be used daily rather than just installed.
+              Cross-platform applications for customers and internal teams,
+              designed for daily use rather than mere installation.
             </p>
             <p class="svc__go">Enquire →</p>
           </li>
@@ -559,8 +592,8 @@
             </span>
             <h3 class="svc__title"><a href="#contact">AI &amp; Automation</a></h3>
             <p class="svc__text">
-              The repetitive work a team does by hand — quotes, records,
-              follow-ups — handled by software instead.
+              The repetitive work a team performs manually — quotations,
+              records, follow-ups — delegated to software instead.
             </p>
             <p class="svc__go">Enquire →</p>
           </li>
@@ -578,10 +611,10 @@
         <header class="head" data-reveal>
           <span class="label label--peacock">Digital Solutions</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="solutions-t">Visibility, security,<br>and the plumbing.</h2>
+            <h2 class="xxl head__title" id="solutions-t">Visibility, security,<br>and infrastructure.</h2>
             <p class="head__lead muted">
-              A website that nobody finds, nobody trusts, or nobody maintains is
-              an expense. These are the services that stop that happening.
+              A website nobody discovers, nobody trusts, or nobody maintains is
+              a liability. These services convert it back into an asset.
             </p>
           </div>
         </header>
@@ -598,10 +631,10 @@
               </svg>
             </span>
             <div class="sol__body">
-              <h3 class="sol__title">SEO Support</h3>
+              <h3 class="sol__title">Search Engine Optimisation</h3>
               <p class="sol__text">
-                On-page optimisation, structure, metadata and content
-                improvements that help the right people find the site
+                On-page optimisation, architecture, metadata and content
+                refinement that position the site in front of the right audience
                 organically.
               </p>
             </div>
@@ -620,8 +653,8 @@
             <div class="sol__body">
               <h3 class="sol__title">Google Search Console</h3>
               <p class="sol__text">
-                Property setup and verification, sitemap submission, indexing
-                checks and search-performance monitoring.
+                Property configuration and verification, sitemap submission,
+                indexing diagnostics and search-performance monitoring.
               </p>
             </div>
           </li>
@@ -637,8 +670,9 @@
             <div class="sol__body">
               <h3 class="sol__title">Google Analytics</h3>
               <p class="sol__text">
-                Analytics installed and configured properly — traffic, visitor
-                behaviour and the pages that actually earn enquiries.
+                Analytics implemented and configured correctly — traffic,
+                visitor behaviour and the pages that genuinely generate
+                enquiries.
               </p>
             </div>
           </li>
@@ -655,7 +689,7 @@
               <h3 class="sol__title">Website Security &amp; Firewall</h3>
               <p class="sol__text">
                 HTTPS and SSL, security headers, firewall configuration and
-                support, form spam protection and routine security checks.
+                maintenance, form spam mitigation and routine security audits.
               </p>
             </div>
           </li>
@@ -670,10 +704,10 @@
               </svg>
             </span>
             <div class="sol__body">
-              <h3 class="sol__title">Domain &amp; Hosting Support</h3>
+              <h3 class="sol__title">Domain &amp; Hosting Infrastructure</h3>
               <p class="sol__text">
-                Domain registration guidance, DNS records, SSL, hosting choices
-                and deployment configuration.
+                Domain registration guidance, DNS records, SSL provisioning,
+                hosting selection and deployment configuration.
               </p>
             </div>
           </li>
@@ -688,10 +722,10 @@
               </svg>
             </span>
             <div class="sol__body">
-              <h3 class="sol__title">Backup &amp; Maintenance</h3>
+              <h3 class="sol__title">Backup &amp; Continuity</h3>
               <p class="sol__text">
-                Scheduled backups, dependency and content upkeep, uptime checks
-                and a restore path that has been tested.
+                Scheduled backups, dependency and content upkeep, uptime
+                monitoring and a restoration path that has been verified.
               </p>
             </div>
           </li>
@@ -714,10 +748,10 @@
         <header class="head" data-reveal>
           <span class="label label--marigold">Selected Work</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="work-t">Delivered, deployed,<br>in daily use.</h2>
+            <h2 class="xxl head__title" id="work-t">Delivered, deployed,<br>in production.</h2>
             <p class="head__lead muted">
-              Websites for manufacturers and applications built end to end. The
-              client sites are live — open them yourself.
+              Websites for manufacturers and applications engineered end to end.
+              The client sites are live — inspect them yourself.
             </p>
           </div>
         </header>
@@ -982,9 +1016,9 @@
         <header class="head" data-reveal>
           <span class="label label--peacock">Client Reviews</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="reviews-t">In their words.</h2>
+            <h2 class="xxl head__title" id="reviews-t">In their own words.</h2>
             <p class="head__lead muted">
-              Feedback from the businesses we build and maintain sites for.
+              Testimonials from the businesses whose sites we build and sustain.
             </p>
           </div>
         </header>
@@ -1085,8 +1119,8 @@
           <div class="head__row">
             <h2 class="xxl head__title" id="career-t">Career &amp;<br>Resume Solutions.</h2>
             <p class="head__lead muted">
-              Hiring is filtered by software before a person ever reads a page.
-              These services are built around that reality.
+              Recruitment is filtered by software long before a person reads a
+              page. These services are engineered around that reality.
             </p>
           </div>
         </header>
@@ -1105,8 +1139,8 @@
             </span>
             <h3 class="pack__title">Resume Creation &amp; Formatting</h3>
             <p class="pack__text">
-              A resume written and structured for the role being applied to,
-              not a template with the name swapped out.
+              A resume composed and structured for the specific role being
+              pursued — not a template with the name substituted.
             </p>
             <ul class="pack__list" role="list">
               <li>Resume creation from scratch</li>
@@ -1128,7 +1162,7 @@
             <h3 class="pack__title">ATS Optimization</h3>
             <p class="pack__text">
               Applicant tracking systems parse before they rank. The document is
-              built so it survives that pass intact.
+              constructed to survive that pass intact.
             </p>
             <ul class="pack__list" role="list">
               <li>ATS-friendly structure and layout</li>
@@ -1148,7 +1182,7 @@
             </span>
             <h3 class="pack__title">CV &amp; Cover Letters</h3>
             <p class="pack__text">
-              The longer-form documents, and the letter that has to earn the
+              The longer-form credentials, and the letter that must command the
               first thirty seconds of attention.
             </p>
             <ul class="pack__list" role="list">
@@ -1171,8 +1205,8 @@
             </span>
             <h3 class="pack__title">LinkedIn &amp; Job Search</h3>
             <p class="pack__text">
-              The profile recruiters actually search, and support through the
-              applying itself.
+              The profile recruiters genuinely search, and guidance through the
+              application process itself.
             </p>
             <ul class="pack__list" role="list">
               <li>LinkedIn profile optimisation</li>
@@ -1193,8 +1227,8 @@
             </span>
             <h3 class="pack__title">PDF &amp; Document Services</h3>
             <p class="pack__text">
-              Document work handled properly, including the PDF jobs that
-              usually end in a broken layout.
+              Document work executed properly, including the PDF conversions
+              that ordinarily end in a broken layout.
             </p>
             <ul class="pack__list" role="list">
               <li>PDF editing and formatting</li>
@@ -1216,9 +1250,9 @@
             </span>
             <h3 class="pack__title">Training &amp; Project Support</h3>
             <p class="pack__text">
-              Hands-on development experience, project guidance, documentation
-              and deployment — plus the company-issued documents that follow a
-              real engagement.
+              Practical development experience, project mentorship,
+              documentation and deployment — together with the company-issued
+              credentials that follow a genuine engagement.
             </p>
             <p class="pack__note">
               <span class="pack__note-bar" aria-hidden="true"></span>
@@ -1241,11 +1275,11 @@
         <!-- CTA -->
         <div class="cta" data-reveal>
           <div class="cta__body">
-            <h3 class="cta__title">Need help with your Resume?</h3>
+            <h3 class="cta__title">Need a resume that performs?</h3>
             <p class="cta__text">
-              Get a professionally structured, ATS-friendly resume designed for
-              modern hiring systems — reviewed against the role you are actually
-              applying for.
+              A professionally structured, ATS-compliant resume engineered for
+              modern recruitment systems — and calibrated against the specific
+              role you are pursuing.
             </p>
           </div>
           <a class="btn btn--lg btn--go" href="#contact" data-service="Resume / CV Services">
@@ -1273,10 +1307,11 @@
         <header class="head" data-reveal>
           <span class="label">More Services</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="more-t">The full list.</h2>
+            <h2 class="xxl head__title" id="more-t">The complete catalogue.</h2>
             <p class="head__lead muted">
-              Everything we take on, grouped the way an enquiry usually arrives.
-              If what you need is not here, ask — the answer is sometimes yes.
+              Every discipline we undertake, grouped the way an enquiry usually
+              arrives. If your requirement is not listed, ask — the answer is
+              frequently yes.
             </p>
           </div>
         </header>
@@ -1284,7 +1319,7 @@
         <div class="chips" data-reveal-group>
 
           <div class="chips__col" data-reveal>
-            <h3 class="chips__h">Websites</h3>
+            <h3 class="chips__h">Web Development</h3>
             <ul class="chips__list" role="list">
               <li>Website Development</li>
               <li>Business Website</li>
@@ -1321,7 +1356,7 @@
           </div>
 
           <div class="chips__col" data-reveal>
-            <h3 class="chips__h">Documents &amp; Career</h3>
+            <h3 class="chips__h">Career &amp; Documentation</h3>
             <ul class="chips__list" role="list">
               <li>Resume Creation</li>
               <li>ATS Resume Optimization</li>
@@ -1347,36 +1382,36 @@
         <header class="head" data-reveal>
           <span class="label label--peacock">Why Choose Us</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="why-t">Straightforward<br>to work with.</h2>
+            <h2 class="xxl head__title" id="why-t">Transparent<br>by design.</h2>
             <p class="head__lead muted">
-              No account layer, no mystery invoice, no handover into silence.
+              No account layer, no ambiguous invoice, no handover into silence.
             </p>
           </div>
         </header>
 
         <div class="why-grid" data-reveal-group>
           <div class="why" data-reveal>
-            <h3 class="why__title">Direct contact</h3>
-            <p class="why__text">You talk to the people building it. Nobody is relaying messages.</p>
+            <h3 class="why__title">Direct access</h3>
+            <p class="why__text">You speak to the people building it. Nobody is relaying messages.</p>
           </div>
           <div class="why" data-reveal>
-            <h3 class="why__title">Priced in writing</h3>
-            <p class="why__text">Scope, timeline and cost agreed before anything is built.</p>
+            <h3 class="why__title">Documented pricing</h3>
+            <p class="why__text">Scope, timeline and cost agreed in writing before anything is built.</p>
           </div>
           <div class="why" data-reveal>
-            <h3 class="why__title">Support after launch</h3>
-            <p class="why__text">Updates, fixes and maintenance are a service, not an afterthought.</p>
+            <h3 class="why__title">Post-launch support</h3>
+            <p class="why__text">Updates, fixes and maintenance are a commitment, not an afterthought.</p>
           </div>
           <div class="why" data-reveal>
             <h3 class="why__title">Secure by default</h3>
             <p class="why__text">HTTPS, security headers and spam protection ship with the site.</p>
           </div>
           <div class="why" data-reveal>
-            <h3 class="why__title">Built to be found</h3>
+            <h3 class="why__title">Engineered for discovery</h3>
             <p class="why__text">Semantic markup, metadata and sitemaps handled during the build.</p>
           </div>
           <div class="why" data-reveal>
-            <h3 class="why__title">Local and reachable</h3>
+            <h3 class="why__title">Local and accessible</h3>
             <p class="why__text">Based in Porbandar. Meet us, call us, or reach us on WhatsApp.</p>
           </div>
         </div>
@@ -1392,9 +1427,9 @@
         <header class="head" data-reveal>
           <span class="label">Process</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="process-t">How it goes.</h2>
+            <h2 class="xxl head__title" id="process-t">How we operate.</h2>
             <p class="head__lead muted">
-              Four steps. No mystery, no surprise invoice at the end.
+              Four defined stages. No ambiguity, no unexpected invoice at the end.
             </p>
           </div>
         </header>
@@ -1402,23 +1437,23 @@
         <ol class="steps" role="list" data-reveal-group>
           <li class="step" data-reveal>
             <p class="step__num">01</p>
-            <h3 class="step__title">Talk</h3>
-            <p class="step__text">You tell us the problem. We ask what it actually costs you today.</p>
+            <h3 class="step__title">Consult</h3>
+            <p class="step__text">You define the problem. We establish what it costs you today.</p>
           </li>
           <li class="step" data-reveal>
             <p class="step__num">02</p>
-            <h3 class="step__title">Plan</h3>
-            <p class="step__text">Scope, timeline and price in writing before anything is built.</p>
+            <h3 class="step__title">Define</h3>
+            <p class="step__text">Scope, timeline and price documented before anything is built.</p>
           </li>
           <li class="step" data-reveal>
             <p class="step__num">03</p>
-            <h3 class="step__title">Build</h3>
-            <p class="step__text">You see it as it comes together, not at the end.</p>
+            <h3 class="step__title">Develop</h3>
+            <p class="step__text">You review it as it takes shape, not on the final day.</p>
           </li>
           <li class="step" data-reveal>
             <p class="step__num">04</p>
-            <h3 class="step__title">Launch</h3>
-            <p class="step__text">Deployed, tested and handed over — with a walkthrough.</p>
+            <h3 class="step__title">Deploy</h3>
+            <p class="step__text">Deployed, tested and handed over — with a full walkthrough.</p>
           </li>
         </ol>
       </div>
@@ -1442,10 +1477,10 @@
         <header class="head" data-reveal>
           <span class="label label--marigold">Contact</span>
           <div class="head__row">
-            <h2 class="xxl head__title" id="contact-t">Let's start.</h2>
+            <h2 class="xxl head__title" id="contact-t">Let's begin.</h2>
             <p class="head__lead">
-              Tell us what you need. We read every message and reply from the
-              same address.
+              Tell us what you require. Every message is read, and answered from
+              this same address.
             </p>
           </div>
         </header>
@@ -1726,12 +1761,18 @@
 
       /* Siblings inside a group come in one after another rather than as a
          slab. Capped at 5 steps so a long list never runs to a second of
-         cumulative delay. */
+         cumulative delay.
+
+         animationDelay, not transitionDelay: the entrance is a keyframe
+         animation so that it cannot collide with the :hover transitions the
+         same cards declare — see the reveal-in block in main.css. Setting the
+         transition delay here would land on a property the entrance no longer
+         uses, and the stagger would silently flatten into a slab. */
       var group = el.closest('[data-reveal-group]');
       if (group) {
         var sibs = Array.prototype.slice.call(group.querySelectorAll('[data-reveal]'));
         var step = Math.min(sibs.indexOf(el), 5);
-        if (step > 0) el.style.transitionDelay = (step * 90) + 'ms';
+        if (step > 0) el.style.animationDelay = (step * 90) + 'ms';
       }
 
       el.classList.add('is-revealed');

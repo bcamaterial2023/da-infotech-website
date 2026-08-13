@@ -146,9 +146,24 @@
   /* ---- Motion ----------------------------------------------------------- */
   --t:      180ms cubic-bezier(0.22, 1, 0.36, 1);
   --t-slow: 320ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Hover is asymmetric on purpose. A pointer arriving is a deliberate act, so
+     the response is immediate; a pointer leaving is often incidental, so the
+     release is slower and the element is not snatched away from under it. Equal
+     in and out durations are what make an interface feel machine-timed. */
+  --t-in:   140ms cubic-bezier(0.34, 1.2, 0.64, 1);
+  --t-out:  260ms cubic-bezier(0.33, 0, 0.2, 1);
+
   /* Entrances get their own, longer curve — a near-expo ease-out, so movement
      arrives fast and settles slowly instead of gliding at a constant rate. */
   --t-reveal: 720ms cubic-bezier(0.16, 1, 0.3, 1);
+  /* Opacity resolves before travel does. The element is legible while it is
+     still settling, which is why a real entrance reads as arriving rather than
+     as sliding — matched durations produce the second. */
+  --t-fade:   460ms cubic-bezier(0.33, 0, 0.2, 1);
+  /* The masked headline lines. Longer than a card, because the distance
+     travelled is a whole line-height rather than a few pixels. */
+  --t-line:   940ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 
@@ -340,8 +355,8 @@ p { text-wrap: pretty; }
   letter-spacing: -0.005em;
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color var(--t), border-color var(--t),
-              box-shadow var(--t), transform var(--t), color var(--t);
+  transition: background-color var(--t-out), border-color var(--t-out),
+              box-shadow var(--t-out), transform var(--t-out), color var(--t-out);
 }
 
 .btn svg { width: 1em; height: 1em; flex: none; }
@@ -351,9 +366,19 @@ p { text-wrap: pretty; }
   border-color: var(--border-2);
   box-shadow: var(--sh-md);
   transform: translateY(-1px);
+  transition: background-color var(--t-in), border-color var(--t-in),
+              box-shadow var(--t-in), transform var(--t-in), color var(--t-in);
 }
 
-.btn:active { transform: translateY(0); box-shadow: var(--sh-sm); }
+/* The press goes past the resting position, not back to it, and takes the
+   shadow down with it — the button is being pushed into the page rather than
+   returning to level. No duration: a press has to land on the same frame as
+   the finger, and any easing at all reads as lag. */
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: var(--sh-sm);
+  transition-duration: 0ms;
+}
 
 /* The one filled button. Used for the single next step on the page. */
 .btn--go {
@@ -593,10 +618,14 @@ p { text-wrap: pretty; }
   font-size: var(--fs-sm);
   font-weight: 500;
   text-decoration: none;
-  transition: color var(--t), background-color var(--t);
+  transition: color var(--t-out), background-color var(--t-out);
 }
 
-.nav__link:hover { color: var(--text); background-color: var(--bg-subtle); }
+.nav__link:hover {
+  color: var(--text);
+  background-color: var(--bg-subtle);
+  transition: color var(--t-in), background-color var(--t-in);
+}
 
 .nav__link.is-active { color: var(--accent); background-color: var(--accent-soft); }
 
@@ -663,7 +692,19 @@ p { text-wrap: pretty; }
   font-weight: 800;
 }
 
-.hero__line { display: block; }
+/* The clipping box. The padding/negative-margin pair widens the box by 0.14em
+   on each side without moving anything: `overflow: hidden` cuts at the padding
+   edge, so accents and descenders that sit outside a tight line box survive,
+   while the negative margin gives the space back to the layout. Clipping at
+   the content edge instead is what shears the tops off capitals. */
+.hero__line {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.14em;
+  margin-block: -0.14em;
+}
+
+.hero__line__in { display: block; }
 
 /* No highlight boxes. The emphasis is the colour of the word itself. */
 .hero__line--go  { color: var(--accent); }
@@ -860,13 +901,16 @@ p { text-wrap: pretty; }
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   box-shadow: var(--sh-sm);
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+  /* Declared here, the slow curve owns the return trip; the :hover rule below
+     overrides it for the trip out. */
+  transition: transform var(--t-out), box-shadow var(--t-out), border-color var(--t-out);
 }
 
 .svc:hover {
   transform: translateY(-3px);
   border-color: var(--accent-line);
   box-shadow: var(--sh-lg);
+  transition: transform var(--t-in), box-shadow var(--t-in), border-color var(--t-in);
 }
 
 /* The card used to carry a counter opposite the icon. It numbered a set whose
@@ -911,10 +955,17 @@ p { text-wrap: pretty; }
   color: var(--accent);
   font-size: var(--fs-xs);
   font-weight: 600;
-  transition: transform var(--t);
+  transition: transform var(--t-out);
 }
 
-.svc:hover .svc__go { transform: translateX(3px); }
+/* Slower than the card that carries it, and starting a beat later. One
+   interaction moving at two speeds is what gives it a sense of weight — when
+   every part of a hover fires at the same duration, the whole card reads as a
+   single flat image being nudged. */
+.svc:hover .svc__go {
+  transform: translateX(3px);
+  transition: transform var(--t-slow) 30ms;
+}
 
 
 /* ==========================================================================
@@ -1005,13 +1056,14 @@ p { text-wrap: pretty; }
   border-radius: var(--r-lg);
   box-shadow: var(--sh-sm);
   overflow: hidden;
-  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+  transition: transform var(--t-out), box-shadow var(--t-out), border-color var(--t-out);
 }
 
 .card:hover {
   transform: translateY(-4px);
   border-color: var(--accent-line);
   box-shadow: var(--sh-lg);
+  transition: transform var(--t-in), box-shadow var(--t-in), border-color var(--t-in);
 }
 
 /* A <span>, so it needs blockifying before aspect-ratio and overflow apply.
@@ -1060,6 +1112,15 @@ p { text-wrap: pretty; }
 }
 
 .card__stage { display: block; position: relative; flex: 1 1 auto; overflow: hidden; }
+
+/* The slowest thing in the card, by a wide margin: the frame lifts in 140ms
+   and the image behind it is still easing four times longer. 2.8% is under
+   the threshold where a screenshot starts to look soft — it is meant to be
+   noticed at the edges of the crop, not watched. Both this element and its
+   parent clip, so nothing escapes the card. */
+.card__stage { transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1); }
+
+.card:hover .card__stage { transform: scale(1.028); }
 
 /* --- App cards: a phone centred in the same 16:10 box ------------------------ */
 .card__visual--app { display: grid; place-items: center; padding: var(--s-4); }
@@ -1193,12 +1254,15 @@ p { text-wrap: pretty; }
   color: var(--accent);
   font-size: var(--fs-xs);
   font-weight: 600;
-  transition: transform var(--t);
+  transition: transform var(--t-out);
 }
 
 .card__go svg { width: 0.85em; height: 0.85em; flex: none; }
 
-.card:hover .card__go { transform: translateX(3px); }
+.card:hover .card__go {
+  transform: translateX(3px);
+  transition: transform var(--t-slow) 30ms;
+}
 
 
 /* ==========================================================================
@@ -1902,16 +1966,88 @@ p { text-wrap: pretty; }
    nothing here can hide content from a visitor who never gets the script.
    ========================================================================== */
 
+/* 14px, not the 22 this started at. The distance is the part that gives a
+   canned entrance away: far enough to be watched and the element reads as
+   arriving from off-screen, which nothing on a page actually does. Short
+   enough and the movement is felt rather than followed, which is the whole
+   effect. Opacity runs on its own shorter curve — see --t-fade. */
+/* The entrance moves elements with `translate`, not `transform`, and the
+   reason is a collision rather than a preference. Cards, service tiles and
+   contact rows all carry [data-reveal] AND a :hover lift. Written as
+   `transform`, the revealed state — .js [data-reveal].is-revealed, three
+   selectors — outranks .card:hover at two, so the moment a card finished
+   revealing its hover lift was overridden to none and silently stopped
+   working. `translate` is its own property: it composes with whatever
+   `transform` the hover sets instead of replacing it, so both survive without
+   either rule needing to know about the other.
+
+   Older engines without independent transform properties ignore the translate
+   and still run the fade, which is the correct thing to lose. */
 .js [data-reveal] {
   opacity: 0;
-  transform: translate3d(0, 22px, 0);
-  transition: opacity var(--t-reveal), transform var(--t-reveal);
+  translate: 0 14px;
 }
 
+/* The entrance runs as an animation, not a transition, and that is a
+   correctness fix rather than a style choice. Cards and tiles carry
+   [data-reveal] and a :hover lift at the same time, and `transition` is a
+   shorthand: whichever of the two rules lost the cascade had its entire
+   transition list erased. Written as a transition the entrance won, and every
+   hover on a revealed card changed state instantly with no easing at all.
+
+   `animation` and `transition` are separate properties that never overwrite
+   one another, so the entrance and the hover can both be declared without
+   either having to know the other exists. It also suits the job: an entrance
+   is a one-shot with a known start and end, which is what keyframes describe
+   and what a transition has to be tricked into. */
 .js [data-reveal].is-revealed {
-  opacity: 1;
-  transform: none;
+  animation: reveal-in var(--t-reveal) both;
 }
+
+/* Opacity is finished at 64% — the same 460/720 split the two curves used to
+   express — so the element is readable while it is still settling the last few
+   pixels. Arriving, not sliding. */
+@keyframes reveal-in {
+  0%   { opacity: 0; translate: 0 14px; }
+  64%  { opacity: 1; }
+  100% { opacity: 1; translate: none; }
+}
+
+/* The headline opts out of the shared entrance entirely — both halves of it.
+   The translate would move the same text the lines are already moving, and the
+   fade would undo the point of a mask: the effect is text being uncovered by a
+   fixed edge, which only reads if the text is at full opacity when it crosses
+   that edge. Fading it as well is the doubled-up tell.
+
+   Pinning opacity here also settles a collision with the group stagger. This
+   h1 is the second [data-reveal] inside .hero__grid, so the observer stamps an
+   inline 90ms transition-delay on it — but transition-delay is not inherited,
+   so the lines below would ignore it and start rising 90ms before the element
+   they sit in became visible. With nothing left on the h1 to transition, that
+   inline delay now has nothing to act on and the lines own the timing. */
+.js .hero__title[data-reveal],
+.js .hero__title[data-reveal].is-revealed {
+  opacity: 1;
+  translate: none;
+  animation: none;
+}
+
+.js .hero__title[data-reveal] .hero__line__in {
+  /* 120%, not 100%: the clipping box is 0.14em taller than the line on each
+     side, so a child displaced by exactly its own height still shows a sliver
+     inside that slack. */
+  transform: translate3d(0, 120%, 0);
+  transition: transform var(--t-line);
+}
+
+.js .hero__title.is-revealed .hero__line__in { transform: none; }
+
+/* Read in the order the eye reads them. The gap is deliberately shorter than
+   the 90ms used between cards — these are three parts of one sentence, not
+   three separate objects, and spacing them further apart breaks the phrase
+   into a list. */
+.js .hero__title[data-reveal] .hero__line:nth-child(2) .hero__line__in { transition-delay: 70ms; }
+.js .hero__title[data-reveal] .hero__line:nth-child(3) .hero__line__in { transition-delay: 140ms; }
 
 /* The two hero devices drift, slowly and barely — 8px over 3.6s. Enough to
    stop the panel reading as a flat placeholder, small enough that it never
@@ -2075,6 +2211,7 @@ p { text-wrap: pretty; }
 
   .card:hover .card__device { transform: none; }
   .card:hover .card__go { transform: none; }
+  .card:hover .card__stage { transform: none; }
   .svc:hover .svc__go { transform: none; }
 }
 
@@ -2100,10 +2237,28 @@ p { text-wrap: pretty; }
   /* Show the content outright rather than racing it in at 0.01ms. Both states
      are pinned, so an element is visible whether or not the observer ever
      reaches it. */
+  /* animation:none as well as the pinned values. The entrance is a keyframe
+     animation with `both` fill, so left running it would hold the 0% frame —
+     opacity 0 — through its delay and briefly hide content that this mode
+     exists to keep still and visible. */
   .js [data-reveal],
   .js [data-reveal].is-revealed {
     opacity: 1;
+    translate: none;
     transform: none;
     transition: none;
+    animation: none;
   }
+
+  /* The masked headline is a second hidden state and needs pinning the same
+     way. Left out, the lines sit a full line-height below their clipping boxes
+     and the hero renders as three empty rows. */
+  .js .hero__title[data-reveal] .hero__line__in,
+  .js .hero__title.is-revealed .hero__line__in {
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+
+  .card:hover .card__stage { transform: none; }
 }
