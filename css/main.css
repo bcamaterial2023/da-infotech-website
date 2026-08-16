@@ -121,9 +121,9 @@
      section head, and the gap between repeated blocks. Everything spaced
      larger than --s-6 should use one of these rather than a raw step, or the
      page drifts out of rhythm one section at a time. */
-  --band:      clamp(3.5rem, 2.2rem + 5vw, 6rem);   /* section padding      */
-  --band-gap:  clamp(2.25rem, 1.7rem + 2.2vw, 3.5rem); /* head → content    */
-  --block-gap: clamp(3rem, 2.2rem + 3.2vw, 5rem);   /* between big blocks   */
+  --band:      clamp(2.75rem, 1.9rem + 3.4vw, 4.5rem);  /* section padding  */
+  --band-gap:  clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);  /* head → content   */
+  --block-gap: clamp(2.25rem, 1.75rem + 2.2vw, 3.5rem); /* big block → block*/
 
   --wrap:   1200px;
   --pad:    clamp(1.25rem, 0.6rem + 2.6vw, 2.5rem);
@@ -329,8 +329,11 @@ p { text-wrap: pretty; }
   line-height: 1.6;
 }
 
-.band--ink .head__lead,
-.band--ink .muted { color: var(--text-inv-2); }
+/* `.band--ink .muted` sat here too and never matched anything — the only .muted
+   on a dark band is .head__lead, which is already named. Re-add it if a .muted
+   is ever placed inside .band--ink; without it the text inherits the band's
+   pale colour and is unreadable. */
+.band--ink .head__lead { color: var(--text-inv-2); }
 
 
 /* ==========================================================================
@@ -555,6 +558,16 @@ p { text-wrap: pretty; }
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid var(--border);
+  transition: box-shadow var(--t), background-color var(--t);
+}
+
+/* Set by the script once the page has moved off the top. At rest the header is
+   part of the page; in motion it needs to sit above it, and a hairline alone
+   does not do that over a photograph. Opacity goes up too — 0.82 white over a
+   dark screenshot is not enough to keep the nav legible. */
+.hdr.is-stuck {
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 8px 24px rgba(20, 22, 26, 0.07);
 }
 
 .hdr__bar {
@@ -669,7 +682,15 @@ p { text-wrap: pretty; }
    9. HERO
    ========================================================================== */
 
-.hero { border-bottom: 0; padding-bottom: var(--block-gap); }
+/* The first section on the page, so its top padding is NOT --band: that token
+   is sized to separate two sections, and there is nothing above the hero but
+   the header, which already draws its own bottom rule. Left at --band it reads
+   as a void between the nav and the hero tags. */
+.hero {
+  border-bottom: 0;
+  padding-top: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+  padding-bottom: var(--block-gap);
+}
 
 .hero__grid {
   display: grid;
@@ -761,15 +782,97 @@ p { text-wrap: pretty; }
   overflow: hidden;
 }
 
-.hero__art {
+/* --- Real screenshots in CSS device frames ---------------------------------
+   Replaces the drawn SVG. Padding-right/bottom reserves the corner the phone
+   overlaps into, so the phone never covers the window's content — it hangs off
+   an area nothing else occupies. */
+.hero__shots {
+  position: relative;
   width: min(100%, 25rem);
-  height: auto;
+  padding-right: 3.25rem;
+  padding-bottom: 1.75rem;
 }
 
-/* The two device bodies get the depth; the flow nodes stay flat so they read
-   as a diagram rather than a third object. */
-.hero__art-win   { filter: drop-shadow(0 14px 24px rgba(20, 22, 26, 0.10)); }
-.hero__art-phone { filter: drop-shadow(0 16px 26px rgba(20, 22, 26, 0.18)); }
+.hero__win {
+  display: block;
+  overflow: hidden;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  box-shadow: 0 14px 24px rgba(20, 22, 26, 0.10);
+}
+
+.hero__win-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 0.45rem 0.6rem;
+  background-color: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero__win-dots { display: flex; gap: 4px; }
+
+.hero__win-dots span {
+  width: 6px; height: 6px;
+  background-color: var(--border-2);
+  border-radius: 50%;
+}
+
+.hero__win-url {
+  flex: 1 1 auto;
+  height: 11px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+}
+
+/* height: auto is load-bearing, not tidiness. The tag carries width="800"
+   height="500" so the browser can reserve the box before the file arrives —
+   but that height attribute is a presentational hint that BEATS aspect-ratio,
+   so without this the frame renders a literal 500px tall and the composition
+   collapses. The reset sets display/max-width on img but not height. */
+.hero__win-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+.hero__phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 5.75rem;
+  padding: 3px;
+  background-color: #14161A;
+  border-radius: 0.85rem;
+  box-shadow: 0 16px 26px rgba(20, 22, 26, 0.18);
+}
+
+.hero__phone-notch {
+  position: absolute;
+  top: 7px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 26%; height: 3px;
+  background-color: #14161A;
+  border-radius: var(--r-pill);
+}
+
+/* Same height:auto trap as .hero__win-img — height="1140" would win outright. */
+.hero__phone-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 19;
+  object-fit: cover;
+  object-position: 50% 0;
+  border-radius: 0.7rem;
+}
 
 /* In normal flow under the art. Absolute positioning here used to drop them
    on top of whatever the illustration happened to be doing.
@@ -825,8 +928,13 @@ p { text-wrap: pretty; }
 
 /* The provenance the two stickers used to carry — now one quiet line under
    the tiles rather than a chip competing with them. */
+/* --text-3 NOT --text-2 is the obvious choice here and it fails AA. That token
+   is tuned to 4.77:1 against WHITE, but this line sits on .hero__panel, whose
+   ground is --accent-soft (#EFF1FD). The tint eats the margin and drops it to
+   4.24:1 — under AA for 12px. --text-2 is 6.15:1 on the same ground.
+   Any --text-3 text moved onto a tinted panel needs re-checking for this. */
 .hero__origin {
-  color: var(--text-3);
+  color: var(--text-2);
   font-size: var(--fs-micro);
   text-align: center;
 }
@@ -1171,6 +1279,19 @@ p { text-wrap: pretty; }
   object-position: 50% 0;
 }
 
+/* A second page from the same site, cross-faded in on hover. Sits above
+   .card__img inside .card__stage — the stage carries a transform and is
+   therefore its own stacking context, so this 3 never competes with the
+   .card__mini 3 outside it. */
+.card__img--alt {
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .card__img--alt,
+.card:focus-within .card__img--alt { opacity: 1; }
+
 .card__ph {
   z-index: 1;
   display: grid;
@@ -1178,6 +1299,50 @@ p { text-wrap: pretty; }
   justify-items: center;
   gap: var(--s-2);
   padding-inline: var(--s-3);
+}
+
+/* --- The phone on a website card -------------------------------------------
+   In .card__visual rather than .card__stage, so the stage's hover scale does
+   not drag it. z-index 3 is deliberate and load-bearing: .card__title a::after
+   is 4 and covers the card to make it clickable. Raise this to 4 or above and
+   the corner stops responding to clicks — which looks like nothing at all is
+   wrong, and is the half of the card people aim at. */
+.card__mini {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  z-index: 3;
+  display: block;
+  width: 20%;
+  padding: 2px;
+  background-color: var(--text);
+  border-radius: 8px 8px 0 0;
+  box-shadow: var(--sh-lg);
+  transition: transform var(--t);
+}
+
+.card:hover .card__mini { transform: translateY(-4px); }
+
+.card__mini-notch {
+  position: absolute;
+  top: 4px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 26%; height: 2px;
+  background-color: var(--text);
+  border-radius: var(--r-pill);
+}
+
+/* height: auto or the height="1140" attribute wins over aspect-ratio and the
+   phone renders full-length down the card. Same trap as the hero shots. */
+.card__mini-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 19;
+  object-fit: cover;
+  object-position: 50% 0;
+  border-radius: 7px 7px 0 0;
 }
 
 .card__mono {
@@ -1490,12 +1655,32 @@ p { text-wrap: pretty; }
   box-shadow: var(--sh-sm);
 }
 
+/* Flex, not an inline icon: the heading wraps to two lines at narrow widths
+   ("Security & Infrastructure"), and inline would drop the icon onto the
+   second line with the overflow. align-items: center holds it against the
+   first line whatever the text does. */
 .chips__h {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
   margin-bottom: var(--s-4);
   padding-bottom: var(--s-3);
   border-bottom: 1px solid var(--border);
   font-size: var(--fs-md);
 }
+
+.chips__ico {
+  flex: 0 0 auto;              /* never let the heading text squeeze it */
+  display: grid;
+  place-items: center;
+  width: 1.75rem; height: 1.75rem;
+  padding: 0.3rem;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  border-radius: var(--r-sm);
+}
+
+.chips__ico svg { width: 100%; height: 100%; }
 
 .chips__list { display: grid; gap: var(--s-2); }
 
@@ -1531,6 +1716,7 @@ p { text-wrap: pretty; }
    moment the text grows — larger root font, longer wordmark — and the ratio
    was decoration. A min-height keeps the stamp proportion without the trap. */
 .about__stamp {
+  position: relative;   /* containing block for .about__shot */
   display: grid;
   /* An implicit `auto` track sizes to the item's max-content and refuses to
      shrink, so the card's `max-width: 100%` resolved against the card's own
@@ -1546,7 +1732,22 @@ p { text-wrap: pretty; }
   overflow: hidden;
 }
 
+/* Fills the panel edge to edge, under the frosted card. The panel already
+   clips and rounds, so nothing escapes the corners. Slightly dimmed so the
+   white card keeps its contrast whatever screenshot sits here. */
+.about__shot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  filter: saturate(0.9) brightness(0.96);
+}
+
 .about__stamp-inner {
+  position: relative;
+  z-index: 1;           /* over .about__shot */
   display: grid;
   justify-items: center;
   gap: var(--s-2);
@@ -1620,6 +1821,22 @@ p { text-wrap: pretty; }
   box-shadow: var(--sh-sm);
 }
 
+/* Same well as .svc__mark, one step down: these cards are half the size of a
+   service card, so a 2.75rem mark would dominate them. No hover swap either —
+   .why is not a link and nothing here is clickable. */
+.why__mark {
+  display: grid;
+  place-items: center;
+  width: 2.25rem; height: 2.25rem;
+  margin-bottom: var(--s-4);
+  padding: 0.5rem;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  border-radius: var(--r-sm);
+}
+
+.why__mark svg { width: 100%; height: 100%; }
+
 .why__title { font-size: var(--fs-md); margin-bottom: var(--s-2); }
 
 .why__text { font-size: var(--fs-sm); color: var(--text-2); }
@@ -1646,11 +1863,22 @@ p { text-wrap: pretty; }
 
 .step:last-child { border-right: 0; }
 
+/* Number and icon share one row: the numeral carries the sequence, the icon
+   carries the meaning. The margin that used to sit on .step__num moves here,
+   or the two would space independently and the titles would stop aligning
+   across the four cells. */
+.step__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+
 .step__num {
   display: inline-grid;
   place-items: center;
   width: 1.75rem; height: 1.75rem;
-  margin-bottom: var(--s-4);
   background-color: var(--accent-soft);
   color: var(--accent-dark);
   border-radius: var(--r-sm);
@@ -1658,6 +1886,17 @@ p { text-wrap: pretty; }
   font-size: var(--fs-micro);
   font-weight: 700;
 }
+
+/* Lighter than the numeral on purpose — it is the supporting mark, not a
+   second focal point competing with it. */
+.step__ico {
+  display: grid;
+  place-items: center;
+  width: 1.75rem; height: 1.75rem;
+  color: var(--accent-line);
+}
+
+.step__ico svg { width: 100%; height: 100%; }
 
 .step__title { font-size: var(--fs-md); margin-bottom: var(--s-2); }
 
@@ -1857,7 +2096,7 @@ p { text-wrap: pretty; }
 .ftr {
   background-color: var(--bg-dark);
   color: var(--text-inv-2);
-  padding-block: var(--s-8) var(--s-6);
+  padding-block: var(--s-7) var(--s-6);
 }
 
 .ftr__top {
@@ -2052,8 +2291,8 @@ p { text-wrap: pretty; }
 /* The two hero devices drift, slowly and barely — 8px over 3.6s. Enough to
    stop the panel reading as a flat placeholder, small enough that it never
    competes with the headline beside it. */
-.hero__art-win   { animation: hero-drift 4.4s ease-in-out infinite alternate; }
-.hero__art-phone { animation: hero-drift 3.6s ease-in-out 0.4s infinite alternate; }
+.hero__win   { animation: hero-drift 4.4s ease-in-out infinite alternate; }
+.hero__phone { animation: hero-drift 3.6s ease-in-out 0.4s infinite alternate; }
 
 @keyframes hero-drift {
   from { transform: translateY(0); }
@@ -2113,7 +2352,40 @@ p { text-wrap: pretty; }
     box-shadow: var(--sh-lg);
   }
 
-  .nav.is-open { display: block; }
+  /* The drawer used to appear with a hard display:none -> block, which on a
+     phone reads as a glitch rather than a panel opening. An animation (not a
+     transition) is what works here: a transition cannot run on the same frame
+     display changes, an animation triggered by the class can. Opening only —
+     closing removes display, so there is nothing left to animate against. */
+  .nav.is-open {
+    display: block;
+    animation: nav-open 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    transform-origin: top center;
+  }
+
+  @keyframes nav-open {
+    from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Links arrive just behind the panel, 40ms apart, capped so a long menu
+     never turns into a queue. Delay is on the animation, not a transition,
+     so it costs nothing once finished. */
+  .nav.is-open .nav__item {
+    animation: nav-item-in 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .nav.is-open .nav__item:nth-child(1) { animation-delay: 60ms; }
+  .nav.is-open .nav__item:nth-child(2) { animation-delay: 100ms; }
+  .nav.is-open .nav__item:nth-child(3) { animation-delay: 140ms; }
+  .nav.is-open .nav__item:nth-child(4) { animation-delay: 180ms; }
+  .nav.is-open .nav__item:nth-child(5) { animation-delay: 220ms; }
+  .nav.is-open .nav__item:nth-child(n + 6) { animation-delay: 260ms; }
+
+  @keyframes nav-item-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: none; }
+  }
 
   .nav__list { flex-direction: column; align-items: stretch; gap: 2px; }
 
@@ -2203,6 +2475,48 @@ p { text-wrap: pretty; }
 
 /* Touch: nothing to hover, so the lift states are removed rather than left
    stuck on after a tap. */
+/* --- Touch targets ----------------------------------------------------------
+   `pointer: coarse` not `max-width`: the constraint is the finger, not the
+   screen. A touch laptop at 1400px needs these; a 400px browser window on a
+   desktop does not.
+
+   Everything here was measured under 44px on a real device profile and is a
+   thing a finger has to hit. The 23px links inside .svc and .card are NOT
+   here on purpose — their ::after covers the whole card, so the card is the
+   target and it is far bigger than 44px.
+
+   min-height + inline-flex rather than padding: padding would move the text
+   and shift the layout at that width. This grows the hit box only. */
+@media (pointer: coarse) {
+  .brand {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .navtoggle {
+    width: 2.75rem; height: 2.75rem;    /* 40px -> 44px */
+  }
+
+  .nav__link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .ftr__social a {
+    width: 2.75rem; height: 2.75rem;    /* 40px -> 44px */
+  }
+
+  /* Footer nav links sit in a tight column; the extra block padding is what
+     stops a mis-tap landing on the row above or below. */
+  .ftr__cols a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0;
+  }
+}
+
 @media (hover: none) {
   .btn:hover,
   .svc:hover,
@@ -2231,8 +2545,8 @@ p { text-wrap: pretty; }
 
   .marquee__track { animation: none; transform: none; }
 
-  .hero__art-win,
-  .hero__art-phone { animation: none; transform: none; }
+  .hero__win,
+  .hero__phone { animation: none; transform: none; }
 
   /* Show the content outright rather than racing it in at 0.01ms. Both states
      are pinned, so an element is visible whether or not the observer ever
@@ -2261,4 +2575,17 @@ p { text-wrap: pretty; }
   }
 
   .card:hover .card__stage { transform: none; }
+
+  /* Same trap as [data-reveal] above, and easy to miss because the drawer is
+     only reachable on a phone. The `*` rule kills animation DURATION but not
+     animation-DELAY, and these keyframes fill `both` — so the staggered items
+     would hold their 0% frame (opacity 0) for up to 260ms and the menu would
+     open empty for a user who asked for less motion, not more. */
+  .nav.is-open,
+  .nav.is-open .nav__item {
+    animation: none;
+    animation-delay: 0ms;
+    opacity: 1;
+    transform: none;
+  }
 }

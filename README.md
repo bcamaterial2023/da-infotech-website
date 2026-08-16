@@ -40,8 +40,7 @@ resume and document services
 │   └── main.css          # the whole design system
 ├── assets/
 │   ├── icons/            # favicon.svg
-│   ├── images/           # EMPTY — screenshot slots are waiting on these
-│   └── models/           # EMPTY
+│   └── images/           # 9 client-site captures + og-cover.jpg (358 KB total)
 ├── vercel.json           # security headers
 ├── .env.example          # what to set in Vercel, and why
 ├── robots.txt
@@ -49,13 +48,14 @@ resume and document services
 ```
 
 Every icon on the page is inline SVG in `index.html`, stroked with `currentColor` so it
-picks up whatever the surrounding section sets. There are no image assets yet.
+picks up whatever the surrounding section sets. Photographic imagery is confined to
+`assets/images/` — real captures of the client sites, nothing stock.
 
 ---
 
 ## Page order
 
-Hero → About → Services → Digital Solutions → Work → *(Client Reviews — disabled)* →
+Hero → About → Services → Digital Solutions → Work → **Client Reviews** →
 Career & Resume Solutions → More Services → Why Choose Us → Process → Contact → Footer.
 
 Two rules hold this together and are easy to break by accident:
@@ -66,9 +66,10 @@ students buy are still sold — project support, documentation, portfolio and re
 but under professional language, in *Career & Resume Solutions*. Read the comment above
 that section before editing it.
 
-**Bands alternate white / `--bg-subtle`.** The disabled Reviews section is
-`band--paper-deep`, and the marquee strip before it is what keeps the alternation from
-reading as a mistake while it is switched off. Enabling it needs no other change.
+**Bands alternate white / `--bg-subtle`.** Reviews is `band--paper-deep` and sits between
+Work (white) and Career (white), so the alternation holds with it switched on. If it is
+ever switched back off, the marquee strip before it is what stops the two white bands
+either side from reading as a mistake — leave that strip alone.
 
 ---
 
@@ -154,7 +155,7 @@ used sparingly. Adding a fourth hue is how this turns back into a paint chart.
 |---|---|---|
 | `--bg` / `--bg-subtle` | `#FFFFFF` / `#F7F7F6` | page ground, alternating bands |
 | `--bg-dark` | `#101318` | contact, footer, the resume CTA |
-| `--text` / `--text-2` / `--text-3` | `#14161A` / `#565A63` / `#888D96` | primary, supporting, meta |
+| `--text` / `--text-2` / `--text-3` | `#14161A` / `#565A63` / `#6E737C` | primary, supporting, meta |
 | `--border` | `#E7E8EB` | every hairline |
 | `--accent` | `#2B45C4` | primary — links, fills, numerals |
 | `--accent-soft` | `#EFF1FD` | tinted surfaces, icon wells |
@@ -235,6 +236,14 @@ every text node. Two tokens exist only because of it:
   3.34:1, and it carries 11–13px text — stat labels, card meta, form hints.
 - `--warm-ink` (`#96590F`, 5.6:1) is for amber that has to be **read**. `--warm` itself is
   3.83:1: fine for an icon well or a rule, under AA as text.
+
+**`--text-3` is only safe on white, and its margin is thin.** It clears AA by 0.27 against
+`#FFFFFF`. Move the same token onto a tinted panel and it fails: on `--accent-soft`
+(`#EFF1FD`, the ground of `.hero__panel` and `.about__stamp`) it drops to **4.24:1**.
+`.hero__origin` shipped that way and is now `--text-2` (6.15:1 on the same ground). Any
+`--text-3` text that moves onto a tinted surface has to be re-measured against *that*
+surface — a token verified against the page ground proves nothing about a panel sitting
+on top of it.
 
 ### Six traps worth knowing
 
@@ -324,20 +333,20 @@ real ID and uncomment the block.
 
 ## Known gaps
 
-**Project screenshots are missing.** `assets/images/` is empty, so all six work cards show a
-drawn placeholder wordmark. The markup for the real images is already written and commented
-out — search `SCREENSHOT SLOT` in `index.html`. Supply:
+**The three app screenshots are still missing.** ChatApp, PDF Magic Studio and VedaMrita
+show a drawn placeholder monogram, because they are Flutter apps with no URL to capture —
+these have to be supplied by hand at **540×1140**. Four `SCREENSHOT SLOT` blocks remain in
+`index.html`. The three *client* cards are done: real captures, each with the site's mobile
+build in a phone overlay and a second page that cross-fades in on hover.
 
-- client sites — 800×500
-- app screens — 540×1140
+**Client Reviews is live and its contents are invented.** See the stop notice under
+**Before launch**. This is the most serious thing outstanding in the repository.
 
-**Client Reviews is switched off.** The section is fully built and styled but commented out
-in `index.html`, because there are no collected testimonials and inventing quotes for real,
-named businesses is not something this site will do. The comment block above it lists the
-five steps to enable it. Until then the nav links to it stay commented too.
-
-**No share image.** `og:image` and its dimensions sit commented in `<head>` rather than
-pointing at a file that 404s. Supply `assets/images/og-cover.png` at 1200×630 and uncomment.
+**Client work is disclosed in full.** The three client sites are named, their domains shown,
+linked outward, and their branding is on screen in nine screenshots. Earlier revisions
+deliberately withheld all of this. It was re-enabled on request — if that decision is ever
+reversed, the places to change are: the six work-card fields, the hero panel, the About
+panel, `README.md`, and the Work section header.
 
 **The technology list is unverified.** The names in the ticker came from the brief, not from
 an audit of what the team actually uses. Prune it before launch.
@@ -354,10 +363,27 @@ because that needs a live `RESEND_API_KEY`. Send one before you rely on the form
 
 ## Before launch
 
+> ### ⛔ STOP — the Client Reviews section currently contains INVENTED testimonials
+>
+> Three reviews are live on the page and **every word of them is fabricated**.
+> Nilesh Vora, Meera Shah and Ashok Mehta do not exist. Nobody said any of it.
+>
+> They were written as sample copy so the layout could be judged, and they read
+> as completely genuine — which is exactly why this warning is here and not in a
+> code comment. Nothing in the build will catch this.
+>
+> **Do one of these before any deploy:**
+> - Replace all three with real, permissioned quotes from real clients, and set
+>   each star count to what that client actually said, or
+> - Switch the section back off — re-comment the block in `index.html` plus the
+>   Reviews links in the header nav and the footer Navigation column.
+>
+> Do not simply swap the invented names for real client names. Inventing praise
+> and signing a real business to it is the part that creates a genuine problem.
+
+- [ ] **Resolve the invented reviews above — replace with real quotes, or switch the section off**
 - [ ] Create the Resend account, set `RESEND_API_KEY` in Vercel, send one real test enquiry
-- [ ] Add the project screenshots, uncomment the `SCREENSHOT SLOT` blocks
-- [ ] Collect three real client reviews, then enable the Client Reviews section
-- [ ] Add `assets/images/og-cover.png` and uncomment the Open Graph image tags
+- [ ] Add the three app screenshots (540×1140), uncomment the remaining `SCREENSHOT SLOT` blocks
 - [ ] Paste the GA4 Measurement ID and the Search Console verification token
 - [ ] Submit `sitemap.xml` in Search Console
 - [ ] Confirm or prune the technology list

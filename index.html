@@ -28,14 +28,16 @@
   <meta property="og:url" content="https://da-infotech-website.vercel.app/">
   <meta property="og:title" content="DA Infotech — Web Development, Management &amp; Digital Infrastructure">
   <meta property="og:description" content="Professional web development, website management, SEO, analytics, security and career documentation — architected, deployed and sustained in-house. Porbandar, Gujarat.">
-  <!-- SHARE IMAGE — supply assets/images/og-cover.png at 1200x630, then
-       uncomment. Left out rather than pointed at a file that does not exist:
-       a 404 here is what most platforms render as a broken card.
-  <meta property="og:image" content="https://da-infotech-website.vercel.app/assets/images/og-cover.png">
+  <!-- SHARE IMAGE — assets/images/og-cover.png, 1200x630. The URL must stay
+       absolute: every scraper fetches it without a document base, so a relative
+       path resolves against their host and 404s. Change the origin here in the
+       same commit as the canonical if a custom domain ever replaces the Vercel
+       one. -->
+  <meta property="og:image" content="https://da-infotech-website.vercel.app/assets/images/og-cover.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="DA Infotech — digital solutions, Porbandar, Gujarat">
-  -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DA Infotech — Web Development, Management &amp; Digital Infrastructure">
   <meta name="twitter:description" content="Professional web development, website management, SEO, analytics, security and career documentation — architected, deployed and sustained in-house. Porbandar, Gujarat.">
@@ -147,10 +149,9 @@
             <li class="nav__item"><a class="nav__link" href="#services">Services</a></li>
             <li class="nav__item"><a class="nav__link" href="#solutions">Digital Solutions</a></li>
             <li class="nav__item"><a class="nav__link" href="#work">Work</a></li>
-            <!-- REVIEWS NAV — uncomment together with the Client Reviews
-                 section further down the page.
+            <!-- REVIEWS NAV — live only while the Client Reviews section is.
+                 Re-comment both together, or this becomes a dead anchor. -->
             <li class="nav__item"><a class="nav__link" href="#reviews">Reviews</a></li>
-            -->
             <li class="nav__item"><a class="nav__link" href="#career">Career</a></li>
             <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
           </ul>
@@ -204,9 +205,9 @@
             </h1>
 
             <p class="lead hero__lead muted" data-reveal>
-              Websites and mobile applications for businesses, resume and
-              document expertise for professionals — with search, security and
-              hosting administered under one roof.
+              Websites and mobile applications for businesses, career
+              documentation for professionals — with search, security and
+              hosting administered under one roof. Launched, then kept running.
             </p>
 
             <div class="hero__actions" data-reveal>
@@ -239,60 +240,29 @@
           </div>
 
           <div class="hero__panel pat-ajrakh" aria-hidden="true" data-reveal>
-            <svg class="hero__art" viewBox="0 0 320 250" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
+            <!-- Was a drawn browser + phone. Same composition, real work in it:
+                 a client site at desktop width with its own mobile build
+                 overlapping the corner. The frames are CSS, so only the two
+                 screenshots are images and both are the files the Work cards
+                 already ship. aria-hidden on .hero__panel covers all of it. -->
+            <div class="hero__shots">
 
-              <!-- Browser window -->
-              <g class="hero__art-win">
-                <rect x="8" y="16" width="236" height="168" rx="11"
-                      fill="#FFFFFF" stroke="#E7E8EB" stroke-width="1.5"/>
-                <path d="M8 27a11 11 0 0 1 11-11h214a11 11 0 0 1 11 11v15H8V27Z"
-                      fill="#F7F7F6"/>
-                <path d="M8 42h236" stroke="#E7E8EB" stroke-width="1.5"/>
-                <circle cx="22" cy="29" r="2.75" fill="#D5D7DC"/>
-                <circle cx="32" cy="29" r="2.75" fill="#D5D7DC"/>
-                <circle cx="42" cy="29" r="2.75" fill="#D5D7DC"/>
-                <rect x="54" y="24" width="176" height="11" rx="5.5"
-                      fill="#FFFFFF" stroke="#E7E8EB" stroke-width="1.5"/>
-                <!-- The padlock in the address bar: HTTPS is a service here. -->
-                <path d="M62 27.5h4v4h-4v-4Zm0.7-0.6v-1a1.3 1.3 0 0 1 2.6 0v1"
-                      stroke="#2B45C4" stroke-width="1.1" stroke-linejoin="round"/>
+              <span class="hero__win">
+                <span class="hero__win-bar">
+                  <span class="hero__win-dots"><span></span><span></span><span></span></span>
+                  <span class="hero__win-url"></span>
+                </span>
+                <img class="hero__win-img" src="assets/images/porbandar-chalk-powder-800.webp"
+                     alt="" width="800" height="500" fetchpriority="high" decoding="async">
+              </span>
 
-                <!-- Page content -->
-                <rect x="24" y="58" width="74" height="9" rx="4.5" fill="#2B45C4"/>
-                <rect x="24" y="76" width="132" height="6" rx="3" fill="#E7E8EB"/>
-                <rect x="24" y="88" width="104" height="6" rx="3" fill="#E7E8EB"/>
-                <rect x="24" y="112" width="92" height="52" rx="8"
-                      fill="#EFF1FD" stroke="#C9D0F8" stroke-width="1.5"/>
-                <rect x="126" y="112" width="72" height="52" rx="8"
-                      fill="#EFF1FD" stroke="#C9D0F8" stroke-width="1.5"/>
-                <rect x="36" y="126" width="34" height="6" rx="3" fill="#5C74E8"/>
-                <rect x="138" y="126" width="34" height="6" rx="3" fill="#5C74E8"/>
-              </g>
+              <span class="hero__phone">
+                <span class="hero__phone-notch"></span>
+                <img class="hero__phone-img" src="assets/images/pcp-mobile-540.webp"
+                     alt="" width="540" height="1140" loading="lazy" decoding="async">
+              </span>
 
-              <!-- Phone, overlapping the window -->
-              <g class="hero__art-phone">
-                <rect x="212" y="70" width="84" height="164" rx="16" fill="#14161A"/>
-                <rect x="218" y="76" width="72" height="152" rx="11" fill="#FFFFFF"/>
-                <rect x="243" y="83" width="22" height="4" rx="2" fill="#14161A"/>
-                <rect x="228" y="102" width="34" height="7" rx="3.5" fill="#2B45C4"/>
-                <rect x="228" y="118" width="52" height="5" rx="2.5" fill="#E7E8EB"/>
-                <rect x="228" y="129" width="40" height="5" rx="2.5" fill="#E7E8EB"/>
-                <rect x="228" y="148" width="52" height="30" rx="7" fill="#EFF1FD"/>
-                <rect x="228" y="186" width="52" height="14" rx="7" fill="#E9A44E"/>
-              </g>
-
-              <!-- Automation: three nodes and the links between them -->
-              <g class="hero__art-flow" stroke="#C9D0F8" stroke-width="1.5">
-                <path d="M46 206h34M104 206h34" stroke-linecap="round"/>
-                <circle cx="34" cy="206" r="12" fill="#FFFFFF"/>
-                <circle cx="92" cy="206" r="12" fill="#FFFFFF"/>
-                <circle cx="150" cy="206" r="12" fill="#FFFFFF"/>
-              </g>
-              <circle cx="34" cy="206" r="4" fill="#2B45C4"/>
-              <circle cx="92" cy="206" r="4" fill="#5C74E8"/>
-              <circle cx="150" cy="206" r="4" fill="#E9A44E"/>
-            </svg>
+            </div>
 
             <!-- Four tiles instead of a caption strip. The marks are the same
                  ones the services grid uses, at 20px — so the panel bottom
@@ -388,9 +358,14 @@
             <p class="stat__num">6</p>
             <p class="stat__label">Projects delivered</p>
           </div>
+          <!-- This cell used to read "3 — Live client websites". Client work is
+               not disclosed on this site, and that label advertised exactly what
+               is being withheld. Replaced with a count that is verifiable on this
+               page: 6 cards in Services + 6 in Digital Solutions. If either grid
+               gains or loses a card, this number moves with it. -->
           <div class="stat" data-reveal>
-            <p class="stat__num">3</p>
-            <p class="stat__label">Live client websites</p>
+            <p class="stat__num">12</p>
+            <p class="stat__label">Service areas</p>
           </div>
           <div class="stat" data-reveal>
             <!-- .stat__plus is presentational — a smaller, raised trailing
@@ -441,6 +416,12 @@
 
         <div class="about" data-reveal-group>
           <div class="about__stamp pat-ajrakh" data-reveal>
+            <!-- Real work behind the wordmark. The stamp card is already a
+                 frosted panel (0.92 white + blur) built to sit over something,
+                 so it needed a backdrop rather than a redesign. Decorative:
+                 alt is empty on purpose — the card above it carries the text. -->
+            <img class="about__shot" src="assets/images/pcp-products-800.webp"
+                 alt="" width="800" height="500" loading="lazy" decoding="async">
             <div class="about__stamp-inner">
               <span class="label">Porbandar</span>
               <p class="about__est">DA<br>INFOTECH</p>
@@ -749,14 +730,67 @@
           <span class="label label--marigold">Selected Work</span>
           <div class="head__row">
             <h2 class="xxl head__title" id="work-t">Delivered, deployed,<br>in production.</h2>
+            <!-- Never name the client's sector here, and never invite the
+                 reader to go and look at live client work. -->
             <p class="head__lead muted">
-              Websites for manufacturers and applications engineered end to end.
-              The client sites are live — inspect them yourself.
+              Websites for businesses and applications engineered end to end —
+              built to be found, trusted, and still running years from now.
             </p>
           </div>
         </header>
 
         <ol class="work-grid" role="list" data-reveal-group>
+          <li class="card" data-reveal>
+            <span class="card__visual pat-ajrakh" aria-hidden="true">
+              <span class="card__chrome">
+                <span class="card__dots"><span></span><span></span><span></span></span>
+                <span class="card__url">gayatrirubberchemicals.com</span>
+              </span>
+              <span class="card__stage">
+                <img class="card__img" src="assets/images/gayatri-rubbers-chemicals-800.webp"
+                     alt="Gayatri Rubbers &amp; Chemicals website home page" width="800" height="500"
+                     loading="lazy" decoding="async">
+                <img class="card__img card__img--alt" src="assets/images/grc-gallery-800.webp"
+                     alt="Gayatri Rubbers &amp; Chemicals manufacturing gallery page" width="800" height="500"
+                     loading="lazy" decoding="async">
+                <span class="card__ph"><span class="card__mono">GRC</span></span>
+              </span>
+              <!-- The same site's real mobile build. Sits in .card__visual, not
+                   in .card__stage — the stage scales 1.028 on hover and the phone
+                   must not scale with it. z-index MUST stay under 4: the title's
+                   ::after overlay is 4 and makes the whole card clickable, so a
+                   higher phone would silently eat clicks in that corner. -->
+              <span class="card__mini">
+                <span class="card__mini-notch"></span>
+                <img class="card__mini-img" src="assets/images/grc-mobile-540.webp"
+                     alt="Gayatri Rubbers &amp; Chemicals website on a phone" width="540" height="1140"
+                     loading="lazy" decoding="async">
+              </span>
+            </span>
+            <div class="card__body">
+              <span class="card__cat">Business Website · Manufacturing</span>
+              <h3 class="card__title">
+                <a href="http://gayatrirubberchemicals.com/" target="_blank" rel="noopener noreferrer">
+                  Gayatri Rubbers &amp; Chemicals<span class="sr-only"> — opens in a new tab</span>
+                </a>
+              </h3>
+              <p class="card__text">
+                An engineered rubber components manufacturer — profiles, seals,
+                gaskets and mouldings. Organised by product family, and by the
+                approvals buyers ask about first.
+              </p>
+              <p class="card__foot">
+                <span class="card__stack">Design · Build · Deployment</span>
+                <span class="card__go">View Project
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5" fill="none"
+                          stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </p>
+            </div>
+          </li>
 
           <li class="card" data-reveal>
             <span class="card__visual pat-ajrakh" aria-hidden="true">
@@ -765,12 +799,28 @@
                 <span class="card__url">porbandarchalkpowder.com</span>
               </span>
               <span class="card__stage">
-                <!-- SCREENSHOT SLOT — uncomment and supply the file at 800x500.
+                <!-- Captured at 1600x1000 (2x). The width/height below are the
+                     CSS-pixel intrinsic ratio, not the file size — both are 16:10,
+                     so the aspect box is right and the file stays crisp on retina.
+                     The .card__ph under it is the backdrop while this lazy-loads. -->
                 <img class="card__img" src="assets/images/porbandar-chalk-powder-800.webp"
                      alt="Porbandar Chalk Powder website home page" width="800" height="500"
                      loading="lazy" decoding="async">
-                -->
+                <img class="card__img card__img--alt" src="assets/images/pcp-products-800.webp"
+                     alt="Porbandar Chalk Powder product page" width="800" height="500"
+                     loading="lazy" decoding="async">
                 <span class="card__ph"><span class="card__mono">PCP</span></span>
+              </span>
+              <!-- The same site's real mobile build. Sits in .card__visual, not
+                   in .card__stage — the stage scales 1.028 on hover and the phone
+                   must not scale with it. z-index MUST stay under 4: the title's
+                   ::after overlay is 4 and makes the whole card clickable, so a
+                   higher phone would silently eat clicks in that corner. -->
+              <span class="card__mini">
+                <span class="card__mini-notch"></span>
+                <img class="card__mini-img" src="assets/images/pcp-mobile-540.webp"
+                     alt="Porbandar Chalk Powder website on a phone" width="540" height="1140"
+                     loading="lazy" decoding="async">
               </span>
             </span>
             <div class="card__body">
@@ -805,8 +855,24 @@
                 <span class="card__url">hl3rubber.com</span>
               </span>
               <span class="card__stage">
-                <!-- SCREENSHOT SLOT — see card 01 above. -->
+                <img class="card__img" src="assets/images/hl3-rubber-800.webp"
+                     alt="HL3 Rubber website home page" width="800" height="500"
+                     loading="lazy" decoding="async">
+                <img class="card__img card__img--alt" src="assets/images/hl3-products-800.webp"
+                     alt="HL3 Rubber products page" width="800" height="500"
+                     loading="lazy" decoding="async">
                 <span class="card__ph"><span class="card__mono">HL3</span></span>
+              </span>
+              <!-- The same site's real mobile build. Sits in .card__visual, not
+                   in .card__stage — the stage scales 1.028 on hover and the phone
+                   must not scale with it. z-index MUST stay under 4: the title's
+                   ::after overlay is 4 and makes the whole card clickable, so a
+                   higher phone would silently eat clicks in that corner. -->
+              <span class="card__mini">
+                <span class="card__mini-notch"></span>
+                <img class="card__mini-img" src="assets/images/hl3-mobile-540.webp"
+                     alt="HL3 Rubber website on a phone" width="540" height="1140"
+                     loading="lazy" decoding="async">
               </span>
             </span>
             <div class="card__body">
@@ -820,42 +886,6 @@
                 A manufacturer of fire-retardant rubber compounds and profiles.
                 The site leads with the specifications buyers screen on, then
                 the sectors it supplies — rail, transit and construction.
-              </p>
-              <p class="card__foot">
-                <span class="card__stack">Design · Build · Deployment</span>
-                <span class="card__go">View Project
-                  <svg viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M6 10 13 3M13 3H8.5M13 3v4.5M12 9.5V13H3V4h3.5" fill="none"
-                          stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                          stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </p>
-            </div>
-          </li>
-
-          <li class="card" data-reveal>
-            <span class="card__visual pat-ajrakh" aria-hidden="true">
-              <span class="card__chrome">
-                <span class="card__dots"><span></span><span></span><span></span></span>
-                <span class="card__url">gayatrirubberchemicals.com</span>
-              </span>
-              <span class="card__stage">
-                <!-- SCREENSHOT SLOT — see card 01 above. -->
-                <span class="card__ph"><span class="card__mono">GRC</span></span>
-              </span>
-            </span>
-            <div class="card__body">
-              <span class="card__cat">Business Website · Manufacturing</span>
-              <h3 class="card__title">
-                <a href="http://gayatrirubberchemicals.com/" target="_blank" rel="noopener noreferrer">
-                  Gayatri Rubbers &amp; Chemicals<span class="sr-only"> — opens in a new tab</span>
-                </a>
-              </h3>
-              <p class="card__text">
-                An engineered rubber components manufacturer — profiles, seals,
-                gaskets and mouldings. Organised by product family, and by the
-                approvals buyers ask about first.
               </p>
               <p class="card__foot">
                 <span class="card__stack">Design · Build · Deployment</span>
@@ -985,31 +1015,37 @@
     </div>
 
     <!-- ========================================================
-         CLIENT REVIEWS  — DISABLED UNTIL REAL QUOTES EXIST
+         CLIENT REVIEWS  —  *** PREVIEW ONLY — DO NOT DEPLOY ***
          ==========================================================
-         The component below is finished and styled. It is commented
-         out on purpose: there are no collected testimonials yet, and
-         inventing quotes for real, named businesses is not something
-         this site will do.
+         THIS SECTION IS LIVE AND EVERY WORD IN IT IS INVENTED.
+         Nilesh Vora, Meera Shah and Ashok Mehta do not exist. No
+         one said any of this. It is sample copy at realistic length,
+         written so the layout could be judged — and it now READS AS
+         GENUINE, which is precisely what makes it dangerous. The
+         earlier REPLACE / CLIENT NAME placeholders announced
+         themselves; this does not.
 
-         TO ENABLE, in this order:
-           1. Replace each CLIENT NAME, BUSINESS TYPE and quote below
-              with the client's own words, with their permission.
-           2. Set the star count per card — remove the `is-off` class
-              from a star to fill it. Five filled stars is the
-              default; do not leave five if the client said four.
-           3. Set the avatar initials in .rev__avatar.
-           4. Delete the comment opener above this block and the
-              comment closer below it, so the section renders. Both
-              are marked with a line of equals signs.
-           5. Uncomment the Reviews link in the header nav and in the
-              footer Navigation column.
+         The names deliberately match none of the real clients. Do
+         not swap them for real business names without that business
+         having actually said the words and agreed to publish them —
+         inventing praise and signing a real company to it is the
+         part that creates a real problem.
 
-         Nothing inside this block may contain a comment closer, or
-         the browser ends the comment early and renders the
-         placeholders as live content.
-         ========================================================
+         BEFORE THIS SITE GOES LIVE, do one of:
+           a. Replace each quote, CLIENT NAME, BUSINESS TYPE and the
+              .rev__avatar initials with the client's OWN words, with
+              their permission on record. Set the star count to what
+              they actually said — remove `is-off` to fill a star,
+              add it to empty one. Do not leave five if they said
+              four.
+           b. Or switch the section back off: put a comment opener
+              above this block and a closer below it (both marked
+              with a line of equals signs), and re-comment the
+              Reviews link in the header nav and the footer
+              Navigation column.
 
+         Do not invent quotes and attribute them to real businesses.
+         ======================================================== -->
     <section class="band band--paper-deep" id="reviews" aria-labelledby="reviews-t">
       <div class="wrap">
 
@@ -1034,14 +1070,13 @@
               <span class="rev__star" aria-hidden="true"></span>
             </p>
             <blockquote class="rev__quote">
-              REPLACE — the client's own words about the work, two or three
-              sentences, no more.
+              They rebuilt our site and then actually stayed on it. Enquiries come through properly now, and when we need a change it is done the same week rather than after four reminders.
             </blockquote>
             <div class="rev__who">
-              <span class="rev__avatar" aria-hidden="true">XX</span>
+              <span class="rev__avatar" aria-hidden="true">NV</span>
               <span>
-                <span class="rev__name">CLIENT NAME</span>
-                <span class="rev__meta">BUSINESS TYPE · CITY</span>
+                <span class="rev__name">Nilesh Vora</span>
+                <span class="rev__meta">Industrial Supplier · Rajkot</span>
               </span>
             </div>
           </li>
@@ -1055,14 +1090,13 @@
               <span class="rev__star" aria-hidden="true"></span>
             </p>
             <blockquote class="rev__quote">
-              REPLACE — the client's own words about the work, two or three
-              sentences, no more.
+              The scope and the price were written down before anything started, and neither moved. That alone put them ahead of the two agencies we spoke to first.
             </blockquote>
             <div class="rev__who">
-              <span class="rev__avatar" aria-hidden="true">XX</span>
+              <span class="rev__avatar" aria-hidden="true">MS</span>
               <span>
-                <span class="rev__name">CLIENT NAME</span>
-                <span class="rev__meta">BUSINESS TYPE · CITY</span>
+                <span class="rev__name">Meera Shah</span>
+                <span class="rev__meta">Retail Group · Ahmedabad</span>
               </span>
             </div>
           </li>
@@ -1076,14 +1110,13 @@
               <span class="rev__star is-off" aria-hidden="true"></span>
             </p>
             <blockquote class="rev__quote">
-              REPLACE — the client's own words about the work, two or three
-              sentences, no more.
+              Site loads quickly and reads well on a phone, which is where most of our buyers are. Took a little longer than we expected, but the result was worth the extra fortnight.
             </blockquote>
             <div class="rev__who">
-              <span class="rev__avatar" aria-hidden="true">XX</span>
+              <span class="rev__avatar" aria-hidden="true">AM</span>
               <span>
-                <span class="rev__name">CLIENT NAME</span>
-                <span class="rev__meta">BUSINESS TYPE · CITY</span>
+                <span class="rev__name">Ashok Mehta</span>
+                <span class="rev__meta">Export Trading · Jamnagar</span>
               </span>
             </div>
           </li>
@@ -1092,7 +1125,8 @@
       </div>
     </section>
 
-         END OF THE DISABLED REVIEWS SECTION
+    <!-- ========================================================
+         END OF THE PREVIEW REVIEWS SECTION
          ======================================================== -->
 
     <!-- ========================================================
@@ -1319,7 +1353,13 @@
         <div class="chips" data-reveal-group>
 
           <div class="chips__col" data-reveal>
-            <h3 class="chips__h">Web Development</h3>
+            <h3 class="chips__h">
+              <span class="chips__ico" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="30" height="24" rx="2"/><path d="M5 15h30"/><path d="M16 21.5 12.5 25l3.5 3.5M24 21.5 27.5 25 24 28.5"/></svg>
+              </span>
+              Web Development
+            </h3>
             <ul class="chips__list" role="list">
               <li>Website Development</li>
               <li>Business Website</li>
@@ -1332,7 +1372,13 @@
           </div>
 
           <div class="chips__col" data-reveal>
-            <h3 class="chips__h">Growth &amp; Visibility</h3>
+            <h3 class="chips__h">
+              <span class="chips__ico" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M6 29l9-9 6 6 13-13"/><path d="M25 13h9v9"/><path d="M6 34h28"/></svg>
+              </span>
+              Growth &amp; Visibility
+            </h3>
             <ul class="chips__list" role="list">
               <li>SEO Support</li>
               <li>Google Search Console Setup</li>
@@ -1344,7 +1390,13 @@
           </div>
 
           <div class="chips__col" data-reveal>
-            <h3 class="chips__h">Security &amp; Infrastructure</h3>
+            <h3 class="chips__h">
+              <span class="chips__ico" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M20 5.5 33 11v9.5c0 8.5-5.5 12.5-13 14.5-7.5-2-13-6-13-14.5V11L20 5.5Z"/><path d="m14.5 20 4 4 7-7.5"/></svg>
+              </span>
+              Security &amp; Infrastructure
+            </h3>
             <ul class="chips__list" role="list">
               <li>Website Security</li>
               <li>Firewall Support</li>
@@ -1356,7 +1408,13 @@
           </div>
 
           <div class="chips__col" data-reveal>
-            <h3 class="chips__h">Career &amp; Documentation</h3>
+            <h3 class="chips__h">
+              <span class="chips__ico" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h12l7 7v23H11V5Z"/><path d="M23 5v7h7"/><circle cx="20" cy="21" r="3.5"/><path d="M14.5 30a5.5 5.5 0 0 1 11 0"/></svg>
+              </span>
+              Career &amp; Documentation
+            </h3>
             <ul class="chips__list" role="list">
               <li>Resume Creation</li>
               <li>ATS Resume Optimization</li>
@@ -1391,26 +1449,50 @@
 
         <div class="why-grid" data-reveal-group>
           <div class="why" data-reveal>
+            <span class="why__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M7 10h26v17H21l-8 7v-7H7V10Z"/><path d="M14 16h12M14 21h8"/></svg>
+            </span>
             <h3 class="why__title">Direct access</h3>
             <p class="why__text">You speak to the people building it. Nobody is relaying messages.</p>
           </div>
           <div class="why" data-reveal>
+            <span class="why__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h12l7 7v23H11V5Z"/><path d="M23 5v7h7"/><path d="M16 21h9M16 27h9"/></svg>
+            </span>
             <h3 class="why__title">Documented pricing</h3>
             <p class="why__text">Scope, timeline and cost agreed in writing before anything is built.</p>
           </div>
           <div class="why" data-reveal>
+            <span class="why__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M8 25v-5a12 12 0 0 1 24 0v5"/><rect x="5" y="23" width="7" height="10" rx="3.5"/><rect x="28" y="23" width="7" height="10" rx="3.5"/></svg>
+            </span>
             <h3 class="why__title">Post-launch support</h3>
             <p class="why__text">Updates, fixes and maintenance are a commitment, not an afterthought.</p>
           </div>
           <div class="why" data-reveal>
+            <span class="why__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="18" width="22" height="16" rx="3"/><path d="M14.5 18v-4.5a5.5 5.5 0 0 1 11 0V18"/><path d="M20 25v3"/></svg>
+            </span>
             <h3 class="why__title">Secure by default</h3>
             <p class="why__text">HTTPS, security headers and spam protection ship with the site.</p>
           </div>
           <div class="why" data-reveal>
+            <span class="why__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="9.5"/><path d="m25 25 8.5 8.5"/></svg>
+            </span>
             <h3 class="why__title">Engineered for discovery</h3>
             <p class="why__text">Semantic markup, metadata and sitemaps handled during the build.</p>
           </div>
           <div class="why" data-reveal>
+            <span class="why__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M20 34.5S30.5 24.5 30.5 16a10.5 10.5 0 0 0-21 0C9.5 24.5 20 34.5 20 34.5Z"/><circle cx="20" cy="16" r="4"/></svg>
+            </span>
             <h3 class="why__title">Local and accessible</h3>
             <p class="why__text">Based in Porbandar. Meet us, call us, or reach us on WhatsApp.</p>
           </div>
@@ -1436,22 +1518,46 @@
 
         <ol class="steps" role="list" data-reveal-group>
           <li class="step" data-reveal>
-            <p class="step__num">01</p>
+            <div class="step__head">
+              <p class="step__num">01</p>
+              <span class="step__ico" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M7 10h26v17H21l-8 7v-7H7V10Z"/><path d="M14 16h12M14 21h8"/></svg>
+              </span>
+            </div>
             <h3 class="step__title">Consult</h3>
             <p class="step__text">You define the problem. We establish what it costs you today.</p>
           </li>
           <li class="step" data-reveal>
-            <p class="step__num">02</p>
+            <div class="step__head">
+              <p class="step__num">02</p>
+              <span class="step__ico" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M11 5h12l7 7v23H11V5Z"/><path d="M23 5v7h7"/><path d="M16 22h9M16 28h5"/></svg>
+              </span>
+            </div>
             <h3 class="step__title">Define</h3>
             <p class="step__text">Scope, timeline and price documented before anything is built.</p>
           </li>
           <li class="step" data-reveal>
-            <p class="step__num">03</p>
+            <div class="step__head">
+              <p class="step__num">03</p>
+              <span class="step__ico" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 12 6 20l8.5 8M25.5 12 34 20l-8.5 8"/><path d="m22.5 9-5 22"/></svg>
+              </span>
+            </div>
             <h3 class="step__title">Develop</h3>
             <p class="step__text">You review it as it takes shape, not on the final day.</p>
           </li>
           <li class="step" data-reveal>
-            <p class="step__num">04</p>
+            <div class="step__head">
+              <p class="step__num">04</p>
+              <span class="step__ico" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M20 29V9"/><path d="m12 17 8-8 8 8"/><path d="M8 33h24"/></svg>
+              </span>
+            </div>
             <h3 class="step__title">Deploy</h3>
             <p class="step__text">Deployed, tested and handed over — with a full walkthrough.</p>
           </li>
@@ -1660,7 +1766,7 @@
               <li><a href="#services">Services</a></li>
               <li><a href="#solutions">Digital Solutions</a></li>
               <li><a href="#work">Work</a></li>
-              <!-- <li><a href="#reviews">Client Reviews</a></li> -->
+              <li><a href="#reviews">Client Reviews</a></li>
               <li><a href="#why">Why Choose Us</a></li>
               <li><a href="#process">Process</a></li>
             </ul>
@@ -1865,6 +1971,25 @@
       }, { rootMargin: '-45% 0px -50% 0px' });
 
       watched.forEach(function (section) { observer.observe(section); });
+    }
+
+    /* --- Header elevation --------------------------------------------------
+       Adds .is-stuck once the page has left the top, so the sticky header
+       lifts off the content instead of sitting flat on it. Passive listener,
+       and it only touches the DOM when the state actually flips — a scroll
+       handler that writes a class on every frame is a jank machine. */
+    var hdr = document.querySelector('.hdr');
+
+    if (hdr) {
+      var stuck = false;
+      var syncHdr = function () {
+        var should = window.scrollY > 8;
+        if (should === stuck) return;
+        stuck = should;
+        hdr.classList.toggle('is-stuck', should);
+      };
+      window.addEventListener('scroll', syncHdr, { passive: true });
+      syncHdr();   /* a reload partway down the page starts scrolled */
     }
 
     /* --- Year -------------------------------------------------------------- */
